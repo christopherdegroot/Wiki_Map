@@ -1,6 +1,6 @@
 
 $(() => {
-  // Client facing scripts here
+
 });
 
 

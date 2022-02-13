@@ -4,33 +4,94 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    type="text/css" />
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/dashboard.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
   <title>Profile</title>
 </head>
 <body>
-  <h2>PROFILE</h2>
+
+  <!-- side toggle navbar -->
+  <span id="side-nav">
+    <div class="nav-content">
+      <div>
+        <!-- dashboard button  -->
+        <form method="GET" action="/">
+          <button type="submit">CREATE A NEW MAP</button>
+        </form>
+      </div>
+      <br>
+      <div>
+        <!-- profile button  -->
+        <form method="GET" action="/profile">
+          <button type="submit">MY MAPS</button>
+        </form>
+      </div>
+      <!-- profile picture  -->
+      <span >
+        <img class="profile-picture" src="https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70">
+      </span>
+      <!-- profile name  -->
+      <p class="user"><strong>Jim&nbsp</strong>Halpert</p>
+    </div>
+  </span>
+
+  <main id="container">
+    <!-- top navbar  -->
+    <header class="top-nav">
+      <span class="expand">
+        <i class="fa-solid fa-grip-lines"></i>
+      </span>
+      <form>
+        <button>Drop a 📍</button>
+      </form>
+    </header>
 
 
-  <header class="profile">
-    <span class="profile-picture">
-      <img src="https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70">
-    </span>
-    <p class="user"><strong>Jim&nbsp</strong>Halpert</p>
-  </header>
 
+    - YOUR MAPS / FAVORITE MAPS / PRIVATE MAPS
+
+    <h2>Welcome Back, User!</h2>
   <label for="favorites">Favorites</label>
   <ul>
     <li>map1</li>
+    <div id="map_canvas" style="width:50%; height:75.5vh; border-radius: 10px;"></div>
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
+          async>
+          </script>
     <p>comment1</p>
-    <p>rating 1</p>
+    <p>rating</p>
     <p>edit / delete</p>
     <li>map2</li>
+    <div id="map_canvas2" style="width:50%; height:75.5vh; border-radius: 10px;"></div>
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
+          async>
+          </script>
     <p>comment2</p>
-    <p>rating 2</p>
+    <p>rating</p>
     <p>edit / delete</p>
     <li>map3</li>
+    <div id="map_canvas3" style="width:50%; height:75.5vh; border-radius: 10px;"></div>
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
+          async>
+          </script>
     <p>comment3</p>
-    <p>rating 3</p>
+    <p>rating</p>
     <p>edit / delete</p>
   </ul>
+  </main>
 </body>
 </html>

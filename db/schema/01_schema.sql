@@ -1,5 +1,8 @@
 -- Drop Tables if existant
 DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS maps CASCADE;
+DROP TABLE IF EXISTS pins CASCADE;
+DROP TABLE IF EXISTS users_maps CASCADE;
 
 -- Recreate Tables
 ----------------------------------------

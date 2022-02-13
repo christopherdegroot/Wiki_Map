@@ -1,60 +1,64 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <style type="text/css">
-      /* Set the size of the div element that contains the map */
-      #map {
-        height: 400px;
-        /* The height is 400 pixels */
-        width: 100%;
-        /* The width is the width of the web page */
-      }
-    </style>
-    <script>
-      // Initialize and add the map
-      function initMap() {
-        // The location of Uluru
-        const uluru = { lat: 49.300708190202045, lng: -123.13074020583447 };
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 4,
-          center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-          position: uluru,
-          map: map,
-        });
-      }
-    </script>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  </head>
-  <body>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">Dashboard</a>
-    <a href="#">Profile</a>
-  </div>
-  <main id="content">
-    <span class="expand" onclick="openNav()">Navbar</span>
-    <!--The div element for the map -->
-    <div id="map"></div>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/dashboard.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
 
-    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
-      async
-    ></script>
+
+</head>
+
+
+
+<body>
+
+  <span id="side-nav">
+    <div class="nav-content">
+      <div>
+        <a type="button">Dashboard</a>
+      </div>
+      <br>
+      <div>
+        <a href="#">Profile</a>
+      </div>
+    </div>
+  </span>
+
+  <main id="container">
+    <header>
+      <span class="expand">
+        <i class="fa-solid fa-grip-lines"></i>
+      </span>
+      <form>
+        <button> Drop A Pin</button>
+      </form>
+    </header>
+
+    <span class="map-container">
+      <!--The div element for the map -->
+      <div id="map">
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
+          async>
+          </script>
+      </div>
+    </span>
+
+
+
   </main>
-  </body>
+
+</body>
+
 </html>

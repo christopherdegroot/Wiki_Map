@@ -16,8 +16,8 @@ CREATE TABLE users (
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
   zoom INTEGER,
-  center_latitude INTEGER,
-  center_longitude INTEGER
+  center_latitude DECIMAL,
+  center_longitude DECIMAL
 );
 
 -- Recreate Pins Table

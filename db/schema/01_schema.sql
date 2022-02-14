@@ -18,21 +18,26 @@ CREATE TABLE users (
 -- Recreate Maps Table
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
-  zoom INTEGER,
-  center_latitude DECIMAL,
-  center_longitude DECIMAL
+  title VARCHAR(255) NOT NULL,
+  map_category VARCHAR(255),
+  zoom INTEGER NOT NULL,
+  center_latitude DECIMAL NOT NULL,
+  center_longitude DECIMAL NOT NULL
 );
 
--- Recreate Pins Table
-CREATE TABLE pins (
+-- Recreate Markers Table
+CREATE TABLE markers (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE,
 
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  category VARCHAR(255),
-  image_url VARCHAR(255)
+  marker_category VARCHAR(255),
+  image_url VARCHAR(255),
+
+  latitude DECIMAL NOT NULL,
+  longitude DECIMAL NOT NULL
 );
 
 -- Recreate Users_Maps Join Table

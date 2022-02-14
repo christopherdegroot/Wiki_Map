@@ -4,8 +4,9 @@ const getMapByUserId = function(id) {
   return pool.query(`
   SELECT *
   FROM maps
-  JOIN users on users.id = user_id
-  WHERE users.id = $1
+  JOIN users_maps ON map_id = maps.id
+  JOIN users ON user_id = users.id
+  WHERE users.id = $1;
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
@@ -19,6 +20,11 @@ exports.getMapByUserId = getMapByUserId;
 // Get map by a map ID
 const getMapByMapId = function(id) {
   return pool.query(`
+  SELECT *
+  FROM maps
+  JOIN users_maps ON map_id = maps.id
+  JOIN users ON user_id = users.id
+  WHERE maps.id = $1;
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
@@ -32,6 +38,10 @@ exports.getMapByMapId = getMapByMapId;
 // get all markers that match a particular map ID
 const getMarkersByMapId = function(id) {
   return pool.query(`
+  SELECT *
+  FROM markers
+  JOIN maps ON map_id = maps.id
+  WHERE maps.id = $1;
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}

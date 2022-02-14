@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 // const profileQueries = require('../db/profile_queries')  // Requiring separate query file once it is created
+// const mapQueries = require('../db/map_queries')  // Requiring separate query file once it is created
 
 module.exports = (db) => {
   ///////// Routes requiring separate DB query Promise to be returned
@@ -38,12 +39,14 @@ module.exports = (db) => {
 
   ////////////////// Routes used in interim until DB query Promises are made
 
-  // Route that returns a single user as JSON 
+  // Route that renders profile page of a single user
   router.get('/:id', (req, res) => {
     const queryParams = [req.params.id];
     db.query(`SELECT * FROM users WHERE id = $1`, queryParams)
       .then((user) => {
-        res.json(user.rows);
+        const name = user.rows[0]['name'];
+        const templateVars = { name };
+        res.render('profile', templateVars);
       })
       .catch((err) => {
         res
@@ -56,7 +59,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM users;`)  // 
     .then(users => {
-      res.json(users.rows);  // 
+      res.json(users.rows);
     })
     .catch(err => {
       res

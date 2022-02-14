@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-  <title>Dashboard</title>
+  <title>WikiMap</title>
+  <link rel = "icon" href ="../images/wikimap-icon.png" type = "image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     type="text/css" />
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -11,7 +12,7 @@
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script type="text/javascript" src="/scripts/dashboard.js"></script>
+  <script type="text/javascript" src="/scripts/interface.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 
 
@@ -23,45 +24,114 @@
   <!-- side toggle bar -->
   <span id="side-nav">
     <div class="nav-content">
-      <div>
-        <!-- submit button -->
-        <form method="GET" action="/">
-          <button type="submit">Dashboard</button>
-        </form>
+
+      <!-- logo -->
+
+      <span>
+        <span>
+          <img class="logo" src="../images/WikiMap-logos.png">
+        </span>
+        <div>
+          <!-- submit button -->
+          <form method="GET" action="/">
+            <button class="side-btn" type="submit">Map</button>
+          </form>
+        </div>
+        <br>
+        <br>
+        <div>
+          <!-- profile button -->
+          <form method="GET" action="/profile">
+            <button class="side-btn" type="submit">Profile</button>
+          </form>
+        </div>
+      </span>
+      <!-- greeting -->
+      <div class="side-greeting">
+        Welcome back, <br> <strong>User!</strong>
       </div>
-      <br>
-      <div >
-        <!-- profile button -->
-        <form method="GET" action="/profile">
-          <button type="submit">Profile</button>
-        </form>
-      </div>
+
     </div>
   </span>
 
 
-  <main id="container">
-
+  <div id="container">
     <!-- top navbar -->
-    <header class="top-nav">
+    <header id="top-nav">
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-      <form>
-        <button>Drop a 📍</button>
-      </form>
+        <button class="top-btn" value="closed">Create Pin</button>
     </header>
 
-    <!-- google map -->
-    <span class="map-container">
-      <div id="map_canvas" style="width:100%; height:75.5vh; border-radius: 10px;"></div>
+    <main id="main-content">
+
+      <div class="marker-container">
+
+        <div class="marker-top">
+
+          <div class="marker-list">
+            <header><strong>map title</strong><header>
+              <ul>
+                <li>Pin 1</li>
+                <br>
+                <li>Pin 2</li>
+                <br>
+                <li>Pin 3</li>
+              </ul>
+          </div>
+
+          <div class="new-marker">
+            <form action="/new-marker" method="POST">
+              <lable for="new-marker-title"> Pin Title: </lable>
+              <input type="text" name="new-marker-title">
+              <br>
+              <br>
+              <lable for="img-url">img url: &nbsp </lable>
+              <input type="url" name="img-url" maxlength="20" size="20">
+              <br>
+              <br>
+              <lable for="description">Description:</lable>
+              <input type="text" name="description" maxlength="17" size="17">
+              <br>
+              <br>
+              <lable for="longlat">Longlat:&nbsp </lable>
+              <input type="text" name="longlat">
+              <br>
+              <br>
+              <button class="new-btn" type="submit">Add marker</button>
+            </form>
+          </div>
+
+
+
+        </div>
+
+
+
+
+          <div class="marker-content">
+            <h3>1. Vancouver Aquarium</h3>
+            <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia, Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine research, ocean literacy education, conservation and marine animal rehabilitation.</article>
+            <br>
+            <img class="marker-img" src="https://www.kenmoreair.com/uploads/images/blogPics2/sharks.jpg">
+          </div>
+
+
+      </div>
+
+      <!-- google map -->
+      <div class="map-container">
+        <div id="map_canvas"></div>
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
         <script
           src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
           async>
-          </script>
+        </script>
 
-    </span>
-  </main>
+      </div>
+    </main>
+  </div>
+
 </body>
 </html>

@@ -1,3 +1,7 @@
--- INSERT INTO pins (user_id, map_id, title, category, image_url) VALUES ();
-INSERT INTO markers (user_id, map_id, title, category, image_url) VALUES (1, 1, 'Favourite Restaurants', 'Food & Drink', 'http://www.demo-link.com/this-link-does-not-exist');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (1, 1, 'Cypress Mountain', 'Places & Locations', 'http://www.demo-link.com/this-link-does-not-exist', '43.24883362474397', '-80.11541415714025');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (1, 1, 'Grouse Mountain', 'Places & Locations', 'http://www.demo-link.com/this-link-does-not-exist', '49.370996', '-123.099073');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (1, 1, 'Mount Seymour', 'Places & Locations', 'http://www.demo-link.com/this-link-does-not-exist', '43.24883362474397', '-80.11541415714025');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (2, 2, 'Faculty Brewing Co.', 'Food & Drink', 'http://www.demo-link.com/this-link-does-not-exist', '49.268659', '-123.104663');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (2, 2, 'R&B Ale & Pizza House', 'Food & Drink', 'http://www.demo-link.com/this-link-does-not-exist', '49.267368', '-123.103148');
+INSERT INTO markers (user_id, map_id, title, marker_category, image_url, marker_latitude, marker_longitude) VALUES (2, 2, 'Brassneck Brewery', 'Food & Drink', 'http://www.demo-link.com/this-link-does-not-exist', '49.265759', '-123.100796');
 

@@ -53,7 +53,7 @@ const getFavMapByUserId = function(id) {
 exports.getFavMapByUserId = getFavMapByUserId;
 
 // Get maps by owned maps for a user
-const getFavMapByUserId = function(id) {
+const mapsOwnedByUserId = function(id) {
   return pool.query(`
   SELECT *
   FROM maps
@@ -67,8 +67,7 @@ const getFavMapByUserId = function(id) {
   });
 
 }
-exports.getFavMapByUserId = getFavMapByUserId;
-
+exports.mapsOwnedByUserId = mapsOwnedByUserId;
 
 
 // get all markers that match a particular map ID

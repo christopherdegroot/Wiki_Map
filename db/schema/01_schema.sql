@@ -2,6 +2,8 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS maps CASCADE;
 DROP TABLE IF EXISTS markers CASCADE;
+DROP TABLE IF EXISTS users_maps_ownership CASCADE;
+DROP TABLE IF EXISTS users_maps_favourites CASCADE;
 DROP TABLE IF EXISTS users_maps CASCADE;
 
 -- Recreate Tables
@@ -41,9 +43,16 @@ CREATE TABLE markers (
   marker_longitude VARCHAR(255) NOT NULL
 );
 
--- Recreate Users_Maps Join Table
-CREATE TABLE users_maps (
+-- Recreate users_maps_ownership Join Table
+CREATE TABLE users_maps_ownership (
+  id SERIAL PRIMARY KEY NOT NULL,
+  owner_user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
+);
+
+-- Recreate users_maps_favourites Join Table
+CREATE TABLE users_maps_favourites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
+  favourite_map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE
 );

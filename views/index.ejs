@@ -57,7 +57,7 @@
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-        <button class="top-btn" value="closed">Create Pin 📍</button>
+        <button class="top-btn">Create Pin 📍</button>
     </header>
 
     <main id="main-content">
@@ -81,32 +81,30 @@
           <!-- new marker form -->
           <div class="new-marker">
 
-            <form class="ner-marker-form" action="/new-marker" method="POST">
+            <form action="/new-marker" method="POST">
 
-                <lable for="new-marker-title"> Pin Title: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</lable>
+                <lable for="new-marker-title"> Pin Title:</lable>
                 <br>
                 <br>
                 <input type="text" name="new-marker-title">
                 <br>
                 <br>
-                <lable for="img-url">img url: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</lable>
+                <lable for="img-url">img url:</lable>
                 <br>
                 <br>
                 <input type="url" name="img-url" >
                 <br>
                 <br>
-                <lable for="description">Description:&nbsp&nbsp</lable>
+                <lable for="description">Description:</lable>
                 <br>
                 <br>
                 <textarea type="text" name="description"></textarea>
                 <br>
                 <br>
                 <br>
-                <div class="unseen-forms">
-                  <lable for="long">Longtitude</lable>
-                  <input type="text" name="longlat">
-                  <lable for="lat">Latitude</lable>
-                  <input type="text" name="longlat">
+                <div>
+                  <input type="hidden" name="longlat">
+                  <input type="hidden" name="longlat">
                 </div>
 
                 <button class="new-btn" type="submit">Add marker</button>

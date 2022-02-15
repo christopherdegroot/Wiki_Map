@@ -16,14 +16,15 @@ exports.getUserWithId = getUserWithId;
 // get favourites for a user by their user id
 const favouritesByUserId = function(id) {
   return pool.query(`
-  SELECT *
+  SELECT users_maps_favourites.user_id as user_id, users_maps_favourites.favourite_map_id as favourite_map
   FROM users
   JOIN users_maps_favourites ON user_id = users.id
   WHERE users.id = $1
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
+
   });
 
 }

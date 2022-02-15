@@ -1,5 +1,5 @@
 // Get map by a map ID
-const getMapByMapId = function(id) {
+const getMapByMapId = function(id, pool) {
   return pool.query(`
   SELECT maps.*
   FROM maps
@@ -17,7 +17,7 @@ exports.getMapByMapId = getMapByMapId;
 
 
 // get all markers that match a particular map ID
-const getMarkersByMapId = function(id) {
+const getMarkersByMapId = function(id, pool) {
   return pool.query(`
   SELECT user_id, map_id, markers.marker_latitude, markers.marker_longitude
   FROM markers
@@ -37,7 +37,7 @@ exports.getMarkersByMapId = getMarkersByMapId;
 
 
 // get all maps that match a particular category
-const getMapsByCategory = function(category) {
+const getMapsByCategory = function(category, pool) {
   return pool.query(`
   SELECT *
   FROM maps
@@ -56,7 +56,7 @@ exports.getMapsByCategory = getMapsByCategory;
 
 
 // get all markers by a particular category
-const getMarkersByCategory = function(category) {
+const getMarkersByCategory = function(category, pool) {
   return pool.query(`
   SELECT markers.*
   FROM markers

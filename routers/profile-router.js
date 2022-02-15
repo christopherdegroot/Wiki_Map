@@ -43,7 +43,6 @@ module.exports = (db) => {
     Promise.all([userPromise, mapPromise, favouritePromise])
     .then((values) => {
       const templateVars = profileData(values);
-      console.log('template: ', templateVars);
       res.render('profile', templateVars);
     });
   });

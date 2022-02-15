@@ -1,4 +1,4 @@
-// get a single user from the databse by a user ID
+// gets a single user from the databse by a user ID
 const getUserWithId = function(id) {
   return pool.query(`
   SELECT *
@@ -16,13 +16,12 @@ const getUserWithId = function(id) {
 }
 exports.getUserWithId = getUserWithId;
 
-// get favourites for a user by their user id
-const favouritesByUserId = function(id) {
+// gets all favourite maps for a user by their user id
+const favouriteMapsByUserId = function(id) {
   return pool.query(`
-  SELECT users_maps_favourites.user_id as user_id, users_maps_favourites.favourite_map_id as favourite_map
-  FROM users
-  JOIN users_maps_favourites ON user_id = users.id
-  WHERE users.id = $1
+  SELECT favourite_map_id as favourite_maps
+  FROM users_maps_favourites
+  WHERE user_id = $1;
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
@@ -33,5 +32,22 @@ const favouritesByUserId = function(id) {
   });
 
 }
-exports.favouritesByUserId = favouritesByUserId;
+exports.favouriteMapsByUserId = favouriteMapsByUserId;
 
+// Get maps by owned maps for a user
+const mapsOwnedByUserId = function(id) {
+  return pool.query(`
+  SELECT map_id as owned_map_id
+  FROM users_maps_ownership
+  WHERE owner_user_id = $1;
+  `,[id])
+  .then((response) =>{
+    if (response.rows[0].length === 0) {return null}
+    else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+}
+exports.mapsOwnedByUserId = mapsOwnedByUserId;

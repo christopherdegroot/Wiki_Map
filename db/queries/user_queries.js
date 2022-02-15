@@ -19,8 +19,9 @@ exports.getUserWithId = getUserWithId;
 // gets all favourite maps for a user by their user id
 const favouriteMapsByUserId = function(id, pool) {
   return pool.query(`
-  SELECT favourite_map_id as favourite_maps
+  SELECT favourite_map_id, user_id, maps.map_description, maps.map_rating, maps.map_title
   FROM users_maps_favourites
+  JOIN maps ON favourite_map_id = maps.id
   WHERE user_id = $1;
   `,[id])
   .then((response) =>{
@@ -37,8 +38,9 @@ exports.favouriteMapsByUserId = favouriteMapsByUserId;
 // Get maps by owned maps for a user
 const mapsOwnedByUserId = function(id, pool) {
   return pool.query(`
-  SELECT map_id as owned_map_id
+  SELECT owner_user_id, map_id, maps.map_title, maps.map_category, maps.map_description, maps.map_rating
   FROM users_maps_ownership
+  JOIN maps on map_id = maps.id
   WHERE owner_user_id = $1;
   `,[id])
   .then((response) =>{

@@ -13,6 +13,9 @@ DROP TABLE IF EXISTS users_maps CASCADE;
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
+  user_bio TEXT,
+
+
   username VARCHAR(255) NOT NULL,
   password VARCHAR(255) NOT NULL,
   profile_picture_url VARCHAR(255) DEFAULT 'https://www.tenforums.com/geek/gars/images/2/types/thumb_15951118880user.png'
@@ -21,8 +24,12 @@ CREATE TABLE users (
 -- Recreate Maps Table
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
+
   map_title VARCHAR(255) NOT NULL,
   map_category VARCHAR(255),
+  map_rating INTEGER,
+  map_description TEXT,
+
   zoom INTEGER NOT NULL,
   map_center_latitude VARCHAR(255) NOT NULL,
   map_center_longitude VARCHAR(255) NOT NULL

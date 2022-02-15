@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="icon" href="../images/wikimap-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-map.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/interface.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <title>WikiMap</title>
+</head>
+
+<body>
+
+  <!-- side toggle bar -->
+  <span id="side-nav">
+    <div class="nav-content">
+      <!-- logo -->
+      <span>
+        <span>
+          <img class="logo" src="../images/WikiMap-logos.png">
+        </span>
+        <br>
+        <br>
+        <div>
+          <!-- profile button -->
+          <form method="GET" action="/profile/1">
+            <button class="side-btn" type="submit">Profile</button>
+          </form>
+        </div>
+      </span>
+    </div>
+  </span>
+
+  <div id="profile-container">
+    <!-- top navbar -->
+    <header id="top-nav">
+      <span class="expand">
+        <i class="fa-solid fa-grip-lines"></i>
+      </span>
+      <div class="side-greeting">
+        Welcome back, <br> <strong>User!</strong>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <div class="marker-container">
+          <div class="marker-list-container">
+             <!-- map title & rating -->
+            <div class="list-title">
+              <form>
+                <lable for="map-title"><strong>New Map Title</strong></lable>
+                <br>
+                <br>
+                <input type="text" name ="map-title">
+                <br>
+                <br>
+                <button class="new-btn" type="submit">submit</button>
+              </form>
+            </div>
+            <!-- list of markers -->
+            <div class="list">
+              <label for="pin-list"><strong>Pins</strong></label>
+              <ul>
+                <li><a href="#">pin1</a></li>
+                <li><a href="#">pin2</a></li>
+                <li><a href="#">pin3</a></li>
+                <li><a href="#">pin4</a></li>
+                <li><a href="#">pin5</a></li>
+                <li><a href="#">pin6</a></li>
+                <li><a href="#">pin7</a></li>
+                <li><a href="#">pin8</a></li>
+                <li><a href="#">pin9</a></li>
+                <li><a href="#">pin10</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- new marker form -->
+          <div class="new-marker">
+            <form action="/markers/new" method="POST" id="new-marker">
+              <lable for="new-marker-title"><strong>Pin Title: </strong></lable>
+              <br>
+              <br>
+              <input type="text" name="new-marker-title">
+              <br>
+              <br>
+              <lable for="img-url"><strong>img url:</strong></lable>
+              <br>
+              <br>
+              <input type="url" name="img-url">
+              <br>
+              <br>
+              <lable for="description"><strong>Description:</strong></lable>
+              <br>
+              <br>
+              <textarea type="text" name="description"></textarea>
+              <br>
+              <br>
+              <br>
+              <input type="hidden" name="lat" id="lat">
+              <input type="hidden" name="long" id="long">
+              <button class="new-btn" type="submit">Add marker</button>
+            </form>
+          </div>
+
+        <!-- marker detail (title, descript, img) -->
+
+
+          <!-- <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
+            Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine
+            research, ocean literacy education, conservation and marine animal rehabilitation.</article> -->
+
+
+
+
+      </div>
+
+      <!-- google map API-->
+      <div class="map-container">
+        <div id="map_canvas"></div>
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
+          async>
+        </script>
+      </div>
+
+    </main>
+  </div>
+</body>
+</html>

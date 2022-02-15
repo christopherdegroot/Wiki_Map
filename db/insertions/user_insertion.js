@@ -1,4 +1,4 @@
-const addFavourite =  function(favourite) {
+const addFavourite =  function(favourite, pool) {
   const values = [`${favourite.user_id}`, `${favourite.favourite_map_id}`];
   return pool.query(`
     INSERT INTO users_maps_favourites (user_id, favourite_map_id)

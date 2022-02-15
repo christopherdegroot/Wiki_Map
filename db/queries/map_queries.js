@@ -1,21 +1,4 @@
 
-// Get maps by a single user ID
-const getMapByUserId = function(id) {
-  return pool.query(`
-  SELECT *
-  FROM maps
-  JOIN users_maps_ownership ON map_id = maps.id
-  JOIN users ON user_id = users.id
-  WHERE users.id = $1;
-  `,[id])
-  .then((response) =>{
-    if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
-  });
-
-}
-exports.getMapByUserId = getMapByUserId;
-
 
 // Get map by a map ID
 const getMapByMapId = function(id) {
@@ -36,7 +19,7 @@ exports.getMapByMapId = getMapByMapId;
 
 
 // Get maps by selected as favourite map for a user
-const getFavMapByUserId = function(id) {
+const getFavMapsByUserId = function(id) {
   return pool.query(`
   SELECT *
   FROM maps
@@ -46,11 +29,11 @@ const getFavMapByUserId = function(id) {
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
   });
 
 }
-exports.getFavMapByUserId = getFavMapByUserId;
+exports.getFavMapsByUserId = getFavMapsByUserId;
 
 // Get maps by owned maps for a user
 const mapsOwnedByUserId = function(id) {
@@ -63,7 +46,7 @@ const mapsOwnedByUserId = function(id) {
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
   });
 
 }
@@ -80,7 +63,7 @@ const getMarkersByMapId = function(id) {
   `,[id])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
   });
 
 }
@@ -96,7 +79,7 @@ const getMapsByCategory = function(category) {
   `,[category])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
   });
 
 }
@@ -113,7 +96,7 @@ const getMarkersByCategory = function(category) {
   `,[category])
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
-    else {return response.rows[0]}
+    else {return response.rows}
   });
 
 }

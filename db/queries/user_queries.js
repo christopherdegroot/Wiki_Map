@@ -1,7 +1,7 @@
 // gets a single user from the databse by a user ID
 const getUserWithId = function(id, pool) {
   return pool.query(`
-  SELECT *
+  SELECT username, profile_picture_url, user_bio
   FROM users
   WHERE users.id = $1
   `,[id])

@@ -2,10 +2,8 @@ const express = require('express');
 const router  = express.Router();
 const { userData, profileData } = require('./helpers');
 const userQueries = require('../db/queries/user_queries');  // Requiring separate query file once it is created
-const mapQueries = require('../db/queries/map_queries');  // Requiring separate query file once it is created
 
 module.exports = (db) => {
-  ///////// Routes requiring separate DB query Promise to be returned
   
   // Route using DB query function that returns a Promise of single user object
   router.get('/:id', (req, res) => {
@@ -24,10 +22,8 @@ module.exports = (db) => {
       });
 
     // All user maps query Promise
-    const mapPromise = mapQueries.getMapsByUserId(id, db)
-      .then((maps) => {
-        return maps;
-      })
+    const mapPromise = userQueries.mapsOwnedByUserId(id, db)
+      .then((maps) => maps)
       .catch((err) => {
         res
         .status(500)
@@ -36,9 +32,7 @@ module.exports = (db) => {
 
     // All user favourite maps query Promise
     const favouritePromise = userQueries.favouriteMapsByUserId(id, db)
-      .then((maps) => {
-        return maps;
-      })
+      .then((maps) => maps)
       .catch((err) => {
         res
           .status(500)
@@ -49,6 +43,7 @@ module.exports = (db) => {
     Promise.all([userPromise, mapPromise, favouritePromise])
     .then((values) => {
       const templateVars = profileData(values);
+      console.log('template: ', templateVars);
       res.render('profile', templateVars);
     });
   });

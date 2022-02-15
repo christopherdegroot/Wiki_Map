@@ -55,7 +55,7 @@ app.get("/", (req, res) => {
 });
 
 // for john to see what the page is like
-app.get("/profile", (req, res) => {
+app.get("/profile/1", (req, res) => {
   res.render("profile");
 });
 

@@ -2,6 +2,8 @@ html, body {
   height: 100%;
   width: 100%;
   display: flex;
+  font-family: 'Montserrat';
+  font-weight: 400;
 }
 
 /* The side navigation menu */
@@ -71,13 +73,14 @@ html, body {
     background-color: #6383C7;
     flex: 0 0 10%;
     width: 100%;
-    padding: 0 4%;
+    padding: 0 4% 0 0;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
 
     .expand {
       font-size: 25px;
       cursor: pointer;
+      padding: 0 0 0 50px;
     }
 
     .top-btn {
@@ -93,6 +96,10 @@ html, body {
       &:hover {
         background: #5278f4;
       }
+    }
+    .top-logo {
+      width: 13em;
+      padding: 10px 0 0 0;
     }
   }
 
@@ -192,15 +199,106 @@ html, body {
 }
 
 
+#p-main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+#profile {
+  display: flex;
+  padding: 3%;
+  gap: 3%;
+
+  .profile-picture-container {
+    width: 30%;
+
+    .profile-picture {
+      border-radius: 10px;
+      width: 100%;
+      margin: 2%;
+    }
+  }
+
+
+
+  .biography {
+    width: 70%;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 5%;
+    margin: 2% 0;
+
+    .user-name {
+      font-size: 1.5em;
+    }
+  }
 
 
 
 
+}
+
+.h-divider-line {
+  border-top: 2px solid rgb(145, 145, 145);
+  border-radius: 100px;
+  margin: 0 4%;
+  width: 92%;
+}
+
+.v-divider-line {
+  border-left: 2px solid rgb(182, 182, 182);
+  border-radius: 100px;
+  margin: 2% 0 0 0;
+  height: 92%;
+}
 
 
-.profile-picture {
-  margin: 2em 0;
-  width: 80%;
+
+
+#my-maps-container {
+  display: flex;
+  padding: 3%;
+
+  .my-maps {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 1% 5%;
+
+    .map-article {
+      background-color: burlywood;
+      border-radius: 10px;
+      padding: 4% 8%;
+      margin-bottom: 1.5em;
+
+      .article-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .star-container {
+          width: 10%;
+
+
+        }
+
+
+      }
+
+      .article-footer {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .my-favorites {
+    width: 50%;
+    padding: 1% 5%;
+  }
 }
 
 

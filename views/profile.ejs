@@ -27,9 +27,9 @@
     <!-- top navbar -->
     <header id="top-nav">
       <span>
-        <img class="top-logo" src="../images/WikiMap-logos.png">
+        <img class="top-logo" src="../images/WikiMap-logos-white.png">
       </span>
-      <form type="GET" action="/">
+      <form type="GET" action="/new">
         <button class="top-btn" value="closed">Create New Map</button>
       </form>
     </header>
@@ -68,7 +68,7 @@
               </div>
             </header>
             <div class="article-body">
-              <p>comment1</p>
+              <p>DESCRIPTION</p>
               <div class="upvote">
                 <p>Upvotes: n</p>
               </div>
@@ -77,31 +77,7 @@
               <form>
                 <button class="favorite-btn">Favorite</button>
               </form>
-              <form>
-                <button class="edit-btn">edit</button>
-              </form>
-              <form>
-                <button class="delete-btn">delete</button>
-              </form>
-            </div>
-          </div>
-          <div class="map-article">
-            <header>
-              <div>
-                <header class="article-header">map1_title</header>
-              </div>
-            </header>
-            <div class="article-body">
-              <p>comment2</p>
-              <div class="upvote">
-                <p>Upvotes: n</p>
-              </div>
-            </div>
-            <div class="article-footer">
-              <form>
-                <button class="favorite-btn">Favorite</button>
-              </form>
-              <form>
+              <form type="GET" action="/edit:id">
                 <button class="edit-btn">edit</button>
               </form>
               <form>
@@ -117,7 +93,7 @@
           <div class="map-article">
             <header class="article-header">
               <div>
-                <header class="article-title">map3</header>
+                <header class="article-title">map</header>
               </div>
             </header>
             <div class="article-body">
@@ -131,7 +107,7 @@
               <form>
                 <button class="unfavorite-btn">Un-favorite</button>
               </form>
-              <form>
+              <form type="GET" action="/edit:id">
                 <button class="edit-btn">edit</button>
               </form>
               <form>

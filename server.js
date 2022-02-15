@@ -50,13 +50,23 @@ app.use("/maps", mapsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get("/", (req, res) => {
-  res.render("index.ejs");
+app.get("/new", (req, res) => {
+  res.render("new-map");
 });
+
 
 // for john to see what the page is like
 app.get("/profile/1", (req, res) => {
   res.render("profile");
+});
+
+
+app.get("/edit:id", (req, res) => {
+  res.render("edit-map");
+});
+
+app.get("/", (req, res) => {
+  res.render("index.ejs");
 });
 
 app.listen(PORT, () => {

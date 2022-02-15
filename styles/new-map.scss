@@ -1,0 +1,198 @@
+
+@mixin list() {
+  width: 48.5%;
+  border-radius: 10px;
+  margin-bottom: 3%;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
+
+
+/* The side navigation menu */
+#side-nav {
+  display: none;
+  width: 220px;
+  padding:15px;
+  background-color: beige;
+  .nav-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: nowrap;
+    text-align: center;
+    height: 100%;
+    font-size: 1em;
+    border-radius: 10px;
+    background-color: #f0e7cc;
+    background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+    .logo {
+      margin: 45px 0;
+      width: 100%
+    }
+    .side-btn {
+      padding: 0.9em 1.5em;
+      font-size: 15px;
+      border: none;
+      background: #b4ad98;
+      color: white;
+      cursor: pointer;
+      border-radius: 10px;
+      border-width: 3px;
+      border-style: outset;
+      transition: 0.3s ease-in-out;
+      &:hover {
+       background:#a2946a;
+      }
+    }
+
+  }
+}
+
+
+// top-navbar
+#top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFF;
+  background-color: #6383C7;
+  flex: 0 0 110px;
+  height: 110px;
+  padding: 0 50px 0 0;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  .expand {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0 0 0 50px;
+  }
+
+  .top-btn {
+    padding: 0.9em 1em;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #6f8df0;
+    border-radius: 10px;
+    border-style: groove;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      background: #5278f4;
+      box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
+    }
+  }
+  .side-greeting {
+    text-align: center;
+    padding: 20px 5px;
+  }
+}
+
+
+// dashboard-main
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  #main-content {
+    display: flex;
+    padding: 1.5%;
+    height: 100%;
+    gap: 1.5%;
+
+
+    // content of left half
+    .marker-container {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+
+      input {
+        border: none;
+        border-radius: 7px;
+        width: 11vw;
+        height: 30px;
+      }
+
+      .marker-list-container {
+        display: flex;
+        font-size: 0.8em;
+        gap: 3%;
+        height: 30%;
+
+        .list-title {
+          background-color: #D5D8DB;
+          text-align: center;
+          padding: 10% 0 0 0 ;
+          @include list();
+        }
+        .list {
+          background-color: #d8d8d8b7;
+          padding: 5%;
+          @include list();
+        }
+      }
+
+      .new-btn {
+        padding: 0.3em 0.7em;
+        font-size: 1em;
+        border: none;
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.822);
+        background:  #afda9d;
+        border-radius: 10px;
+        border-style: outset;
+        transition: 0.2s ease-in-out;
+        &:hover {
+          background: #e88383;
+          box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
+        }
+      }
+
+      .new-marker {
+        display: flex;
+        white-space: nowrap;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.8em;
+        border-radius: 10px;
+        padding: 15% 10%;
+        height: 70%;
+        background-color: #eeeeee;
+
+        input {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 40px;
+        }
+
+        textarea {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 100px;
+        }
+
+
+
+      }
+    }
+
+    .map-container {
+      width: 60%;
+      #map_canvas {
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+}

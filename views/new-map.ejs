@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-map.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
@@ -30,12 +30,6 @@
         <span>
           <img class="logo" src="../images/WikiMap-logos.png">
         </span>
-        <div>
-          <!-- submit button -->
-          <form method="GET" action="/new">
-            <button class="side-btn" type="submit">New Map</button>
-          </form>
-        </div>
         <br>
         <br>
         <div>
@@ -45,9 +39,6 @@
           </form>
         </div>
       </span>
-      <div class="side-greeting">
-        Welcome back, <br> <strong>User!</strong>
-      </div>
     </div>
   </span>
 
@@ -57,7 +48,9 @@
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-        <button class="top-btn">Create Pin 📍</button>
+      <div class="side-greeting">
+        Welcome back, <br> <strong>User!</strong>
+      </div>
     </header>
 
     <main id="main-content">
@@ -65,15 +58,30 @@
           <div class="marker-list-container">
              <!-- map title & rating -->
             <div class="list-title">
-              <h3>map title</h3>
-                <p>Upvotes: <strong>n</strong></p>
+              <form>
+                <lable for="map-title"><strong>New Map Title</strong></lable>
+                <br>
+                <br>
+                <input type="text" name ="map-title">
+                <br>
+                <br>
+                <button class="new-btn" type="submit">submit</button>
+              </form>
             </div>
             <!-- list of markers -->
             <div class="list">
+              <label for="pin-list"><strong>Pins</strong></label>
               <ul>
-                <li>Pin 1</li>
-                <li>Pin 2</li>
-                <li>Pin 3</li>
+                <li><a href="#">pin1</a></li>
+                <li><a href="#">pin2</a></li>
+                <li><a href="#">pin3</a></li>
+                <li><a href="#">pin4</a></li>
+                <li><a href="#">pin5</a></li>
+                <li><a href="#">pin6</a></li>
+                <li><a href="#">pin7</a></li>
+                <li><a href="#">pin8</a></li>
+                <li><a href="#">pin9</a></li>
+                <li><a href="#">pin10</a></li>
               </ul>
             </div>
           </div>
@@ -81,22 +89,23 @@
           <!-- new marker form -->
           <div class="new-marker">
             <form action="/markers/new" method="POST" id="new-marker">
-              <lable for="new-marker-title"> Pin Title: </lable>
+              <lable for="new-marker-title"><strong>Pin Title: </strong></lable>
               <br>
               <br>
               <input type="text" name="new-marker-title">
               <br>
               <br>
-              <lable for="img-url">img url:</lable>
+              <lable for="img-url"><strong>img url:</strong></lable>
               <br>
               <br>
               <input type="url" name="img-url">
               <br>
               <br>
-              <lable for="description">Description:</lable>
+              <lable for="description"><strong>Description:</strong></lable>
               <br>
               <br>
               <textarea type="text" name="description"></textarea>
+              <br>
               <br>
               <br>
               <input type="hidden" name="lat" id="lat">
@@ -106,16 +115,15 @@
           </div>
 
         <!-- marker detail (title, descript, img) -->
-        <div class="marker-content">
-          <header class="marker-article"><strong>1. Vancouver Aquarium</strong></header>
-          <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
+
+
+          <!-- <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
             Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine
-            research, ocean literacy education, conservation and marine animal rehabilitation.</article>
-          <br>
-          <div class="marker-img">
-            <img src="https://www.kenmoreair.com/uploads/images/blogPics2/sharks.jpg">
-          </div>
-        </div>
+            research, ocean literacy education, conservation and marine animal rehabilitation.</article> -->
+
+
+
+
       </div>
 
       <!-- google map API-->

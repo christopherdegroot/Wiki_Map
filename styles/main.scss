@@ -14,7 +14,7 @@
 }
 
 @mixin btns {
-  padding: 0.5em 0.7em;
+  padding: 0.3em 0.4em;
   font-size: 15px;
   border: none;
   color: black;
@@ -25,12 +25,18 @@
   transition: 0.3s ease-in-out;
 }
 
-
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}
 
 /* The side navigation menu */
 #side-nav {
   display: none;
-  width: 400px;
+  width: 220px;
   padding:15px;
   background-color: beige;
   .nav-content {
@@ -115,11 +121,13 @@
 #profile-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   #main-content {
     display: flex;
     padding: 1.5%;
     gap: 1.5%;
+    height: 100%;
 
     // content of left half
     .marker-container {
@@ -144,30 +152,28 @@
         display: none;
         white-space: nowrap;
         text-align: center;
+        justify-content: center;
         font-size: 0.8em;
         border-radius: 10px;
-        margin-bottom: 3%;
+        margin-bottom: 3.5%;
         height: auto;
-        padding: 10%;
+        padding: 5%;
         background-color: #eeeeee;
 
         input {
           border: none;
           border-radius: 7px;
-          width: 27vw;
+          width: 24vw;
           height: 40px;
         }
 
         textarea {
           border: none;
           border-radius: 7px;
-          width: 27vw;
+          width: 24vw;
           height: 100px;
         }
 
-        .unseen-forms {
-          display: none;
-        }
 
         .new-btn {
           padding: 0.5em 0.8em;
@@ -288,10 +294,11 @@
   border-radius: 10px;
   padding: 5% 8%;
   margin-bottom: 1.5em;
-  transition: 0.4s ease-in-out;
-  color: rgba(0, 0, 0, 0.591);
+  transition: 0.3s ease-in-out;
+  color: rgba(0, 0, 0, 0.726);
+  box-shadow: 6px 3px 8px rgba(0, 0, 0, 0.523);
   &:hover {
-    box-shadow: 6px 3px 8px rgba(0, 0, 0, 0.523);
+    box-shadow: 6px 4px 8px rgba(0, 0, 0, 0.774);
   }
 }
 
@@ -304,7 +311,7 @@
   font-weight: 600;
   font-size: 1.5em;
   margin: 0 0 3% 3%;
-  color: #000000aa;
+  color: #000000d2;
 }
 
 .article-footer {
@@ -320,33 +327,33 @@
 
 .favorite-btn {
   @include btns();
-  background: #FFF2AF;
+  background: #f7e9c4;
   &:hover {
-   background:#fae36c;
+   background:#FFF2AF;
   }
 }
 
 .edit-btn {
   @include btns();
-  background: #C3ECB2;
+  background: #f7e9c4;
   &:hover {
-   background:#a0e980;
+    background: #C3ECB2;
   }
 }
 
 .delete-btn {
   @include btns();
-  background: #d78080;
+  background: #f7e9c4;
   &:hover {
-   background:#d35c5c;
+    background: #d78080;
   }
 }
 
 .unfavorite-btn {
   @include btns();
-  background: #ffe18d;
+  background: #f7e9c4;
   &:hover {
-   background:#f7ce5e;
+    background: #ffe18d;
   }
 }
 

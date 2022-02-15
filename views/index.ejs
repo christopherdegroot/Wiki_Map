@@ -2,36 +2,30 @@
 <html lang="en">
 
 <head>
-  <title>WikiMap</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel = "icon" href ="../images/wikimap-icon.png" type = "image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="icon" href="../images/wikimap-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-
-
+  <title>WikiMap</title>
 </head>
 
-
-
 <body>
+
   <!-- side toggle bar -->
   <span id="side-nav">
     <div class="nav-content">
-
       <!-- logo -->
-
       <span>
         <span>
           <img class="logo" src="../images/WikiMap-logos.png">
@@ -39,7 +33,7 @@
         <div>
           <!-- submit button -->
           <form method="GET" action="/">
-            <button class="side-btn" type="submit">Map</button>
+            <button class="side-btn" type="submit">New Map</button>
           </form>
         </div>
         <br>
@@ -51,43 +45,41 @@
           </form>
         </div>
       </span>
-      <!-- greeting -->
       <div class="side-greeting">
         Welcome back, <br> <strong>User!</strong>
       </div>
-
     </div>
   </span>
 
-
-  <div id="container">
+  <div id="profile-container">
     <!-- top navbar -->
     <header id="top-nav">
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-        <button class="top-btn" value="closed">Create Pin</button>
+        <button class="top-btn" value="closed">Create Pin 📍</button>
     </header>
 
     <main id="main-content">
-
       <div class="marker-container">
-
-        <div class="marker-top">
-
-          <div class="marker-list">
-            <header><strong>map title</strong><header>
-              <p>rating</p>
+          <div class="marker-list-container">
+             <!-- map title & rating -->
+            <div class="list-title">
+              <h3>map title</h3>
+                <p>Upvotes: <strong>n</strong></p>
+            </div>
+            <!-- list of markers -->
+            <div class="list">
               <ul>
                 <li>Pin 1</li>
-                <br>
                 <li>Pin 2</li>
-                <br>
                 <li>Pin 3</li>
               </ul>
+            </div>
           </div>
 
-          <div class="new-marker">
+          <!-- new marker form -->
+          <div class="new-marker-form">
             <form action="/markers/new" method="POST" id="new-marker">
               <lable for="new-marker-title"> Pin Title: </lable>
               <input type="text" name="new-marker-title">
@@ -111,24 +103,20 @@
             </form>
           </div>
 
-
-
-        </div>
-
-
-
-
-          <div class="marker-content">
-            <h3>1. Vancouver Aquarium</h3>
-            <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia, Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine research, ocean literacy education, conservation and marine animal rehabilitation.</article>
-            <br>
-            <img class="marker-img" src="https://www.kenmoreair.com/uploads/images/blogPics2/sharks.jpg">
+        <!-- marker detail (title, descript, img) -->
+        <div class="marker-content">
+          <header class="marker-article"><strong>1. Vancouver Aquarium</strong></header>
+          <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
+            Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine
+            research, ocean literacy education, conservation and marine animal rehabilitation.</article>
+          <br>
+          <div class="marker-img">
+            <img src="https://www.kenmoreair.com/uploads/images/blogPics2/sharks.jpg">
           </div>
-
-
+        </div>
       </div>
 
-      <!-- google map -->
+      <!-- google map API-->
       <div class="map-container">
         <div id="map_canvas"></div>
         <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
@@ -136,10 +124,9 @@
           src="https://maps.googleapis.com/maps/api/js?key=<%=process.env.DB_GOOGLE_API%>&callback=initMap&libraries=&v=weekly"
           async>
         </script>
-
       </div>
+
     </main>
   </div>
-
 </body>
 </html>

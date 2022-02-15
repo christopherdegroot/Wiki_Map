@@ -2,122 +2,147 @@
 <html lang="en">
 
 <head>
-  <title>Profile</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="../images/wikimap-icon.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    type="text/css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-
+  <title>Profile</title>
 </head>
 
 <body>
 
 
-  <div id="container">
+  <div>
     <!-- top navbar -->
     <header id="top-nav">
       <span>
         <img class="top-logo" src="../images/WikiMap-logos.png">
       </span>
       <form type="GET" action="/">
-        <button class="top-btn" value="closed">Create Map</button>
+        <button class="top-btn" value="closed">Create New Map</button>
       </form>
     </header>
 
-    <main id="p-main-content">
 
+    <main id="profile-main-content">
+
+      <!-- profile + biography -->
       <div id="profile">
         <div class="profile-picture-container">
           <img class="profile-picture"
             src="https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70">
         </div>
         <div class="biography">
-          <p class="user-name"><u><strong>Jim&nbsp</strong>Halpert</u></p>
-
-          <p>Dunder Mifflin Papers Company Employee</p>
-
-
+          <span>
+            <p class="user-name"><u><strong>Jim&nbsp</strong>Halpert</u></p>
+            <p>Dunder Mifflin Papers Company Employee</p>
+          </span>
+          <span>
+            <p>Total Upvotes: n</p>
+          </span>
         </div>
-
-
       </div>
 
-      <div class="h-divider-line"></div>
 
       <div id="my-maps-container">
 
+        <!-- container of my maps -->
         <div class="my-maps">
+          <header class="container-title"> My Maps </header>
+          <!-- map articles -->
+          <div class="map-article">
+            <header>
+              <div>
+                <header class="article-header">map1_title</header>
+              </div>
+            </header>
+            <div class="article-body">
+              <p>comment1</p>
+              <div class="upvote">
+                <p>Upvotes: n</p>
+              </div>
+            </div>
+            <div class="article-footer">
+              <form>
+                <button class="favorite-btn">Favorite</button>
+              </form>
+              <form>
+                <button class="edit-btn">edit</button>
+              </form>
+              <form>
+                <button class="delete-btn">delete</button>
+              </form>
+            </div>
+          </div>
+          <div class="map-article">
+            <header>
+              <div>
+                <header class="article-header">map1_title</header>
+              </div>
+            </header>
+            <div class="article-body">
+              <p>comment2</p>
+              <div class="upvote">
+                <p>Upvotes: n</p>
+              </div>
+            </div>
+            <div class="article-footer">
+              <form>
+                <button class="favorite-btn">Favorite</button>
+              </form>
+              <form>
+                <button class="edit-btn">edit</button>
+              </form>
+              <form>
+                <button class="delete-btn">delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
 
-            <h3> My Maps </h3>
-
-
-
+        <!-- container of my favorite maps -->
+        <div class="my-favorites">
+          <header class="container-title">My Favorites</header>
           <div class="map-article">
             <header class="article-header">
-            <div>
-
-              <h4>map1</h4>
+              <div>
+                <header class="article-title">map3</header>
+              </div>
+            </header>
+            <div class="article-body">
+              <p>ha hah hahahaha hahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha
+                hahahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahaha</p>
+              <div class="upvote">
+                <p>Upvotes: n</p>
+              </div>
             </div>
-            <div class="star-container">
-
+            <div class="article-footer">
+              <form>
+                <button class="unfavorite-btn">Un-favorite</button>
+              </form>
+              <form>
+                <button class="edit-btn">edit</button>
+              </form>
+              <form>
+                <button class="delete-btn">delete</button>
+              </form>
             </div>
-
-          </header>
-          <div class="article-body">
-            <p>comment1</p>
-            <p>rating</p>
           </div>
-
-          <div class="article-footer">
-            <form>
-              <button>edit</button>
-            </form>
-            <form>
-              <button>delete</button>
-            </form>
-          </div>
-
-
-          </div>
-
-          <div class="map-article">
-            <h4>map1</h4>
-            <p>comment1</p>
-            <p>rating</p>
-            <p>edit / delete</p>
-
-          </div>
-
-
-
         </div>
-        <div class="v-divider-line"></div>
-        <div class="my-favorites">
-          <h3>My Favorites</h3>
-        </div>
-
-
-
       </div>
 
-
-
-
     </main>
-
   </div>
 </body>
-
 </html>

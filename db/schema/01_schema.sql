@@ -21,7 +21,7 @@ CREATE TABLE users (
 -- Recreate Maps Table
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
-  title VARCHAR(255) NOT NULL,
+  map_title VARCHAR(255) NOT NULL,
   map_category VARCHAR(255),
   zoom INTEGER NOT NULL,
   map_center_latitude VARCHAR(255) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE markers (
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   map_id INTEGER REFERENCES maps(id) ON DELETE CASCADE,
 
-  title VARCHAR(255) NOT NULL,
+  marker_title VARCHAR(255) NOT NULL,
   description TEXT,
   marker_category VARCHAR(255),
   image_url VARCHAR(255),

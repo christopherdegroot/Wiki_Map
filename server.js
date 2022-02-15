@@ -37,13 +37,13 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const profileRoutes = require("./routers/profile-router");
 const mapsRoutes = require("./routers/maps-router");
-const markersRoutes = require("./routers/markers-router");
+// const markersRoutes = require("./routers/markers-router"); ///////////////////////////////////////// CRASHING
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/profile", profileRoutes(db));
 app.use("/maps", mapsRoutes(db));
-app.use("/markers", markersRoutes(db));
+// app.use("/markers", markersRoutes(db));   ///////////////////////////////////////// CRASHING
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -51,7 +51,7 @@ app.use("/markers", markersRoutes(db));
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index.ejs");
 });
 
 // for john to see what the page is like

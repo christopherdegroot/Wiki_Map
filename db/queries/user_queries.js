@@ -8,6 +8,9 @@ const getUserWithId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows[0]}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }
@@ -24,7 +27,9 @@ const favouritesByUserId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
-
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }

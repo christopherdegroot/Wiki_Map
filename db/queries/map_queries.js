@@ -12,8 +12,10 @@ const getMapByMapId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows[0]}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
-
 }
 exports.getMapByMapId = getMapByMapId;
 
@@ -30,6 +32,9 @@ const getFavMapsByUserId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }
@@ -47,6 +52,9 @@ const mapsOwnedByUserId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }
@@ -64,6 +72,9 @@ const getMarkersByMapId = function(id) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }
@@ -80,6 +91,9 @@ const getMapsByCategory = function(category) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }
@@ -97,6 +111,9 @@ const getMarkersByCategory = function(category) {
   .then((response) =>{
     if (response.rows[0].length === 0) {return null}
     else {return response.rows}
+  })
+  .catch((err) => {
+    console.log(err.message);
   });
 
 }

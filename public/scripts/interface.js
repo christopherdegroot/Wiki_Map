@@ -56,9 +56,11 @@ initMap = () => {
   // const map2 = new google.maps.Map(document.getElementById("map_canvas2"), myOptions);
 
   // const map3 = new google.maps.Map(document.getElementById("map_canvas3"), myOptions);
+  const lat = parseFloat('49.300708190202045');
+  const long = parseFloat('-123.13074020583447');
 
   const marker1 = new google.maps.Marker({
-    position: { lat: 49.300708190202045, lng: -123.13074020583447 },
+    position: { lat: lat, lng: long },
     map: map,
   });
 };

@@ -1,5 +1,5 @@
 // gets a single user from the databse by a user ID
-const getUserWithId = function(id) {
+const getUserWithId = function(id, pool) {
   return pool.query(`
   SELECT *
   FROM users
@@ -17,7 +17,7 @@ const getUserWithId = function(id) {
 exports.getUserWithId = getUserWithId;
 
 // gets all favourite maps for a user by their user id
-const favouriteMapsByUserId = function(id) {
+const favouriteMapsByUserId = function(id, pool) {
   return pool.query(`
   SELECT favourite_map_id as favourite_maps
   FROM users_maps_favourites
@@ -35,7 +35,7 @@ const favouriteMapsByUserId = function(id) {
 exports.favouriteMapsByUserId = favouriteMapsByUserId;
 
 // Get maps by owned maps for a user
-const mapsOwnedByUserId = function(id) {
+const mapsOwnedByUserId = function(id, pool) {
   return pool.query(`
   SELECT map_id as owned_map_id
   FROM users_maps_ownership

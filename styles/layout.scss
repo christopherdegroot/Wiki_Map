@@ -1,6 +1,9 @@
 // See: https://sass-lang.com/
 
-
-
-
-
+html, body {
+  height: auto;
+  width: auto;
+  display: flex;
+  font-family: 'Montserrat';
+  font-weight: 400;
+}

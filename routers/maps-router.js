@@ -20,7 +20,6 @@ module.exports = (db) => {
 
   router.get('/:id', (req, res) => {
     const id = req.params.id;
-
     mapQueries.getMapByMapId(id, db)
       .then((map) => {
         res.render('index');
@@ -32,9 +31,11 @@ module.exports = (db) => {
       })
     });
 
+
+
     router.get('/:id/edit', (req, res) => {
       const id = req.params.id;
-  
+
       mapQueries.getMapByMapId(id, db)
         .then((map) => {
           res.render('edit-map');
@@ -48,10 +49,10 @@ module.exports = (db) => {
 
   router.post('/:id/delete', (req, res) => {
     const id = req.params.id;
-    
+
     mapQueries.deleteMapByMapId(id, db)
       .then((map) => {
-        res.redirect('/profile/1')
+        res.redirect('/profile/1');
       })
       .catch((err) => {
         res

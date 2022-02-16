@@ -29,8 +29,8 @@
       <span>
         <img class="top-logo" src="../images/WikiMap-logos-white.png">
       </span>
-      <form type="GET" action="/new">
-        <button class="top-btn" value="closed">Create New Map</button>
+      <form type="GET" action="/maps/new">
+        <button class="top-btn">Create New Map</button>
       </form>
     </header>
 
@@ -63,9 +63,9 @@
           <!-- map articles -->
           <div class="map-article">
             <header>
-              <div>
-                <header class="article-header">map1_title</header>
-              </div>
+              <form type="GET" action="/maps/:id">
+                <button class="title-btn">Downtwon</button>
+              </form>
             </header>
             <div class="article-body">
               <p>DESCRIPTION</p>
@@ -77,7 +77,7 @@
               <form>
                 <button class="favorite-btn">Favorite</button>
               </form>
-              <form type="GET" action="/edit:id">
+              <form type="GET" action="/maps/:id/edit">
                 <button class="edit-btn">edit</button>
               </form>
               <form>
@@ -91,11 +91,11 @@
         <div class="my-favorites">
           <header class="container-title">My Favorites</header>
           <div class="map-article">
-            <header class="article-header">
-              <div>
-                <header class="article-title">map</header>
-              </div>
-            </header>
+            <header>
+              <form type="GET" action="/maps/:id">
+              <button class="title-btn">map1_title</button>
+            </form>
+          </header>
             <div class="article-body">
               <p>ha hah hahahaha hahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha
                 hahahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahaha</p>
@@ -107,8 +107,8 @@
               <form>
                 <button class="unfavorite-btn">Un-favorite</button>
               </form>
-              <form type="GET" action="/edit:id">
-                <button class="edit-btn">edit</button>
+              <form type="GET" action="/maps/:id/edit">
+                <button type='submit' class="edit-btn">edit</button>
               </form>
               <form>
                 <button class="delete-btn">delete</button>

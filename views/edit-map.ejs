@@ -12,12 +12,12 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/new-map.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/edit-map.css" type="text/css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <title>WikiMap</title>
+  <title>Edit WikiMap</title>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
       <!-- logo -->
       <span>
         <span>
-          <img class="logo" src="../images/WikiMap-logos.png">
+          <img class="logo" src="../images/WikiMap-logos-white.png">
         </span>
         <br>
         <br>
@@ -48,9 +48,7 @@
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-      <div class="side-greeting">
-        Welcome back, <br> <strong>User!</strong>
-      </div>
+      <button class="top-btn">Create Pin 📍</button>
     </header>
 
     <main id="main-content">
@@ -59,10 +57,22 @@
              <!-- map title & rating -->
             <div class="list-title">
               <form type="POST" action="/maps/:id/edit">
-                <label for="map-title"><strong>Map Title</strong></label>
+                <label for="map-title">Edit: Map Title</label>
                 <br>
                 <br>
                 <input type="text" name ="map-title">
+                <br>
+                <br>
+                <label for="map-title">Category</label>
+                <br>
+                <br>
+                <input type="text" name ="map-title">
+                <br>
+                <br>
+                <label for="map-description">Description</label>
+                <br>
+                <br>
+                <textarea type="text" name="description"></textarea>
                 <br>
                 <br>
                 <button class="new-btn" type="submit">Edit</button>
@@ -76,32 +86,78 @@
                 <li><a href="#">pin2</a></li>
                 <li><a href="#">pin3</a></li>
                 <li><a href="#">pin4</a></li>
-                <li><a href="#">pin5</a></li>
-                <li><a href="#">pin6</a></li>
-                <li><a href="#">pin7</a></li>
-                <li><a href="#">pin8</a></li>
-                <li><a href="#">pin9</a></li>
-                <li><a href="#">pin10</a></li>
+
               </ul>
             </div>
           </div>
 
-          <!-- new marker form -->
+           <!-- new marker form -->
           <div class="new-marker">
-            <form action="/maps/:id/new" method="POST" id="new-marker">
-              <label for="new-marker-title"><strong>Pin Title: </strong></label>
+            <form action="/markers/new" method="POST" id="new-marker">
+              <label for="new-marker-title"><strong>New</strong> Pin Title </label>
               <br>
               <br>
               <input type="text" name="new-marker-title">
               <br>
               <br>
-              <label for="img-url"><strong>img url:</strong></label>
+              <label for="img-url">Image URL</label>
               <br>
               <br>
               <input type="url" name="img-url">
               <br>
               <br>
-              <label for="description"><strong>Description:</strong></label>
+              <label for="longtitude">Longtitude</label>
+              <br>
+              <br>
+              <input type="number" name="longtitude">
+              <br>
+              <br>
+              <label for="latitude">Latitude</label>
+              <br>
+              <br>
+              <input type="number" name="latitude">
+              <br>
+              <br>
+              <label for="description">Description:</label>
+              <br>
+              <br>
+              <textarea type="text" name="description"></textarea>
+              <br>
+              <br>
+              <input type="hidden" name="lat" id="lat">
+              <input type="hidden" name="long" id="long">
+              <button class="new-btn" type="submit">Add Pin</button>
+            </form>
+          </div>
+
+          <!-- new marker form -->
+          <div class="edit-marker" value="visible">
+            <form action="/maps/:id/edit" method="POST" id="edit-marker">
+              <label for="new-marker-title"><strong>Edit:</strong> Pin Title </label>
+              <br>
+              <br>
+              <input type="text" name="new-marker-title">
+              <br>
+              <br>
+              <label for="img-url">Image URL</label>
+              <br>
+              <br>
+              <input type="url" name="img-url">
+              <br>
+              <br>
+              <label for="longtitude">Longtitude</label>
+              <br>
+              <br>
+              <input type="number" name="longtitude">
+              <br>
+              <br>
+              <label for="latitude">Latitude</label>
+              <br>
+              <br>
+              <input type="number" name="latitude">
+              <br>
+              <br>
+              <label for="description">Description</label>
               <br>
               <br>
               <textarea type="text" name="description"></textarea>
@@ -110,16 +166,9 @@
               <br>
               <input type="hidden" name="lat" id="lat">
               <input type="hidden" name="long" id="long">
-              <button class="new-btn" type="submit">Edit Marker</button>
+              <button class="new-btn" type="submit">Edit Pin</button>
             </form>
           </div>
-
-        <!-- marker detail (title, descript, img) -->
-
-
-          <!-- <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
-            Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine
-            research, ocean literacy education, conservation and marine animal rehabilitation.</article> -->
 
 
 

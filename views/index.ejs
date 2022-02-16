@@ -45,9 +45,6 @@
           </form>
         </div>
       </span>
-      <div class="side-greeting">
-        Welcome back, <br> <strong>User!</strong>
-      </div>
     </div>
   </span>
 
@@ -57,52 +54,33 @@
       <span class="expand">
         <i class="fa-solid fa-grip-lines"></i>
       </span>
-        <button class="top-btn">Create Pin 📍</button>
+      <div class="top-greeting">
+        Welcome back, <br> <strong>User!</strong>
+      </div>
     </header>
 
     <main id="main-content">
       <div class="marker-container">
           <div class="marker-list-container">
              <!-- map title & rating -->
-            <div class="list-title">
-              <h3>map title</h3>
-                <p>Upvotes: <strong>n</strong></p>
+            <div class="list-left">
+              <div>
+                <header class="list-left-title"><strong>map title</strong><header>
+              </div>
+              <div>
+                <div class="list-left-body">hahahahaha hahahahaha ahahhahahahahahahahahaahahahahahahhahahahahahahahaha</div>
+              </div>
+                <p>Category</p>
             </div>
             <!-- list of markers -->
             <div class="list">
               <ul>
-                <li>Pin 1</li>
-                <li>Pin 2</li>
-                <li>Pin 3</li>
+                <li><a href="#">pin1</a></li>
+                <li><a href="#">pin2</a></li>
+                <li><a href="#">pin3</a></li>
+                <li><a href="#">pin4</a></li>
               </ul>
             </div>
-          </div>
-
-          <!-- new marker form -->
-          <div class="new-marker">
-            <form action="/markers/new" method="POST" id="new-marker">
-              <label for="new-marker-title"> Pin Title: </label>
-              <br>
-              <br>
-              <input type="text" name="new-marker-title">
-              <br>
-              <br>
-              <label for="img-url">img url:</label>
-              <br>
-              <br>
-              <input type="url" name="img-url">
-              <br>
-              <br>
-              <label for="description">Description:</label>
-              <br>
-              <br>
-              <textarea type="text" name="description"></textarea>
-              <br>
-              <br>
-              <input type="hidden" name="lat" id="lat">
-              <input type="hidden" name="long" id="long">
-              <button class="new-btn" type="submit">Add marker</button>
-            </form>
           </div>
 
         <!-- marker detail (title, descript, img) -->

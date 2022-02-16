@@ -1,5 +1,4 @@
 @mixin list() {
-  width: 48.5%;
   border-radius: 10px;
   margin-bottom: 3%;
   padding: 4%;
@@ -69,9 +68,6 @@ html, body {
        background:#a2946a;
       }
     }
-    .side-greeting {
-      padding: 20px 20px;
-    }
   }
 }
 
@@ -114,6 +110,13 @@ html, body {
     width: 13em;
     padding: 10px 0 0 10px;
   }
+
+  .top-greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+  }
 }
 
 
@@ -135,16 +138,37 @@ html, body {
       .marker-list-container {
         display: flex;
         font-size: 0.8em;
+        height: 28%;
         gap: 3%;
 
-        .list-title {
+        .list-left {
+          display: flex;
+          flex-direction: column;
           background-color: #D5D8DB;
           text-align: center;
+          justify-content: center;
+          width: 50%;
           @include list();
+
+          .list-left-title {
+            overflow-wrap: break-word;
+            hyphens: auto;
+            font-size: 1.5em;
+            margin: 10px;
+          }
+          .list-left-body {
+            overflow-wrap: break-word;
+            hyphens: auto;
+
+          }
         }
         .list {
           background-color: #d8d8d8b7;
+          width: 50%;
           @include list();
+          a {
+            text-decoration: none;
+          }
         }
       }
 
@@ -195,14 +219,14 @@ html, body {
       .marker-content {
         background-color: #eeeeee;
         border-radius: 10px;
-        height: auto;
+        height: 72%;
         padding: 7%;
         .marker-article {
           padding: 0 0 5%;
           font-size: 1.3em;
         }
         .marker-img {
-          padding: 2% 10%;
+          padding: 5% 10%;
           img {
             width: 100%;
           }
@@ -259,7 +283,7 @@ html, body {
       margin: 2% 0;
       transition: 0.3s ease-in-out;
       &:hover {
-        opacity: 95%;
+        opacity: 100%;
       }
       .user-name {
         font-size: 1.5em;
@@ -360,8 +384,8 @@ html, body {
 
 .title-btn {
   @include btns();
-  background: #f7e9c4;
-  border-color: #d2c9b1;
+  background: #ffebb493;
+  border-color: #fae6ae;
   font-weight: 600;
   font-size: 20px;
   &:hover {

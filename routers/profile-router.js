@@ -51,7 +51,6 @@ module.exports = (db) => {
     .then((values) => {
       const templateVars = profileData(values);
       res.render('profile', templateVars);
-      console.log('logging templateVars', templateVars);
     });
   });
 

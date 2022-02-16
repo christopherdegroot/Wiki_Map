@@ -2,21 +2,22 @@ const express = require('express');
 const router  = express.Router();
 const mapQueries = require('../db/queries/map_queries');
 
+
 module.exports = (db) => {
 
   router.get('/new', (req, res) => {
     const id = req.params.id;
 
     mapQueries.getMapByMapId(id, db)
-      .then((map) => {
+      .then(() => {
         res.render('new-map');
       })
       .catch((err) => {
         res
           .status(500)
           .json({ error: err.message});
-      })
-    });
+      });
+  });
 
   router.get('/:id', (req, res) => {
     const id = req.params.id;

@@ -5,6 +5,13 @@ const userQueries = require('../db/queries/user_queries');  // Requiring separat
 
 module.exports = (db) => {
   
+  // Route for jQuery rendering of My Maps containers
+  router.get('/:id/render', (req, res) => {
+    const id = req.params.id;
+    userQueries.mapsOwnedByUserId(id, db)
+      .then((data) => res.json(data))
+  });
+
   // Route using DB query function that returns a Promise of single user object
   router.get('/:id', (req, res) => {
     const id = req.params.id;

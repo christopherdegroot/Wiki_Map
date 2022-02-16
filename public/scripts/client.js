@@ -14,7 +14,7 @@ $(document).ready(function () {
               <form type="GET" action="/maps/:id">
                 <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
-              <div>
+              <div class="article-category">
                 <p>${escape(mapObj.map_category)}</p>
               </div>
             </header>
@@ -74,7 +74,7 @@ $(document).ready(function () {
           <form type="GET" action="/maps/:id">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
-          <div>
+          <div class="article-category">
             <p>${escape(mapObj.map_category)}</p>
           </div>
         </header>

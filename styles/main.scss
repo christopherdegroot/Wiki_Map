@@ -329,6 +329,11 @@ html, body {
 .article-header {
   display: flex;
   justify-content: space-between;
+  .article-category {
+    overflow-wrap: break-word;
+    text-align: right;
+
+  }
 }
 
 .container-title {

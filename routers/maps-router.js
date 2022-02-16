@@ -56,7 +56,7 @@ module.exports = (db) => {
 
       // map info promise
       const mapPromise = mapQueries.getMapByMapId(id, db)
-      .then((maps) => maps)
+      .then((maps) => {return maps})
       .catch((err) => {
         res
         .status(500)
@@ -66,9 +66,7 @@ module.exports = (db) => {
       // marker info promise
       const markerPromise = mapQueries.getMarkersDescByMapId(id, db)
       .then((markers) => {
-        const markerArr = [];
-        markers.forEach(element => markerArr.push(element));
-        return markerArr;
+        return markers;
       })
       .catch((err) => {
         res
@@ -80,7 +78,6 @@ module.exports = (db) => {
         .then((values) => {
           const templateVars = mapEditData(values);
           res.render('edit-map', templateVars);
-          console.log('template vars from MAPS-ROUTER: ', templateVars)
         });
       });
 

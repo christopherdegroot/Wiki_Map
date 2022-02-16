@@ -4,21 +4,22 @@ const mapQueries = require('../db/queries/map_queries');
 const userQueries = require('../db/queries/user_queries');
 const { mapData, userData, markerData, mapEditData } = require('./helpers');
 
+
 module.exports = (db) => {
 
   router.get('/new', (req, res) => {
     const id = req.params.id;
 
     mapQueries.getMapByMapId(id, db)
-      .then((map) => {
+      .then(() => {
         res.render('new-map');
       })
       .catch((err) => {
         res
           .status(500)
           .json({ error: err.message});
-      })
-    });
+      });
+  });
 
     // Route using DB query functions that returns a promise
   router.get('/:id', (req, res) => {

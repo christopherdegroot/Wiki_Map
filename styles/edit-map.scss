@@ -1,4 +1,8 @@
 
+@mixin list() {
+  border-radius: 10px;
+  margin-bottom: 3%;
+}
 
 html, body {
   height: 100%;
@@ -101,48 +105,54 @@ html, body {
     display: flex;
     padding: 1.5%;
     height: 100%;
-    background-image: url("../images/vancouver-map-bw.png");
-    background-size: cover;
-    margin: 3%;
-    border-radius: 15px;
+    gap: 1.5%;
 
 
-    .new-map-title {
+    // content of left half
+    .marker-container {
       display: flex;
-      background-color: rgba(196, 196, 196, 0.89);
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-      margin: 6%;
-      border-radius: 15px;
-      opacity: 90%;
-      transition: 0.4s ease-in-out;
-      &:hover {
-        opacity: 100%;
-      }
-
-
-      form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-      }
+      flex-direction: column;
+      width: 40%;
 
       input {
         border: none;
         border-radius: 7px;
-        width: 20vw;
-        height: 30px;
+        width: 11vw;
+        height: 20px;
       }
 
       textarea {
         border: none;
         border-radius: 7px;
-        width: 20vw;
-        height: 100px;
+        width: 13vw;
+        height: 30px;
       }
 
+      .marker-list-container {
+        display: flex;
+        font-size: 0.8em;
+        gap: 3%;
+        height: 35%;
+
+        .list-title {
+          background-color: #D5D8DB;
+          text-align: center;
+          padding: 5%;
+          width: 60%;
+          @include list();
+        }
+        .list {
+          background-color: #d8d8d8b7;
+
+          padding: 5%;
+          width: 40%;
+          @include list();
+
+          a {
+            text-decoration: none;
+          }
+        }
+      }
 
       .new-btn {
         padding: 0.3em 0.7em;
@@ -159,7 +169,72 @@ html, body {
           box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
         }
       }
+
+      .new-marker {
+        display: none;
+        white-space: nowrap;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.8em;
+        border-radius: 10px;
+        padding: 10% 10%;
+        height: 65%;
+        background-color: #eeeeee;
+
+        input {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 25px;
+        }
+
+        textarea {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 100px;
+        }
+
+
+
+      }
+
+      .edit-marker {
+        display: flex;
+        white-space: nowrap;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.8em;
+        border-radius: 10px;
+        padding: 10%;
+        height: 65%;
+        background-color: #eeeeee;
+
+        input {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 25px;
+        }
+
+        textarea {
+          border: none;
+          border-radius: 7px;
+          width: 24vw;
+          height: 100px;
+        }
+
+
+
+      }
+    }
+
+    .map-container {
+      width: 60%;
+      #map_canvas {
+        height: 100%;
+        border-radius: 10px;
+      }
     }
   }
 }
-

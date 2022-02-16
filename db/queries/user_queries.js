@@ -53,3 +53,9 @@ const mapsOwnedByUserId = function(id, pool) {
 
 }
 exports.mapsOwnedByUserId = mapsOwnedByUserId;
+
+// const totalUpvotes = function(id, pool) {
+//   return pool.query(`
+//   SELECT map_rating
+//   FROM maps WHERE `)
+// }

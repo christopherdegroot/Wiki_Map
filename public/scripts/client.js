@@ -42,12 +42,17 @@ $(document).ready(function () {
   };
 
   // gets user ID off the url accessing current page
-  const urlUserId = window.location.href.slice(-1);
-  console.log('logging url user id', urlUserId );
+  let urlUserId = ''
+  if (window.location.href.slice(-1) === '?') {
+    urlUserId += window.location.href.slice(-2);
+  } else {urlUserId += window.location.href.slice(-1);}
+
+  toString(urlUserId);
+  let newUrlUserId = urlUserId.replace('?', '');
 
   const renderMapList = () => {
     $.ajax({
-      url: `/profile/${urlUserId}/owned`,
+      url: `/profile/${newUrlUserId}/owned`,
       method: 'GET',
     })
       .then((data) => {
@@ -69,8 +74,8 @@ $(document).ready(function () {
     const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
-      console.log("mapid:", mapObj);
-      console.log(mapObj);
+      // console.log("mapid:", mapObj);
+      // console.log(mapObj);
       return div.innerHTML;
     };
 
@@ -112,7 +117,7 @@ $(document).ready(function () {
 
   const renderFavoriteList = () => {
     $.ajax({
-      url: `/profile/${urlUserId}/favourites`,
+      url: `/profile/${newUrlUserId}/favourites`,
       method: 'GET',
     })
       .then((data) => {

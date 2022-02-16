@@ -4,7 +4,7 @@ const { userData, profileData } = require('./helpers');
 const userQueries = require('../db/queries/user_queries');  // Requiring separate query file once it is created
 
 module.exports = (db) => {
-  
+
   // Route for jQuery rendering of My Maps containers
   router.get('/:id/render', (req, res) => {
     const id = req.params.id;
@@ -51,6 +51,7 @@ module.exports = (db) => {
     .then((values) => {
       const templateVars = profileData(values);
       res.render('profile', templateVars);
+      console.log('logging templateVars', templateVars);
     });
   });
 

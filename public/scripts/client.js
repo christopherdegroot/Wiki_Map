@@ -41,13 +41,16 @@ $(document).ready(function () {
     return $mapListElements;
   };
 
+  const urlUserId = window.location.href.slice(-1);
+  console.log('logging url user id', urlUserId );
 
   const renderMapList = () => {
     $.ajax({
-      url: `/profile/1/owned`,
+      url: `/profile/${urlUserId}/owned`,
       method: 'GET',
     })
       .then((data) => {
+        console.log(data);
         $('#maps-container').empty();
         data.forEach((map) => {
           const $map = createMapListElement(map);
@@ -108,7 +111,7 @@ $(document).ready(function () {
 
   const renderFavoriteList = () => {
     $.ajax({
-      url: '/profile/1/favourites',
+      url: `/profile/${urlUserId}/favourites`,
       method: 'GET',
     })
       .then((data) => {

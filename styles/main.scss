@@ -302,9 +302,14 @@ html, body {
   }
 }
 
+.article-header {
+  display: flex;
+  justify-content: space-between;
+}
+
 .container-title {
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1em;
   margin: 0 0 3% 3%;
   color: #000000d2;
 }
@@ -317,6 +322,7 @@ html, body {
 .upvote {
   border-top: solid rgba(0, 0, 0, 0.605) 2px;
   border-radius: 2px;
+  font-size: 0.8em;
 }
 
 

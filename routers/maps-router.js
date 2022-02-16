@@ -4,12 +4,12 @@ const mapQueries = require('../db/queries/map_queries');
 
 module.exports = (db) => {
 
-  router.get('/:id', (req, res) => {
+  router.get('/new', (req, res) => {
     const id = req.params.id;
 
     mapQueries.getMapByMapId(id, db)
       .then((map) => {
-        res.render('index');
+        res.render('new-map');
       })
       .catch((err) => {
         res
@@ -18,12 +18,12 @@ module.exports = (db) => {
       })
     });
 
-  router.get('/:id/new', (req, res) => {
+  router.get('/:id', (req, res) => {
     const id = req.params.id;
 
     mapQueries.getMapByMapId(id, db)
       .then((map) => {
-        res.render('new-map');
+        res.render('index');
       })
       .catch((err) => {
         res

@@ -41,12 +41,12 @@
       <div id="profile">
         <div class="profile-picture-container">
           <img class="profile-picture"
-            src="https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70">
+            src="<%= user.profile_picture_url %>">
         </div>
         <div class="biography">
           <span>
-            <p class="user-name"><u><strong>Jim&nbsp</strong>Halpert</u></p>
-            <p>Dunder Mifflin Papers Company Employee</p>
+            <p class="user-name"><u><%= user.username %></u></p>
+            <p><%= user.bio %></p>
           </span>
           <span>
             <p>Total Upvotes: n</p>
@@ -64,7 +64,7 @@
           <div class="map-article">
             <header>
               <form type="GET" action="/maps/:id">
-                <button class="title-btn">Downtwon</button>
+                <button class="title-btn">Downtown</button>
               </form>
             </header>
             <div class="article-body">
@@ -97,8 +97,8 @@
             </form>
           </header>
             <div class="article-body">
-              <p>ha hah hahahaha hahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha
-                hahahahaha hah hahahaha hahahaha hah hahahaha hahahaha hah hahahaha hahaha</p>
+
+              <p>fav map description!</p>
               <div class="upvote">
                 <p>Upvotes: n</p>
               </div>

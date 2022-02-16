@@ -11,7 +11,7 @@ $(document).ready(function () {
     const $mapListElements = $(`
         <div class="map-article">
             <header class="article-header">
-              <form type="GET" action="/maps/:id">
+              <form type="GET" action="/maps/${escape(mapObj.map_id)}">
                 <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
               <div class="article-category">
@@ -44,7 +44,7 @@ $(document).ready(function () {
 
   const renderMapList = () => {
     $.ajax({
-      url: '/profile/1/owned',
+      url: `/profile/1/owned`,
       method: 'GET',
     })
       .then((data) => {
@@ -65,13 +65,15 @@ $(document).ready(function () {
     const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
+      console.log("mapid:", mapObj);
+      console.log(mapObj);
       return div.innerHTML;
     };
 
     const $favoriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
-          <form type="GET" action="/maps/:id">
+          <form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
           <div class="article-category">
@@ -82,6 +84,9 @@ $(document).ready(function () {
           <p>${escape(mapObj.map_description)}</p>
           <div class="upvote">
             <p>Upvotes: ${escape(mapObj.map_rating)}</p>
+            <div>
+                Map Created By: ${escape(mapObj.owner_user_id)}
+          </div>
           </div>
         </div>
         <div class="article-footer">

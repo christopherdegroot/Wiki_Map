@@ -12,16 +12,16 @@ $(document).ready(function () {
         <div class="map-article">
             <header class="article-header">
               <form type="GET" action="/maps/:id">
-                <button class="title-btn">${escape(mapObj.maps.map_title)}</button>
+                <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
               <div>
-                <p>${escape(mapObj.maps.map_category)}</p>
+                <p>${escape(mapObj.map_category)}</p>
               </div>
             </header>
             <div class="article-body">
-              <p>${escape(mapObj.maps.map_description)}</p>
+              <p>${escape(mapObj.map_description)}</p>
               <div class="upvote">
-                <p>Upvotes: ${escape(mapObj.maps.map_rating)}</p>
+                <p>Upvotes: ${escape(mapObj.map_rating)}</p>
               </div>
             </div>
             <div class="article-footer">
@@ -44,14 +44,14 @@ $(document).ready(function () {
 
   const renderMapList = () => {
     $.ajax({
-      url: '/profile/1/render',
+      url: '/profile/1/owned',
       method: 'GET',
     })
       .then((data) => {
-        $('.my-maps').empty();
+        $('#maps-container').empty();
         data.forEach((map) => {
           const $map = createMapListElement(map);
-          $('.my-maps').prepend($map);
+          $('#maps-container').prepend($map);
         });
       })
       .catch((err) => {
@@ -72,16 +72,16 @@ $(document).ready(function () {
       <div class="map-article">
         <header class="article-header">
           <form type="GET" action="/maps/:id">
-            <button class="title-btn">${escape(mapObj.maps.map_title)}</button>
+            <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
           <div>
-            <p>${escape(mapObj.maps.map_category)}</p>
+            <p>${escape(mapObj.map_category)}</p>
           </div>
         </header>
         <div class="article-body">
-          <p>${escape(mapObj.maps.map_description)}</p>
+          <p>${escape(mapObj.map_description)}</p>
           <div class="upvote">
-            <p>Upvotes: ${escape(mapObj.maps.map_rating)}</p>
+            <p>Upvotes: ${escape(mapObj.map_rating)}</p>
           </div>
         </div>
         <div class="article-footer">
@@ -103,14 +103,14 @@ $(document).ready(function () {
 
   const renderFavoriteList = () => {
     $.ajax({
-      url: '/profile/1/render',
+      url: '/profile/1/favourites',
       method: 'GET',
     })
       .then((data) => {
-        $('.my-favorites').empty();
+        $('#favourites-container').empty();
         data.forEach((map) => {
           const $map = createFavoriteListElement(map);
-          $('.my-favorites').prepend($map);
+          $('#favourites-container').prepend($map);
         });
       })
       .catch((err) => {

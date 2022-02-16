@@ -11,7 +11,7 @@ $(document).ready(function () {
     const $mapListElements = $(`
         <div class="map-article">
             <header class="article-header">
-              <form type="GET" action="/maps/:id">
+              <form type="GET" action="/maps/${escape(mapObj.map_id)}">
                 <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
               <div class="article-category">
@@ -41,13 +41,16 @@ $(document).ready(function () {
     return $mapListElements;
   };
 
+  const urlUserId = window.location.href.slice(-1);
+  console.log('logging url user id', urlUserId );
 
   const renderMapList = () => {
     $.ajax({
-      url: '/profile/1/owned',
+      url: `/profile/${urlUserId}/owned`,
       method: 'GET',
     })
       .then((data) => {
+        console.log(data);
         $('#maps-container').empty();
         data.forEach((map) => {
           const $map = createMapListElement(map);
@@ -71,7 +74,7 @@ $(document).ready(function () {
     const $favoriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
-          <form type="GET" action="/maps/:id">
+          <form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
           <div class="article-category">
@@ -103,7 +106,7 @@ $(document).ready(function () {
 
   const renderFavoriteList = () => {
     $.ajax({
-      url: '/profile/1/favourites',
+      url: `/profile/${urlUserId}/favourites`,
       method: 'GET',
     })
       .then((data) => {

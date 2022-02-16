@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
   // when the side button is clicked, toggle the side navbar
   $('.expand').click(() => {
@@ -6,9 +6,11 @@ $(document).ready(function() {
   });
 
   // john's attempt at animating the sliding motion, jQuery.toggle is very glitchy
-  $('.top-btn').click(function() {
+  $('.top-btn').click(function () {
     $('.new-marker').toggle(600);
+    $('.edit-marker').toggle(600);
   });
+
 
 });
 

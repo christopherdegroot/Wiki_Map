@@ -349,6 +349,9 @@ html, body {
 }
 
 .upvote {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-top: solid rgba(0, 0, 0, 0.605) 2px;
   border-radius: 2px;
   font-size: 0.8em;

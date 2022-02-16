@@ -58,7 +58,7 @@
           <div class="marker-list-container">
              <!-- map title & rating -->
             <div class="list-title">
-              <form>
+              <form type="POST" action="/maps/:id/edit">
                 <lable for="map-title"><strong>Map Title</strong></lable>
                 <br>
                 <br>
@@ -88,7 +88,7 @@
 
           <!-- new marker form -->
           <div class="new-marker">
-            <form action="/markers/new" method="POST" id="new-marker">
+            <form action="/maps/:id/new" method="POST" id="new-marker">
               <lable for="new-marker-title"><strong>Pin Title: </strong></lable>
               <br>
               <br>

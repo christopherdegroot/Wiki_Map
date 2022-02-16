@@ -302,11 +302,6 @@ html, body {
   }
 }
 
-.article-header {
-  font-size: 1.2em;
-  font-weight: 500;
-}
-
 .container-title {
   font-weight: 600;
   font-size: 1.5em;
@@ -357,4 +352,14 @@ html, body {
   }
 }
 
+.title-btn {
+  @include btns();
+  background: #f7e9c4;
+  border-color: #d2c9b1;
+  font-weight: 600;
+  font-size: 20px;
+  &:hover {
+    background: #f1dea8;
+  }
+}
 

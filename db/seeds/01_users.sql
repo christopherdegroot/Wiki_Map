@@ -1,8 +1,8 @@
 -- Users table seeds here (Example)
 INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Devin and I love going out for dinner with friends and travelling', 'Devin Sanders', 'tristanjacobs@gmail.com', 'password');
+    'My name is Jim Halpert and I love selling paper products, and I am in love with Pam', 'Jim Halpert', 'Jim Halpert', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
     INSERT INTO users (
     user_bio, name, username, password)
     VALUES (

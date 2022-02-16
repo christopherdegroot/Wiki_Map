@@ -21,7 +21,7 @@ module.exports = (db) => {
       });
   });
 
-    // Route using DB query functions that returns a promise
+  // Route using DB query functions that returns a promise
   router.get('/:id', (req, res) => {
     const id = req.params.id;
 
@@ -35,7 +35,7 @@ module.exports = (db) => {
           .status(500)
           .json({ error: err.message});
       });
-    });
+  });
 
 
 

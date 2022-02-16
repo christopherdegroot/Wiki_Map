@@ -34,7 +34,6 @@ app.use(
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
 const profileRoutes = require("./routers/profile-router");
 const mapsRoutes = require("./routers/maps-router");
 // const markersRoutes = require("./routers/markers-router"); ///////////////////////////////////////// CRASHING
@@ -49,25 +48,6 @@ app.use("/maps", mapsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
-app.get("/new", (req, res) => {
-  res.render("new-map");
-});
-
-
-// for john to see what the page is like
-app.get("/profile/1", (req, res) => {
-  res.render("profile");
-});
-
-
-app.get("/edit:id", (req, res) => {
-  res.render("edit-map");
-});
-
-app.get("/", (req, res) => {
-  res.render("index.ejs");
-});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

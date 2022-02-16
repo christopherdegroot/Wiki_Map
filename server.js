@@ -51,24 +51,6 @@ app.use("/maps", mapsRoutes(db));
 
 
 
-app.get("/new", (req, res) => {
-  res.render("new-map");
-});
-
-app.get("/profile/1", (req, res) => {
-  console.log('res', res);
-  res.render("profile");
-});
-
-app.get("/edit:id", (req, res) => {
-  res.render("edit-map");
-});
-
-app.get("/", (req, res) => {
-  res.render("index.ejs");
-});
-
-
 
 
 app.listen(PORT, () => {

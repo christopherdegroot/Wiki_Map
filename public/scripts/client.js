@@ -41,6 +41,7 @@ $(document).ready(function () {
     return $mapListElements;
   };
 
+  // gets user ID off the url accessing current page
   const urlUserId = window.location.href.slice(-1);
   console.log('logging url user id', urlUserId );
 

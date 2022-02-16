@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <title>Profile</title>
 </head>
@@ -61,72 +62,16 @@
         <div class="my-maps">
           <header class="container-title"> My Maps </header>
           <!-- map articles -->
-
-          <div class="map-article">
-            <header class="article-header">
-              <form type="GET" action="/maps/:id">
-                <button class="title-btn">Downtown</button>
-              </form>
-              <div>
-                <p>category</p>
-              </div>
-            </header>
-            <div class="article-body">
-              <p>DESCRIPTION</p>
-              <div class="upvote">
-                <p>Upvotes: n</p>
-              </div>
-            </div>
-            <div class="article-footer">
-              <form>
-                <button class="favorite-btn">Favorite</button>
-              </form>
-              <form type="GET" action="/maps/:id/edit">
-                <button class="edit-btn">edit</button>
-              </form>
-              <form>
-                <button class="delete-btn">delete</button>
-              </form>
-            </div>
-          </div>
+          <div id="maps-container"></div>
 
         </div>
 
         <!-- container of my favorite maps -->
         <div class="my-favorites">
           <header class="container-title">My Favorites</header>
-          <div class="map-article">
+          <!-- favourite map articles -->
+          <div id="favourites-container"></div>
 
-
-            <header class="article-header">
-              <form type="GET" action="/maps/:id">
-              <button class="title-btn">map1_title</button>
-            </form>
-            <div>
-              <p>category</p>
-            </div>
-            </header>
-            <div class="article-body">
-
-              <p>fav map description!</p>
-              <div class="upvote">
-                <p>Upvotes: n</p>
-              </div>
-            </div>
-            <div class="article-footer">
-              <form>
-                <button class="unfavorite-btn">Un-favorite</button>
-              </form>
-              <form type="GET" action="/maps/:id/edit">
-                <button type='submit' class="edit-btn">edit</button>
-              </form>
-              <form>
-                <button class="delete-btn">delete</button>
-              </form>
-            </div>
-
-
-          </div>
         </div>
       </div>
 

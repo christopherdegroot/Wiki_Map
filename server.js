@@ -50,7 +50,9 @@ app.use("/maps", mapsRoutes(db));
 // Separate them into separate routes files (see above).
 
 
-
+app.get("/", (req,res) => {
+  res.redirect('/profile/');
+}),
 
 
 app.listen(PORT, () => {

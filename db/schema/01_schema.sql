@@ -27,10 +27,10 @@ CREATE TABLE maps (
 
   map_title VARCHAR(255) NOT NULL,
   map_category VARCHAR(255),
-  map_rating INTEGER,
+  map_rating INTEGER DEFAULT 0,
   map_description TEXT,
 
-  zoom INTEGER NOT NULL,
+  zoom INTEGER DEFAULT 12,
   map_center_latitude VARCHAR(255) NOT NULL,
   map_center_longitude VARCHAR(255) NOT NULL
 );

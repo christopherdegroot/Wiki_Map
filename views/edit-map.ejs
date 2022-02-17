@@ -56,23 +56,23 @@
           <div class="marker-list-container">
              <!-- map title & rating -->
             <div class="list-title">
-              <form type="POST" action="/maps/:id/edit">
-                <label for="map-title">Edit: Map Title</label>
+              <form method="POST" action="/maps/:id/edit">
+                <label for="map_title">Edit: Map Title</label>
                 <br>
                 <br>
-                <input type="text" name ="map-title">
+                <input type="text" name ="map_title">
                 <br>
                 <br>
-                <label for="map-title">Category</label>
+                <label for="map_category">Category</label>
                 <br>
                 <br>
-                <input type="text" name ="map-title">
+                <input type="text" name ="map_category">
                 <br>
                 <br>
-                <label for="map-description">Description</label>
+                <label for="map_description">Description</label>
                 <br>
                 <br>
-                <textarea type="text" name="description"></textarea>
+                <textarea type="text" name="map_description"></textarea>
                 <br>
                 <br>
                 <button class="new-btn" type="submit">Edit</button>
@@ -94,28 +94,16 @@
            <!-- new marker form -->
           <div class="new-marker">
             <form action="/markers/new" method="POST" id="new-marker">
-              <label for="new-marker-title"><strong>New</strong> Pin Title </label>
+              <label for="marker_title"><strong>New</strong> Pin Title </label>
               <br>
               <br>
-              <input type="text" name="new-marker-title">
+              <input type="text" name="marker_title">
               <br>
               <br>
-              <label for="img-url">Image URL</label>
+              <label for="image_url">Image URL</label>
               <br>
               <br>
-              <input type="url" name="img-url">
-              <br>
-              <br>
-              <label for="longtitude">Longtitude</label>
-              <br>
-              <br>
-              <input type="number" name="longtitude">
-              <br>
-              <br>
-              <label for="latitude">Latitude</label>
-              <br>
-              <br>
-              <input type="number" name="latitude">
+              <input type="url" name="image_url">
               <br>
               <br>
               <label for="description">Description:</label>
@@ -124,8 +112,8 @@
               <textarea type="text" name="description"></textarea>
               <br>
               <br>
-              <input type="hidden" name="lat" id="lat">
-              <input type="hidden" name="long" id="long">
+              <input type="hidden" name="marker_latitude" id="lat">
+              <input type="hidden" name="marker_longitude" id="long">
               <button class="new-btn" type="submit">Add Pin</button>
             </form>
           </div>
@@ -145,16 +133,16 @@
               <input type="url" name="img-url">
               <br>
               <br>
-              <label for="longtitude">Longtitude</label>
+              <label for="marker_longitude">Longitude</label>
               <br>
               <br>
-              <input type="number" name="longtitude">
+              <input type="number" name="marker_longitude">
               <br>
               <br>
-              <label for="latitude">Latitude</label>
+              <label for="marker_latitude">Latitude</label>
               <br>
               <br>
-              <input type="number" name="latitude">
+              <input type="number" name="marker_latitude">
               <br>
               <br>
               <label for="description">Description</label>
@@ -164,8 +152,6 @@
               <br>
               <br>
               <br>
-              <input type="hidden" name="lat" id="lat">
-              <input type="hidden" name="long" id="long">
               <button class="new-btn" type="submit">Edit Pin</button>
             </form>
           </div>

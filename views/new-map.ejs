@@ -58,23 +58,23 @@
 
              <!-- map title & rating -->
             <div class="new-map-title">
-              <form type="POST" action="/maps/new">
+              <form method="POST" action="/maps/new" id="new-map-form">
                 <lable for="map-title"><strong>New Map Title</strong></lable>
                 <br>
                 <br>
-                <input type="text" name ="map-title">
+                <input type="text" name ="map_title">
                 <br>
                 <br>
                 <lable for="map-category"><strong>Map Category</strong></lable>
                 <br>
                 <br>
-                <input type="text" name ="map-category">
+                <input type="text" name ="map_category">
                 <br>
                 <br>
                 <lable for="map-description"><strong>Description</strong></lable>
                 <br>
                 <br>
-                <textarea></textarea>
+                <textarea name="map_description" id="new-map-form"></textarea>
                 <br>
                 <br>
                 <button class="new-btn" type="submit">submit</button>

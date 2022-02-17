@@ -16,10 +16,12 @@ const profileData = (values) => {
   const user = values[0];
   const maps = values[1];
   const favourites = values[2];
+  const upvotes = values[3];
   const profileVars = {
     user,
     maps,
-    favourites
+    favourites,
+    upvotes
   };
   return profileVars;
 };

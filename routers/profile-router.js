@@ -57,8 +57,16 @@ module.exports = (db) => {
           .json({ error: err.message});
       });
 
+    const upvotePromise = userQueries.totalUpvotesById(id, db)
+      .then(upvotes => upvotes)
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: err.message});
+      });
+
     // Promise method to take all the Promise data and feed into helper function to create templateVars
-    Promise.all([userPromise, mapPromise, favouritePromise])
+    Promise.all([userPromise, mapPromise, favouritePromise, upvotePromise])
     .then((values) => {
       const templateVars = profileData(values);
       res.render('profile', templateVars);

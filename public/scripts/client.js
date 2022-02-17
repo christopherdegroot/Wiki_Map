@@ -25,13 +25,13 @@ $(document).ready(function () {
               </div>
             </div>
             <div class="article-footer">
-              <form>
+              <form type="POST" action="/maps/${escape(mapObj.map_id)}/favourites">
                 <button class="favorite-btn">Favorite</button>
               </form>
-              <form type="GET" action="/maps/:id/edit">
+              <form type="GET" action="/maps/${escape(mapObj.map_id)}/edit">
                 <button class="edit-btn">edit</button>
               </form>
-              <form>
+              <form type="POST" action="/maps/${escape(mapObj.map_id)}/delete">
                 <button class="delete-btn">delete</button>
               </form>
             </div>
@@ -65,8 +65,7 @@ $(document).ready(function () {
     const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
-      console.log("mapid:", mapObj);
-      console.log(mapObj);
+      console.log(mapObj)
       return div.innerHTML;
     };
 
@@ -90,14 +89,8 @@ $(document).ready(function () {
           </div>
         </div>
         <div class="article-footer">
-          <form>
+          <form type="POST" action="/maps/${escape(mapObj.favourite_map_id)}/favourites">
             <button class="unfavorite-btn">Un-favorite</button>
-          </form>
-          <form type="GET" action="/maps/:id/edit">
-            <button type='submit' class="edit-btn">edit</button>
-          </form>
-          <form>
-            <button class="delete-btn">delete</button>
           </form>
         </div>
       </div>

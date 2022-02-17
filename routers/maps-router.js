@@ -147,12 +147,8 @@ module.exports = (db) => {
   });
 
   router.post('/:id/remove', (req, res) => {
-    const id = Number(req.params.id);
-    const mapValues = {
-      user_id: 1,
-      favourite_map_id: id
-    };
-    mapDeletions.removeFavouriteMap(mapValues, db)
+    const id = [Number(req.params.id)];
+    mapDeletions.removeFavouriteMap(id, db)
       .then((map) => res.status(204).json({}))
       .catch((err) => {
         res
@@ -162,8 +158,7 @@ module.exports = (db) => {
     });
 
   router.post('/:id/delete', (req, res) => {
-    const id = req.params.id;
-
+    const id = [req.params.id];
     mapDeletions.deleteMap(id, db)
       .then((map) => res.json(map))
       .catch((err) => {

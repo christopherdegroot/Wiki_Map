@@ -145,9 +145,15 @@ module.exports = (db) => {
       .catch((err) => {
         res
           .status(500)
+<<<<<<< HEAD
           .json({ error: err.message });
       });
   });
+=======
+          .json({ error: err.message});
+      })
+    });
+>>>>>>> map_client
 
   router.post('/:id/delete', (req, res) => {
     const id = req.params.id;

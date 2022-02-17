@@ -1,7 +1,6 @@
 $(document).ready(function () {
-  console.log('map client is being called')
 
-  const createPinListElement = function (PinObj) {
+  const createPinListElement = function (pinObj) {
 
     const escape = function (str) {
       let div = document.createElement("div");
@@ -10,11 +9,9 @@ $(document).ready(function () {
     };
 
     const $pinListElements = $(`
-    <div class="list">
-    <ul>
-    <li><a href="${'link to pin'}">${escape(pinObj.marker_title)}</a></li>
-    </ul>
-  </div>
+
+    <li><a href="${'link to pin'}">${pinObj.user_id}</a></li>
+
     `);
 
     return $pinListElements;
@@ -29,18 +26,16 @@ $(document).ready(function () {
   toString(urlMapId);
   let newUrlMapId = urlMapId.replace('?', '');
 
-  console.log('I am being called')
-
   const renderMarkerList = () => {
     $.ajax({
       url: `/markers/${newUrlMapId}/fetch`,
       method: 'GET',
     })
       .then((data) => {
-        $('#list').empty();
+        $('.list').empty();
         data.forEach((marker) => {
           const $marker = createPinListElement(marker);
-          $('#list').prepend($marker);
+          $('.list').prepend($marker);
         });
       })
       .catch((err) => {

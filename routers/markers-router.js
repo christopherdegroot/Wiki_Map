@@ -13,10 +13,8 @@ module.exports = (db) => {
 
   router.post('/new', (req, res) => {
     const queryBody = req.body;
-    console.log('qb: ', queryBody);
     const vars = [];
     for (const item in queryBody) {
-      // console.log('item:', item);
       vars.push(queryBody[item]);
     }
   });

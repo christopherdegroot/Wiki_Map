@@ -58,7 +58,6 @@ module.exports = (db) => {
       .then((values) => {
         const templateVars = mapUserData(values);
         res.render('index', templateVars);
-        console.log(templateVars);
       });
 
   });
@@ -117,10 +116,8 @@ module.exports = (db) => {
   // post route to create new map, then refirect to edit page of that newly created map
   router.post('/new', (req, res) => {
     const newMap = req.body;
-    console.log(req.body);
     mapInsertions.addMap(newMap, db)
       .then((x) => {
-        console.log('x', x);
         mapInsertions.addOwner(x, db);
         res.redirect(`/maps/${x.id}/edit`);
       })
@@ -136,7 +133,6 @@ module.exports = (db) => {
       user_id: 1,
       favourite_map_id: id
     };
-    console.log('test');
     userInsertions.addFavourite(mapValues, db)
       .then((map) => res.status(204).json({}))
       .catch((err) => {

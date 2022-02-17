@@ -11,38 +11,59 @@ $(document).ready(function () {
     $('.edit-marker').toggle(600);
   });
 
+  // Create asynchronous function to fetch database info for markers
+  const populateMap = async () => {
+    const results = await fetch('/markers/1/fetch')
+    const data = await results.json();
+    const coordsArray = [];
 
+    // Convert markers object into only coordinates  
+    const getCoordinates = function(markerObj) {
+      const coords = { 
+        lat: Number(markerObj.marker_latitude),
+        lng: Number(markerObj.marker_longitude)
+      }
+      return coords;
+    };
+    
+    data.forEach((marker) => {
+      let data = getCoordinates(marker);
+      coordsArray.push(data);
+    })
+    return Promise.resolve(coordsArray);
+    }
+    
+  async function initMap() {
+
+    // Call asynchronous function to return marker data into map initialization
+    populateMap()
+      .then((array) => {
+        const myOptions = {
+          zoom: 3,
+          center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
+        };
+        const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        
+        const createMarker = (event) => {
+          const lat = event.latLng.lat();
+          const lng = event.latLng.lng();
+          const marker = new google.maps.Marker({
+            position: { lat, lng, },
+            map: map,
+          });
+          return marker;
+        };
+        
+        array.forEach((coords) => {
+          new google.maps.Marker({
+            position: coords,
+            map: map,
+          });
+        });
+      })
+   
+  };
+
+  // Call map initialization function
+  initMap();
 });
-
-
-
-// function to initialize the google maps api
-initMap = () => {
-
-  const myOptions = {
-    zoom: 13,
-    center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
-  };
-
-  const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-  const createMarker = (event) => {
-    const lat = event.latLng.lat();
-    const lng = event.latLng.lng();
-    const marker = new google.maps.Marker({
-      position: { lat, lng, },
-      map: map,
-    });
-    return marker;
-  };
-
-  google.maps.event.addListener(map, "click", (event) => {
-    return createMarker(event);
-  });
-
-  const marker1 = new google.maps.Marker({
-    position: { lat: 49.300708190202045, lng: -123.13074020583447 },
-    map: map,
-  });
-
-};

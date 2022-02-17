@@ -5,7 +5,7 @@ const userQueries = require('../db/queries/user_queries');
 const userInsertions = require('../db/insertions/user_insertion');
 const mapInsertions = require('../db/insertions/map_insertion');
 const mapDeletions = require('../db/deletions/map_deletions');
-const { mapData, userData, markerData, mapEditData } = require('./helpers');
+const { mapData, userData, markerData, mapEditData, mapUserData } = require('./helpers');
 
 
 module.exports = (db) => {
@@ -141,7 +141,7 @@ module.exports = (db) => {
           .json({ error: err.message});
       })
     });
-    
+
   router.post('/:id/delete', (req, res) => {
     const id = req.params.id;
 

@@ -10,6 +10,18 @@ const deleteMap =  function(mapId, pool) {
 }
 exports.deleteMap = deleteMap;
 
+const removeFavouriteMap =  function(mapId, pool) {
+  return pool.query(`
+    DELETE FROM users_maps_favourites
+    WHERE favourite_map_id = $1 AND user_id = 1
+    `, mapId)
+  .then((result) => {return result.rows[0]})
+  .catch((err) => {
+    console.log(err.message);
+  });
+}
+exports.removeFavouriteMap = removeFavouriteMap;
+
 const deleteMarker =  function(markerId, pool) {
   return pool.query(`
     DELETE FROM markers

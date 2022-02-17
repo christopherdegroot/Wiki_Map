@@ -27,7 +27,8 @@ $(document).ready(function () {
     const getCoordinates = function(markerObj) {
       const coords = { 
         lat: Number(markerObj.marker_latitude),
-        lng: Number(markerObj.marker_longitude)
+        lng: Number(markerObj.marker_longitude),
+        title: markerObj.marker_title
       }
       return coords;
     };
@@ -51,10 +52,13 @@ $(document).ready(function () {
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
      
         
-        array.forEach((coords) => {
+        array.forEach((marker) => {
+          let coordinates = { lat: marker.lat, lng: marker.lng}
+          let title = marker.title;
           new google.maps.Marker({
-            position: coords,
+            position: coordinates,
             map: map,
+            title,
           });
         });
       })

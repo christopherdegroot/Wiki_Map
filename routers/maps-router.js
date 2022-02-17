@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const mapQueries = require('../db/queries/map_queries');
 const userQueries = require('../db/queries/user_queries');
+const { addMap } = require('../db/insertions/map_insertion');
 const { mapData, userData, markerData, mapEditData } = require('./helpers');
 
 
@@ -18,6 +19,18 @@ module.exports = (db) => {
         res
           .status(500)
           .json({ error: err.message});
+      });
+  });
+
+  // post route to create new map, then refirect to edit page of that newly created map
+  router.post('/new', (req, res) => {
+    const newMap = req.body;
+    addMap(newMap, db)
+      .then((x) => {
+        res.redirect(`/maps/${x.id}/edit`);
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
   });
 
@@ -66,9 +79,7 @@ module.exports = (db) => {
       // marker info promise
       const markerPromise = mapQueries.getMarkersDescByMapId(id, db)
       .then((markers) => {
-        const markerArr = [];
-        markers.forEach(element => markerArr.push(element));
-        return markerArr;
+        return markers;
       })
       .catch((err) => {
         res
@@ -95,8 +106,10 @@ module.exports = (db) => {
         res
           .status(500)
           .json({ error: err.message});
-      })
+      });
     });
+
+
 
   return router;
 };

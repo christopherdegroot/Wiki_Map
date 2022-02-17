@@ -27,8 +27,9 @@ module.exports = (db) => {
 
     mapQueries.getMapDescByMapId(id, db)
       .then((map) => {
-        const templateVars = mapData(map);
+        const templateVars = map;
         res.render('index', templateVars);
+        console.log(templateVars)
       })
       .catch((err) => {
         res

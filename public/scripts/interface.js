@@ -17,6 +17,9 @@ $(document).ready(function () {
 
 
 // function to initialize the google maps api
+
+
+// need to have a GET request before initializing the map, and run foreach to create marker
 initMap = () => {
 
   const myOptions = {
@@ -33,13 +36,17 @@ initMap = () => {
       position: { lat, lng, },
       map: map,
     });
+    // create a post request
     return marker;
   };
 
   google.maps.event.addListener(map, "click", (event) => {
     return createMarker(event);
+    // display info from post request
+    // add pin will do another post request
   });
 
+  // forEach
   const marker1 = new google.maps.Marker({
     position: { lat: 49.300708190202045, lng: -123.13074020583447 },
     map: map,

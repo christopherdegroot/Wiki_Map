@@ -17,13 +17,8 @@ module.exports = (db) => {
     const id = req.params.id;
 
     mapQueries.getMapByMapId(id, db)
-      .then((x) => {
-        const name = x.name;
-        const templateVars = {
-          name,
-        };
-        console.log('x', templateVars);
-        res.render('new-map', templateVars);
+      .then(() => {
+        res.render('new-map');
       })
       .catch((err) => {
         res

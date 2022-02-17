@@ -27,11 +27,9 @@ $(document).ready(function () {
             <div class="article-footer">
                 <button type="button" value="${escape(mapObj.map_id)}" class="favourite-btn">Favourite</button>
               <form method="GET" action="/maps/${escape(mapObj.map_id)}/edit">
-                <button class="edit-btn">Edit</button>
+                <button type="button" class="edit-btn">Edit</button>
               </form>
-              <form method="POST" action="/maps/${escape(mapObj.map_id)}/delete">
-                <button class="delete-btn">Delete</button>
-              </form>
+                <button type="button" value="${escape(mapObj.map_id)}" class="delete-btn">Delete</button>
             </div>
           </div>
           `);
@@ -77,9 +75,7 @@ $(document).ready(function () {
     const $favouriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
-          <form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
-          </form>
           <div class="article-category">
             <p>${escape(mapObj.map_category)}</p>
           </div>
@@ -94,9 +90,7 @@ $(document).ready(function () {
           </div>
         </div>
         <div class="article-footer">
-          <form method="POST" action="/maps/${escape(mapObj.favourite_map_id)}/remove">
-            <button class="unfavourite-btn">Un-favourite</button>
-          </form>
+            <button type="button" value="${escape(mapObj.favourite_map_id)}" class="unfavourite-btn">Un-favourite</button>
         </div>
       </div>
     `);
@@ -123,45 +117,54 @@ $(document).ready(function () {
 
   renderMapList();
   renderFavouriteList();
+  
+  $(document).ajaxSuccess(function() {
+    setTimeout(() => {  // Timeout to allow page to finish rendering before event listeners are applied to dynamically created elements
+      
+      //  Add favourite map to My Favourites list on click of button
+      $('.favourite-btn').on('click', function(event) {
+        event.preventDefault();
+        const btnValue = event.target.value;
+        console.log('btn:', btnValue);
+        $.ajax({
+          url: `/maps/${btnValue}/add`,
+          method: 'POST'
+        })
+          .then(() => {
+            renderMapList();
+            renderFavouriteList();
+          })
+      });
 
-  //  Add favourite map to My Favourites list on click of button
-  $(document).ajaxComplete(function() {
-  $('.favourite-btn').on('click', function(event) {
-    console.log('hello')
-    // console.log('this: ', $(this).val);
-    // event.preventDefault();
-    // console.log('event: ', event);
-    // $.ajax({
-    //   url: '/maps//add',
-    //   method: 'POST'
-    // })
-    // renderMapList();
-    // renderFavouriteList();
+      //  Remove favourite map to My Favourites list on click of button
+      $('.unfavourite-btn').on('click', function(event) {
+        event.preventDefault();
+        const btnValue = event.target.value;
+        $.ajax({
+          url: `/maps/${btnValue}/remove`,
+          method: 'POST'
+        })
+          .then(() => {
+            renderMapList();
+            renderFavouriteList();
+          })
+      });
+
+      // Delete map from My Maps list on click of button
+      $('.delete-btn').on('click', function(event) {
+        event.preventDefault();
+        const btnValue = event.target.value;
+        $.ajax({
+          url: `/maps/${btnValue}/delete`,
+          method: 'POST'
+        })
+          .then(() => {
+            renderMapList();
+            renderFavouriteList();
+          })
+      });
+
+    }, 20);
   });
-});
-
-  //  Remove favourite map to My Favourites list on click of button
-  // $('.un-favourite-btn').on('submit', function(event) {
-  //   event.preventDefault();
-  //   console.log('event: ', event);
-  //   $.ajax({
-  //     url: '/maps//remove',
-  //     method: 'POST'
-  //   })
-  //   renderMapList();
-  //   renderFavouriteList();
-  // });
-
-  //  Delete map from My Maps list on click of button
-  // $('.delete-btn').on('submit', function(event) {
-  //   event.preventDefault();
-  //   console.log('event: ', event);
-  //   $.ajax({
-  //     url: '/maps//delete',
-  //     method: 'POST'
-  //   })
-  //   renderMapList();
-  //   renderFavouriteList();
-  // });
 
 });

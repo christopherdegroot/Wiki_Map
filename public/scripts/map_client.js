@@ -35,17 +35,17 @@ $(document).ready(function() {
       });
   };
 
-  const increment = () => {
-    let num = 0;
-    num++;
-    return num;
-  };
+  // const increment = () => {
+  //   let num = 0;
+  //   num++;
+  //   return num;
+  // };
 
   renderMarkerList();
 
-  $().click(() => {
+  // $().click(() => {
 
-  })
+  // })
 
 
 });

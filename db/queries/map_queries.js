@@ -1,7 +1,7 @@
 const { query } = require("express");
 
 // Get map by a map ID
-const getMapByMapId = function (id, pool) {
+const getMapByMapId = function(id, pool) {
   return pool.query(`
   SELECT maps.*
   FROM maps
@@ -113,3 +113,19 @@ const getMarkersByCategory = function (category, pool) {
 exports.getMarkersByCategory = getMarkersByCategory;
 
 
+const getMapByLastId = function(pool) {
+  return pool.query(`
+  SELECT *
+  FROM maps
+  ORDER BY maps.id DESC
+  LIMIT 1;
+  `)
+    .then((response) => {
+      if (response.rows[0].length === 0) { return null }
+      else { return response.rows }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.getMapByLastId = getMapByLastId;

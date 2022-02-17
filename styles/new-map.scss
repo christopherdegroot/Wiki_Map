@@ -114,6 +114,7 @@ html, body {
       justify-content: center;
       align-items: center;
       margin: 6%;
+      padding: 10%;
       border-radius: 15px;
       opacity: 90%;
       transition: 0.4s ease-in-out;
@@ -141,6 +142,7 @@ html, body {
         border-radius: 7px;
         width: 20vw;
         height: 100px;
+        resize: none;
       }
 
 

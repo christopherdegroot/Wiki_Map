@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     const $pinListElements = $(`
     <li><a href="/maps/${newUrlMapId}">${pinObj.user_id}</a></li>
+    <br>
     `);
 
     return $pinListElements;

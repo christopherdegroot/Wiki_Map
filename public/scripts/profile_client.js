@@ -121,13 +121,22 @@ $(document).ready(function () {
       });
   };
 
-  renderMapList();
+
   renderFavouriteList();
+  renderMapList();
+
+  $(document).ajaxComplete(function() {
+    setTimeout(() => {
+      $('.favourite-btn').on('click', function() {
+        console.log('hello')
+      })
+    }, 20);
+})
+
 
   //  Add favourite map to My Favourites list on click of button
-  $(document).ajaxComplete(function() {
-  $('.favourite-btn').on('click', function(event) {
-    console.log('hello')
+
+
     // console.log('this: ', $(this).val);
     // event.preventDefault();
     // console.log('event: ', event);
@@ -137,8 +146,6 @@ $(document).ready(function () {
     // })
     // renderMapList();
     // renderFavouriteList();
-  });
-});
 
   //  Remove favourite map to My Favourites list on click of button
   // $('.un-favourite-btn').on('submit', function(event) {
@@ -163,5 +170,4 @@ $(document).ready(function () {
   //   renderMapList();
   //   renderFavouriteList();
   // });
-
 });

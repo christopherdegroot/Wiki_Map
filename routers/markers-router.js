@@ -20,12 +20,20 @@ module.exports = (db) => {
     }
   });
 
+  // id is marker id
+  //using jquery
   // router.post('/:id/edit', (req, res) => {
-  //   const formInfo = req.body;
+  //   let formInfo = req.body;
   //   const id = req.params.id;
-  //   formInfo.marker_id = id;
+  //   formInfo.id = id;
+  //   console.log(formInfo.marker_id);
+  //   const map = 1;
+
+  //   // get database call with markerID
+
   //   mapEditions.editMarker(map, db)
   //     .then(() => {
+  //       // return from backend to the front end
   //       res.redirect(`back`);
   //     });
   // });

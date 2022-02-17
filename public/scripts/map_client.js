@@ -36,17 +36,25 @@ $(document).ready(function() {
       });
   };
 
-  // const increment = () => {
-  //   let num = 0;
-  //   num++;
-  //   return num;
-  // };
 
   renderMarkerList();
 
-  // $().click(() => {
+  // $('.pin-button').click(function(event) {
+  //   event.preventDefault();
+  //   let marker = $(this).id;
 
-  // })
+  //   $ajax(() => {
+  //     url: ,
+  //     method: GET,
 
+  //   })
+          // .then(() => {
+            // info to display everything
+            // append to html
+          // })
+
+  // });
+
+  // <!-- <button id='<%= marker.id %>' class="pin-button">pin1</button> -->
 
 });

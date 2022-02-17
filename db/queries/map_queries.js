@@ -8,7 +8,7 @@ const getMapByMapId = function(id, pool) {
   JOIN users_maps_ownership ON map_id = maps.id
   JOIN users ON owner_user_id = users.id
   WHERE maps.id = $1
-  `, [2])
+  `, [id])
     .then((response) => {
       if (response.rows[0].length === 0) { return null }
       else { return response.rows[0] }
@@ -40,7 +40,7 @@ exports.getMapDescByMapId = getMapDescByMapId;
 // get all markers that match a particular map ID
 const getMarkersByMapId = function (id, pool) {
   return pool.query(`
-  SELECT markers.marker_title user_id, map_id, markers.marker_latitude, markers.marker_longitude
+  SELECT markers.marker_title, markers.id, user_id, map_id, markers.marker_latitude, markers.marker_longitude
   FROM markers
   JOIN maps ON map_id = maps.id
   WHERE maps.id = $1;

@@ -20,7 +20,7 @@ exports.getMapByMapId = getMapByMapId;
 // Get map descriptive data by a map ID
 const getMapDescByMapId = function (id, pool) {
   return pool.query(`
-  SELECT map_title, map_category, map_rating, map_description
+  SELECT map_title, map_category, map_rating, map_description, map_image_url
   FROM maps
   WHERE maps.id = $1;
   `, [id])

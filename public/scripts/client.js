@@ -41,10 +41,18 @@ $(document).ready(function () {
     return $mapListElements;
   };
 
+  // gets user ID off the url accessing current page
+  let urlUserId = ''
+  if (window.location.href.slice(-1) === '?') {
+    urlUserId += window.location.href.slice(-2);
+  } else {urlUserId += window.location.href.slice(-1);}
+
+  toString(urlUserId);
+  let newUrlUserId = urlUserId.replace('?', '');
 
   const renderMapList = () => {
     $.ajax({
-      url: `/profile/1/owned`,
+      url: `/profile/${newUrlUserId}/owned`,
       method: 'GET',
     })
       .then((data) => {
@@ -65,8 +73,17 @@ $(document).ready(function () {
     const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
-      console.log(mapObj)
       return div.innerHTML;
+    };
+
+    let edit;
+
+    if (mapObj.favourite_map_id !== mapObj.user_id) {
+      edit = `<form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}/edit">
+        <button type='submit' class="edit-btn">edit</button>
+      </form>`
+    } else {
+      edit = '';
     };
 
     const $favoriteListElements = $(`
@@ -85,13 +102,20 @@ $(document).ready(function () {
             <p>Upvotes: ${escape(mapObj.map_rating)}</p>
             <div>
                 Map Created By: ${escape(mapObj.owner_user_id)}
-          </div>
+            </div>
           </div>
         </div>
         <div class="article-footer">
           <form type="POST" action="/maps/${escape(mapObj.favourite_map_id)}/favourites">
             <button class="unfavorite-btn">Un-favorite</button>
           </form>
+<<<<<<< HEAD
+=======
+         ${edit}
+          <form>
+            <button class="delete-btn">delete</button>
+          </form>
+>>>>>>> d23d8e7da3a8495ba234cb5c3ae759bc5d724f04
         </div>
       </div>
     `);
@@ -101,7 +125,7 @@ $(document).ready(function () {
 
   const renderFavoriteList = () => {
     $.ajax({
-      url: '/profile/1/favourites',
+      url: `/profile/${newUrlUserId}/favourites`,
       method: 'GET',
     })
       .then((data) => {

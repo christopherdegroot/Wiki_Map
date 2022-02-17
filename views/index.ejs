@@ -55,7 +55,7 @@
         <i class="fa-solid fa-grip-lines"></i>
       </span>
       <div class="top-greeting">
-        Welcome back, <br> <strong>User!</strong>
+        Welcome to <br> <strong><%= user.username %>'s</strong> map
       </div>
     </header>
 
@@ -65,12 +65,12 @@
              <!-- map title & rating -->
             <div class="list-left">
               <div>
-                <header class="list-left-title"><strong>map title</strong><header>
+                <header class="list-left-title"><strong><%= map.map_title %></strong><header>
               </div>
               <div>
-                <div class="list-left-body">hahahahaha hahahahaha ahahhahahahahahahahahaahahahahahahhahahahahahahahaha</div>
+                <div class="list-left-body"><%= map.map_description %></div>
               </div>
-                <p>Category</p>
+                <p><%= map.map_category %></p>
             </div>
             <!-- list of markers -->
             <div class="list">
@@ -85,13 +85,11 @@
 
         <!-- marker detail (title, descript, img) -->
         <div class="marker-content">
-          <header class="marker-article"><strong>1. Vancouver Aquarium</strong></header>
-          <article>The Vancouver Aquarium is a public aquarium located in Stanley Park in Vancouver, British Columbia,
-            Canada. In addition to being a major tourist attraction for Vancouver, the aquarium is a centre for marine
-            research, ocean literacy education, conservation and marine animal rehabilitation.</article>
+          <header class="marker-article"><strong>pin title</strong></header>
+          <article>pin description... below should be marker image url</article>
           <br>
           <div class="marker-img">
-            <img src="https://www.kenmoreair.com/uploads/images/blogPics2/sharks.jpg">
+            <img src="<%= map.map_image_url %>">
           </div>
         </div>
       </div>

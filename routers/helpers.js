@@ -68,11 +68,23 @@ const mapEditData = (values) => {
   return mapTempVars;
 };
 
+const mapUserData = (values) => {
+  const map = values[0];
+  const user = values[1];;
+  const mapUserTempVars = {
+    map,
+    user,
+  };
+  return mapUserTempVars;
+};
+
+
 
 module.exports = {
   userData,
   profileData,
   mapData,
   mapEditData,
-  markerData
+  markerData,
+  mapUserData
 };

@@ -119,6 +119,7 @@ module.exports = (db) => {
     const newMap = req.body;
     mapInsertions.addMap(newMap, db)
       .then((x) => {
+        console.log('x', x);
         res.redirect(`/maps/${x.id}/edit`);
       })
       .catch((err) => {

@@ -11,7 +11,7 @@ module.exports = (db) => {
     userQueries.mapsOwnedByUserId(id, db)
       .then((data) => {
         res.json(data);
-      })
+      });
   });
 
   // Route for jQuery rendering of My Favourites containers

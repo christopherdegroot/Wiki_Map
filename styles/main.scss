@@ -358,7 +358,7 @@ html, body {
 }
 
 
-.favorite-btn {
+.favourite-btn {
   @include btns();
   background: #f7e9c4;
   &:hover {
@@ -382,7 +382,7 @@ html, body {
   }
 }
 
-.unfavorite-btn {
+.unfavourite-btn {
   @include btns();
   background: #f7e9c4;
   &:hover {

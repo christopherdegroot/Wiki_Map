@@ -24,21 +24,52 @@ module.exports = (db) => {
       });
   });
 
+  // post route to create new map, then refirect to edit page of that newly created map
+  router.post('/new', (req, res) => {
+    const newMap = req.body;
+    addMap(newMap, db)
+      .then((x) => {
+        res.redirect(`/maps/${x.id}/edit`);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
   // Route using DB query functions that returns a promise
   router.get('/:id', (req, res) => {
     const id = req.params.id;
 
-    mapQueries.getMapDescByMapId(id, db)
+    const mapPromise = mapQueries.getMapDescByMapId(id, db)
       .then((map) => {
-        const templateVars = map;
-        res.render('index', templateVars);
-        console.log(templateVars)
+        return map;
       })
       .catch((err) => {
         res
           .status(500)
           .json({ error: err.message});
       });
+
+      // User info query Promise
+      const userPromise = userQueries.getUserWithId(id, db)
+      .then((user) => {
+        const userObj = userData(user);
+        return userObj;
+      })
+      .catch((err) => {
+        res
+        .status(500)
+        .json({ error: err.message});
+      });
+
+
+      Promise.all([mapPromise, userPromise])
+      .then((values) => {
+        const templateVars = mapUserData(values);
+        res.render('index', templateVars);
+        console.log(templateVars);
+      });
+
   });
 
 
@@ -122,7 +153,7 @@ module.exports = (db) => {
         res
           .status(500)
           .json({ error: err.message});
-      })
+      });
     });
 
 

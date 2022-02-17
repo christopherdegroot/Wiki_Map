@@ -11,7 +11,7 @@ $(document).ready(function () {
     const $mapListElements = $(`
         <div class="map-article">
             <header class="article-header">
-              <form type="GET" action="/maps/${escape(mapObj.map_id)}">
+              <form method="GET" action="/maps/${escape(mapObj.map_id)}">
                 <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
               <div class="article-category">
@@ -25,13 +25,13 @@ $(document).ready(function () {
               </div>
             </div>
             <div class="article-footer">
-              <form>
+              <form method="POST" action="/maps/${escape(mapObj.map_id)}/favourites">
                 <button class="favorite-btn">Favorite</button>
               </form>
-              <form type="GET" action="/maps/:id/edit">
+              <form method="GET" action="/maps/${escape(mapObj.map_id)}/edit">
                 <button class="edit-btn">edit</button>
               </form>
-              <form>
+              <form method="POST" action="/maps/${escape(mapObj.map_id)}/delete">
                 <button class="delete-btn">delete</button>
               </form>
             </div>
@@ -79,7 +79,7 @@ $(document).ready(function () {
     let edit;
 
     if (mapObj.favourite_map_id !== mapObj.user_id) {
-      edit = `<form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}/edit">
+      edit = `<form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}/edit">
         <button type='submit' class="edit-btn">edit</button>
       </form>`
     } else {
@@ -89,7 +89,7 @@ $(document).ready(function () {
     const $favoriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
-          <form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
+          <form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
           <div class="article-category">
@@ -106,12 +106,8 @@ $(document).ready(function () {
           </div>
         </div>
         <div class="article-footer">
-          <form>
+          <form method="POST" action="/maps/${escape(mapObj.favourite_map_id)}/favourites">
             <button class="unfavorite-btn">Un-favorite</button>
-          </form>
-         ${edit}
-          <form>
-            <button class="delete-btn">delete</button>
           </form>
         </div>
       </div>

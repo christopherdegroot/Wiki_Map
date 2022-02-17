@@ -55,7 +55,7 @@
         <i class="fa-solid fa-grip-lines"></i>
       </span>
       <div class="top-greeting">
-        Welcome back, <br> <strong>User!</strong>
+        Welcome to <br> <strong><%= user.username %>'s</strong> map
       </div>
     </header>
 
@@ -65,12 +65,12 @@
              <!-- map title & rating -->
             <div class="list-left">
               <div>
-                <header class="list-left-title"><strong><%= map_title %></strong><header>
+                <header class="list-left-title"><strong><%= map.map_title %></strong><header>
               </div>
               <div>
-                <div class="list-left-body"><%= map_description %></div>
+                <div class="list-left-body"><%= map.map_description %></div>
               </div>
-                <p><%= map_category %></p>
+                <p><%= map.map_category %></p>
             </div>
             <!-- list of markers -->
             <div class="list">
@@ -89,7 +89,7 @@
           <article>pin description... below should be marker image url</article>
           <br>
           <div class="marker-img">
-            <img src="<%= map_image_url %>">
+            <img src="<%= map.map_image_url %>">
           </div>
         </div>
       </div>

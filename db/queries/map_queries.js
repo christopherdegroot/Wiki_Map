@@ -3,10 +3,12 @@ const { query } = require("express");
 // Get map by a map ID
 const getMapByMapId = function(id, pool) {
   return pool.query(`
-  SELECT maps.*
+  SELECT maps.*, users.id, users.name
   FROM maps
-  WHERE maps.id = $1;
-  `, [id])
+  JOIN users_maps_ownership ON map_id = maps.id
+  JOIN users ON owner_user_id = users.id
+  WHERE maps.id = $1
+  `, [2])
     .then((response) => {
       if (response.rows[0].length === 0) { return null }
       else { return response.rows[0] }

@@ -56,7 +56,6 @@ $(document).ready(function () {
       method: 'GET',
     })
       .then((data) => {
-        console.log(data);
         $('#maps-container').empty();
         data.forEach((map) => {
           const $map = createMapListElement(map);
@@ -74,9 +73,17 @@ $(document).ready(function () {
     const escape = function(str) {
       let div = document.createElement("div");
       div.appendChild(document.createTextNode(str));
-      // console.log("mapid:", mapObj);
-      // console.log(mapObj);
       return div.innerHTML;
+    };
+
+    let edit;
+
+    if (mapObj.favourite_map_id !== mapObj.user_id) {
+      edit = `<form type="GET" action="/maps/${escape(mapObj.favourite_map_id)}/edit">
+        <button type='submit' class="edit-btn">edit</button>
+      </form>`
+    } else {
+      edit = '';
     };
 
     const $favoriteListElements = $(`
@@ -95,16 +102,14 @@ $(document).ready(function () {
             <p>Upvotes: ${escape(mapObj.map_rating)}</p>
             <div>
                 Map Created By: ${escape(mapObj.owner_user_id)}
-          </div>
+            </div>
           </div>
         </div>
         <div class="article-footer">
           <form>
             <button class="unfavorite-btn">Un-favorite</button>
           </form>
-          <form type="GET" action="/maps/:id/edit">
-            <button type='submit' class="edit-btn">edit</button>
-          </form>
+         ${edit}
           <form>
             <button class="delete-btn">delete</button>
           </form>

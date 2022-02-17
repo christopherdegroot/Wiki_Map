@@ -2,6 +2,9 @@ const express = require('express');
 const router  = express.Router();
 const mapQueries = require('../db/queries/map_queries');
 const userQueries = require('../db/queries/user_queries');
+const userInsertions = require('../db/insertions/user_insertion');
+const mapInsertions = require('../db/insertions/map_insertion');
+const mapDeletions = require('../db/deletions/map_deletions');
 const { mapData, userData, markerData, mapEditData } = require('./helpers');
 
 
@@ -82,10 +85,36 @@ module.exports = (db) => {
         });
       });
 
+  router.post('/:id/add', (req, res) => {
+    const id = [req.params.id];
+    // const id = req.body;
+    console.log('id:', id);
+    userInsertions.addFavourite(id, db)
+      .then((map) => console.log(map))
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: err.message});
+      })
+    });
+
+  router.post('/:id/remove', (req, res) => {
+    const id = [req.params.id];
+    // const id = req.body;
+    console.log('id:', id);
+    mapDeletions.removeFavouriteMap(id, db)
+      .then((map) => console.log(map))
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: err.message});
+      })
+    });
+    
   router.post('/:id/delete', (req, res) => {
     const id = req.params.id;
 
-    mapQueries.deleteMapByMapId(id, db)
+    mapDeletions.deleteMap(id, db)
       .then((map) => {
         res.redirect('/profile/1');
       })
@@ -95,6 +124,7 @@ module.exports = (db) => {
           .json({ error: err.message});
       })
     });
+
 
   return router;
 };

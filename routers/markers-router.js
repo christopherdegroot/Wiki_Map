@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const mapQueries = require('../db/queries/map_queries');
+const mapEditions = require('../db/editions/map_editions');
 
 module.exports = (db) => {
 
@@ -19,7 +20,18 @@ module.exports = (db) => {
     }
   });
 
-  // router.get('/')
+  // router.post('/:id/edit', (req, res) => {
+  //   const formInfo = req.body;
+  //   const id = req.params.id;
+  //   formInfo.marker_id = id;
+  //   mapEditions.editMarker(map, db)
+  //     .then(() => {
+  //       res.redirect(`back`);
+  //     });
+  // });
+
+
+
 
 
 

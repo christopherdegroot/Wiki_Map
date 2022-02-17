@@ -82,13 +82,7 @@
             <div class="list">
               <h2><%= map.map_title %></h2>
               <label for="pin-list"><strong>Pins</strong></label>
-              <ul>
-                <li><a href="#">pin1</a></li>
-                <li><a href="#">pin2</a></li>
-                <li><a href="#">pin3</a></li>
-                <li><a href="#">pin4</a></li>
-
-              </ul>
+              <!-- pins go here -->
             </div>
           </div>
 
@@ -121,6 +115,7 @@
 
           <!-- new marker form -->
           <div class="edit-marker" value="visible">
+            <!-- need to change map.id -->
             <form action="/markers/<%= map.id %>/edit" method="POST" id="edit-marker">
               <label for="new-marker-title"><strong>Edit:</strong> Pin Title </label>
               <br>

@@ -24,7 +24,6 @@ CREATE TABLE users (
 -- Recreate Maps Table
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
-  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 
   map_title VARCHAR(255) NOT NULL,
   map_category VARCHAR(255),

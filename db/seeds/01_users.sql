@@ -2,15 +2,15 @@
 INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Jim Halpert and I love selling paper products, and I am in love with Pam', 'Jim Halpert', 'Jim Halpert', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
+    'My name is Jim and I love selling paper products, and I am in love with Pam', 'Jim Halpert', 'Jim Halpert', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
     INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Iva and I love skiing, hiking, and beer', 'Iva Harrison', 'allisonjackson@mail.com', 'password');
+    'My name is Pam and I love skiing, hiking, and beer', 'Pam Beesly', 'Pam Beesly', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-pam-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
     INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is user and I love going out for dinner with friends and travelling', 'Lloyd Jefferson', 'asherpoole@gmx.com', 'password');
+    'My name is Michael and I love going out for dinner with friends and travelling', 'Michael Scott', 'Michael Scott', 'password', 'https://miro.medium.com/max/500/1*xDIevNE7HEMiJQVTYg0qDQ.png');
     INSERT INTO users (
     user_bio, name, username, password)
     VALUES (

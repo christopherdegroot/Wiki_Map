@@ -18,10 +18,11 @@ exports.getUserWithId = getUserWithId;
 // gets all favourite maps for a user by their user id
 const favouriteMapsByUserId = function (id, pool) {
   return pool.query(`
-  SELECT favourite_map_id, user_id, maps.map_description, maps.map_category, maps.map_rating, maps.map_title, owner_user_id
+  SELECT favourite_map_id, user_id, maps.map_description, maps.map_category, maps.map_rating, maps.map_title, name
   FROM users_maps_favourites
   JOIN maps ON favourite_map_id = maps.id
   JOIN users_maps_ownership ON map_id = maps.id
+  JOIN users ON owner_user_id = users.id
   WHERE user_id = $1;
   `, [id])
     .then((response) => {

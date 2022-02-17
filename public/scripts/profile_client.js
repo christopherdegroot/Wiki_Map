@@ -21,7 +21,7 @@ $(document).ready(function () {
             <div class="article-body">
               <p>${escape(mapObj.map_description)}</p>
               <div class="upvote">
-                <p>Upvotes: ${escape(mapObj.map_rating)}</p>
+                <p>Upvotes: <strong>${escape(mapObj.map_rating)}</strong></p>
               </div>
             </div>
             <div class="article-footer">
@@ -83,9 +83,9 @@ $(document).ready(function () {
         <div class="article-body">
           <p>${escape(mapObj.map_description)}</p>
           <div class="upvote">
-            <p>Upvotes: ${escape(mapObj.map_rating)}</p>
+            <p>Upvotes: <strong>${escape(mapObj.map_rating)}</strong></p>
             <div>
-                Map Created By: ${escape(mapObj.owner_user_id)}
+              Created By: <strong>${escape(mapObj.name)}</strong>
             </div>
           </div>
         </div>

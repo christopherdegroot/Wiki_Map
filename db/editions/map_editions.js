@@ -2,7 +2,6 @@
 
 // edit map title, category, & description
 const editMap = function(map, pool) {
-  console.log('map: ', map);
   const values = [map.map_title, map.map_category, map.map_description, map.id];
 
   return pool.query(`

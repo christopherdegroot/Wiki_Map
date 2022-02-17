@@ -126,6 +126,7 @@ html, body {
         border-radius: 7px;
         width: 13vw;
         height: 30px;
+        resize: none;
       }
 
       .marker-list-container {
@@ -177,7 +178,7 @@ html, body {
         justify-content: center;
         font-size: 0.8em;
         border-radius: 10px;
-        padding: 10% 10%;
+        padding: 20% 10%;
         height: 65%;
         background-color: #eeeeee;
 
@@ -193,6 +194,7 @@ html, body {
           border-radius: 7px;
           width: 24vw;
           height: 100px;
+          resize: none;
         }
 
 

@@ -1,7 +1,6 @@
 @mixin list() {
   border-radius: 10px;
-  margin-bottom: 3%;
-  padding: 4%;
+
 }
 
 @mixin article-containers {
@@ -148,6 +147,8 @@ html, body {
           text-align: center;
           justify-content: center;
           width: 50%;
+          margin-bottom: 3%;
+          padding: 4%;
           @include list();
 
           .list-left-title {
@@ -165,6 +166,11 @@ html, body {
         .list {
           background-color: #d8d8d8b7;
           width: 50%;
+          margin-bottom: 3%;
+          padding: 7% 6%;
+          font-size: 1em;
+          overflow-wrap: break-word;
+          hyphens: auto;
           @include list();
           a {
             text-decoration: none;
@@ -247,6 +253,10 @@ html, body {
 
 // --------------------------------------------------------------------------------------------------------------------------------------
 
+
+#main-content {
+  width: 100%;
+}
 
 #profile-main-content {
   display: flex;

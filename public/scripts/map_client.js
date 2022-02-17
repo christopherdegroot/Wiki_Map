@@ -1,24 +1,16 @@
-$(document).ready(function () {
+$(document).ready(function() {
 
-  const createPinListElement = function (pinObj) {
-
-    const escape = function (str) {
-      let div = document.createElement("div");
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    };
+  const createPinListElement = function(pinObj) {
 
     const $pinListElements = $(`
-
-    <li><a href="${'link to pin'}">${pinObj.user_id}</a></li>
-
+    <li><a href="/maps/${newUrlMapId}">${pinObj.user_id}</a></li>
     `);
 
     return $pinListElements;
   };
 
   // gets map ID off the url accessing current page
-  let urlMapId = ''
+  let urlMapId = '';
   if (window.location.href.slice(-1) === '?') {
     urlMapId += window.location.href.slice(-2);
   } else {urlMapId += window.location.href.slice(-1);}
@@ -43,5 +35,17 @@ $(document).ready(function () {
       });
   };
 
+  const increment = () => {
+    let num = 0;
+    num++;
+    return num;
+  };
+
   renderMarkerList();
+
+  $().click(() => {
+
+  })
+
+
 });

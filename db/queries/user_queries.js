@@ -1,7 +1,7 @@
 // gets a single user from the databse by a user ID
 const getUserWithId = function (id, pool) {
   return pool.query(`
-  SELECT username, profile_picture_url, user_bio
+  SELECT name, username, profile_picture_url, user_bio
   FROM users
   WHERE users.id = $1
   `, [id])
@@ -27,7 +27,7 @@ const favouriteMapsByUserId = function (id, pool) {
   `, [id])
     .then((response) => {
       if (response.rows[0].length === 0) { return null }
-      else { return response.rows }
+      else { return response.rows; }
     })
     .catch((err) => {
       console.log(err.message);

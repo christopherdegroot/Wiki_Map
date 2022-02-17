@@ -2,11 +2,12 @@
 
 // Takes result of user data query and returns an object to be handled later by profileData function
 const userData = (user) => {
-  const { username, profile_picture_url, user_bio } = user;
+  const { username, profile_picture_url, user_bio, name } = user;
   const userObj = {
     username,
     profile_picture_url,
-    bio: user_bio
+    bio: user_bio,
+    name
   };
   return userObj;
 };

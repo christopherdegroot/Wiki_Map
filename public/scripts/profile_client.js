@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  
+
   const createMapListElement = function (mapObj) {
 
     const escape = function (str) {
@@ -124,11 +124,13 @@ $(document).ready(function () {
   renderMapList();
   renderFavouriteList();
 
-  //  Add favourite map to My Favourites list on click of button 
-  $('.favourite-btn').on('', function(event) {
-    console.log('this: ', $(this).val);
-    event.preventDefault();
-    console.log('event: ', event);
+  //  Add favourite map to My Favourites list on click of button
+  $(document).ajaxComplete(function() {
+  $('.favourite-btn').on('click', function(event) {
+    console.log('hello')
+    // console.log('this: ', $(this).val);
+    // event.preventDefault();
+    // console.log('event: ', event);
     // $.ajax({
     //   url: '/maps//add',
     //   method: 'POST'
@@ -136,8 +138,9 @@ $(document).ready(function () {
     // renderMapList();
     // renderFavouriteList();
   });
+});
 
-  //  Remove favourite map to My Favourites list on click of button 
+  //  Remove favourite map to My Favourites list on click of button
   // $('.un-favourite-btn').on('submit', function(event) {
   //   event.preventDefault();
   //   console.log('event: ', event);
@@ -149,7 +152,7 @@ $(document).ready(function () {
   //   renderFavouriteList();
   // });
 
-  //  Delete map from My Maps list on click of button 
+  //  Delete map from My Maps list on click of button
   // $('.delete-btn').on('submit', function(event) {
   //   event.preventDefault();
   //   console.log('event: ', event);

@@ -1,18 +1,34 @@
 
 
 const addMap = function (map, pool) {
-  const values = [`${map.map_title}`, `${map.map_category}`, `${map.map_description}`];
+  const values = [`${map.map_title}`, `${map.map_category}`, `${map.map_description}`, '49.300708190202045', '-123.13074020583447'];
+  // console.log('logging values', values)
   return pool.query(`
-  INSERT INTO maps (map_title, map_category, map_description, map_center_latitude, map_center_longitude, owner_id)
-  VALUES ($1, $2, $3, 49.300708190202045, -123.13074020583447, 1)
+  INSERT INTO maps (map_title, map_category, map_description, map_center_latitude, map_center_longitude)
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *;
+    `, values)
+    .then((result) => {
+      //console.log('logging result', result.rows[0])
+      return result.rows[0]})
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.addMap = addMap;
 
+const addOwner = function (map, pool) {
+  const values = [`1`, `${map.id}`];
+  return pool.query(`
+  INSERT INTO users_maps_ownership (owner_user_id, map_id)
+  VALUES ($1, $2)
     `, values)
     .then((result) => { return result.rows[0] })
     .catch((err) => {
       console.log(err.message);
     });
 };
-exports.addMap = addMap;
+exports.addOwner = addOwner;
 
 const addMarker = function (markers, pool) {
   const values = [`${markers.user_id}`, `${markers.map_id}`, `${markers.marker_title}`, `${markers.description}`, `${markers.marker_category}`, `${markers.image_url}`, `${markers.marker_latitude}`, `${markers.marker_longitude}`];

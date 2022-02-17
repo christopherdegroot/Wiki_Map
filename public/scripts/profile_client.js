@@ -132,7 +132,7 @@ $(document).ready(function () {
           .then(() => {
             renderMapList();
             renderFavouriteList();
-          })
+          });
       });
 
       //  Remove favourite map to My Favourites list on click of button
@@ -146,7 +146,7 @@ $(document).ready(function () {
           .then(() => {
             renderMapList();
             renderFavouriteList();
-          })
+          });
       });
 
       // Delete map from My Maps list on click of button
@@ -160,7 +160,7 @@ $(document).ready(function () {
           .then(() => {
             renderMapList();
             renderFavouriteList();
-          })
+          });
       });
 
     }, 20);

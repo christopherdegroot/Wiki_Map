@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/interface.js"></script>
-  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/markers_client.js"></script>
   <title>Edit WikiMap</title>
 </head>
 
@@ -80,8 +80,19 @@
             </div>
             <!-- list of markers -->
             <div class="list">
+
+
               <h2><%= map.map_title %></h2>
-              <label for="pin-list"><strong>Pins</strong></label>
+              <label for="pin-list"><strong>Pins - </strong></label>
+
+
+              <div class="markers-container">
+                <ul>
+                  <!-- <form method="GET" action="markers/:id/fetch">
+                    <button id='<%= %>' class="pin-button">pin1</button>
+                  </form> -->
+                </ul>
+              </div>
 
 
 

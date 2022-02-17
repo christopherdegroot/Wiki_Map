@@ -40,7 +40,7 @@ $(document).ready(function () {
   };
 
   // gets user ID off the url accessing current page
-  let urlUserId = ''
+  let urlUserId = '';
   if (window.location.href.slice(-1) === '?') {
     urlUserId += window.location.href.slice(-2);
   } else {urlUserId += window.location.href.slice(-1);}

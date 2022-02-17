@@ -6,12 +6,11 @@ module.exports = (db) => {
 
 
   router.get('/:id/fetch', (req, res) => {
-    const id = req.params.id
-    console.log('id:', id);
+    const id = req.params.id;
     mapQueries.getMarkersByMapId(id, db)
       .then((markers) => res.jsonp(markers));
   })
-  
+
   router.post('/new', (req, res) => {
     const queryBody = req.body;
     console.log('qb: ', queryBody);

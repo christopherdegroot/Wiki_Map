@@ -38,7 +38,7 @@ exports.getMapDescByMapId = getMapDescByMapId;
 // get all markers that match a particular map ID
 const getMarkersByMapId = function (id, pool) {
   return pool.query(`
-  SELECT user_id, map_id, markers.marker_latitude, markers.marker_longitude
+  SELECT markers.marker_title user_id, map_id, markers.marker_latitude, markers.marker_longitude
   FROM markers
   JOIN maps ON map_id = maps.id
   WHERE maps.id = $1;

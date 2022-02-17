@@ -121,7 +121,7 @@ module.exports = (db) => {
     mapInsertions.addMap(newMap, db)
       .then((x) => {
         console.log('x', x);
-        mapInsertions.addOwner(x, db)
+        mapInsertions.addOwner(x, db);
         res.redirect(`/maps/${x.id}/edit`);
       })
       .catch((err) => {
@@ -158,8 +158,8 @@ module.exports = (db) => {
         res
           .status(500)
           .json({ error: err.message});
-      })
-    });
+      });
+  });
 
   router.post('/:id/delete', (req, res) => {
     const id = req.params.id;

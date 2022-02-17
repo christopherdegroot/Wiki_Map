@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const { userData, profileData } = require('./helpers');
 const userQueries = require('../db/queries/user_queries');  // Requiring separate query file once it is created
 
@@ -20,7 +20,7 @@ module.exports = (db) => {
     userQueries.favouriteMapsByUserId(id, db)
       .then((data) => {
         res.json(data);
-      })
+      });
   });
 
   // Route using DB query function that returns a Promise of single user object
@@ -35,8 +35,8 @@ module.exports = (db) => {
       })
       .catch((err) => {
         res
-        .status(500)
-        .json({ error: err.message});
+          .status(500)
+          .json({ error: err.message });
       });
 
     // All user maps query Promise
@@ -44,8 +44,8 @@ module.exports = (db) => {
       .then((maps) => maps)
       .catch((err) => {
         res
-        .status(500)
-        .json({ error: err.message});
+          .status(500)
+          .json({ error: err.message });
       });
 
     // All user favourite maps query Promise
@@ -54,7 +54,7 @@ module.exports = (db) => {
       .catch((err) => {
         res
           .status(500)
-          .json({ error: err.message});
+          .json({ error: err.message });
       });
 
     const upvotePromise = userQueries.totalUpvotesById(id, db)
@@ -62,15 +62,15 @@ module.exports = (db) => {
       .catch((err) => {
         res
           .status(500)
-          .json({ error: err.message});
+          .json({ error: err.message });
       });
 
     // Promise method to take all the Promise data and feed into helper function to create templateVars
     Promise.all([userPromise, mapPromise, favouritePromise, upvotePromise])
-    .then((values) => {
-      const templateVars = profileData(values);
-      res.render('profile', templateVars);
-    });
+      .then((values) => {
+        const templateVars = profileData(values);
+        res.render('profile', templateVars);
+      });
   });
 
   return router;

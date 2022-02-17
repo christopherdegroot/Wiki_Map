@@ -34,8 +34,8 @@ const profileData = (values) => {
 const mapData = (values) => {
   const title = values[0];
   const category = values[1];
-  const rating =  values[2];
-  const description =  values[3];
+  const rating = values[2];
+  const description = values[3];
   const mapVars = {
     title,
     category,
@@ -48,11 +48,11 @@ const mapData = (values) => {
 const markerData = (marker) => {
   const { marker_title, image_url, description, marker_latitude, marker_longitude } = marker;
   const markerObj = {
-      title: marker_title,
-      url: image_url,
-      desc: description,
-      lat: marker_latitude,
-      lon: marker_longitude,
+    title: marker_title,
+    url: image_url,
+    desc: description,
+    lat: marker_latitude,
+    lon: marker_longitude,
   };
   return markerObj;
 };
@@ -61,7 +61,7 @@ const markerData = (marker) => {
 const mapEditData = (values) => {
   const user = values[0];
   const map = values[1];
-  const markers =  values[2];
+  const markers = values[2];
   const mapTempVars = {
     user,
     map,
@@ -72,7 +72,7 @@ const mapEditData = (values) => {
 
 const mapUserData = (values) => {
   const map = values[0];
-  const user = values[1];;
+  const user = values[1];
   const mapUserTempVars = {
     map,
     user,

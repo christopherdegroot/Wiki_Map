@@ -115,7 +115,7 @@ $(document).ready(function () {
       });
   };
 
-  renderMapList();
+
   renderFavouriteList();
   
   $(document).ajaxSuccess(function() {

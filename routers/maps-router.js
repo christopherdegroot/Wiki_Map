@@ -117,8 +117,11 @@ module.exports = (db) => {
   // post route to create new map, then refirect to edit page of that newly created map
   router.post('/new', (req, res) => {
     const newMap = req.body;
+    console.log(req.body);
     mapInsertions.addMap(newMap, db)
       .then((x) => {
+        console.log('x', x);
+        mapInsertions.addOwner(x, db)
         res.redirect(`/maps/${x.id}/edit`);
       })
       .catch((err) => {

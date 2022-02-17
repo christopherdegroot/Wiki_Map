@@ -11,9 +11,15 @@ $(document).ready(function () {
     $('.edit-marker').toggle(600);
   });
 
+  // gets user ID off the url accessing current page
+  let urlMapId = '';
+  if (window.location.href.slice(-1) === '?') {
+    urlMapId += window.location.href.slice(-2);
+  } else {urlMapId += window.location.href.slice(-1);}
+
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {
-    const results = await fetch('/markers/1/fetch')
+    const results = await fetch(`/markers/${urlMapId}/fetch`);
     const data = await results.json();
     const coordsArray = [];
 
@@ -43,16 +49,7 @@ $(document).ready(function () {
           center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        
-        const createMarker = (event) => {
-          const lat = event.latLng.lat();
-          const lng = event.latLng.lng();
-          const marker = new google.maps.Marker({
-            position: { lat, lng, },
-            map: map,
-          });
-          return marker;
-        };
+     
         
         array.forEach((coords) => {
           new google.maps.Marker({
@@ -61,6 +58,20 @@ $(document).ready(function () {
           });
         });
       })
+   
+  const createMarker = (event) => {
+    const lat = event.latLng.lat();
+    const lng = event.latLng.lng();
+    const marker = new google.maps.Marker({
+      position: { lat, lng, },
+      map: map,
+    });
+    return marker;
+  };
+
+  google.maps.event.addListener(map, "click", (event) => {
+    return createMarker(event);
+  });
    
   };
 

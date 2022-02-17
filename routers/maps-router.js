@@ -27,7 +27,7 @@ module.exports = (db) => {
   // post route to create new map, then refirect to edit page of that newly created map
   router.post('/new', (req, res) => {
     const newMap = req.body;
-    addMap(newMap, db)
+    mapInsertions.addMap(newMap, db)
       .then((x) => {
         res.redirect(`/maps/${x.id}/edit`);
       })

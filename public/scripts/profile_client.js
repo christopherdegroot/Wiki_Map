@@ -115,12 +115,12 @@ $(document).ready(function () {
       });
   };
 
-
+  renderMapList();
   renderFavouriteList();
-  
+
   $(document).ajaxSuccess(function() {
     setTimeout(() => {  // Timeout to allow page to finish rendering before event listeners are applied to dynamically created elements
-      
+
       //  Add favourite map to My Favourites list on click of button
       $('.favourite-btn').on('click', function(event) {
         event.preventDefault();

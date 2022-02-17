@@ -24,12 +24,14 @@ CREATE TABLE users (
 -- Recreate Maps Table
 CREATE TABLE maps (
   id SERIAL PRIMARY KEY NOT NULL,
+  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
 
   map_title VARCHAR(255) NOT NULL,
   map_category VARCHAR(255),
   map_rating INTEGER DEFAULT 0,
   map_description TEXT,
   map_image_url VARCHAR(255),
+
 
   zoom INTEGER NOT NULL DEFAULT 12,
   map_center_latitude VARCHAR(255) NOT NULL,

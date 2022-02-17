@@ -1,11 +1,13 @@
+
+
 const addMap =  function(map, pool) {
-  const values = [`${map.map_title}`, `${map.map_category}`, `${map.map_rating}`, `${map.map_description}`, `${map.zoom}`, `${map.map_center_latitude}`, `${map.map_center_longitude}`];
+  const values = [`${map.map_title}`, `${map.map_category}`, `${map.map_description}`];
   return pool.query(`
-    INSERT INTO maps (map_title, map_category, map_rating, map_description, zoom, map_center_latitude, map_center_longitude)
-    VALUES ($1, $2, $3, $4, $5, $6, $7)
-    RETURNING *
-    `,values)
-  .then((result) => {return result.rows[0]})
+  INSERT INTO maps (map_title, map_category, map_description, map_center_latitude, map_center_longitude)
+  VALUES ($1, $2, $3, 49.300708190202045, -123.13074020583447)
+  RETURNING *;
+    `, values)
+  .then((result) => { return result.rows[0] })
   .catch((err) => {
     console.log(err.message);
   });
@@ -17,11 +19,12 @@ const addMarker =  function(marker, pool) {
   return pool.query(`
     INSERT INTO markers (user_id, map_id, marker_title, description, marker_category, image_url, marker_latitude, marker_longitude)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-    RETURNING *
-    `,values)
+    RETURNING *;
+    `, values)
   .then((result) => {return result.rows[0]})
   .catch((err) => {
     console.log(err.message);
   });
 }
 exports.addMarker = addMarker;
+

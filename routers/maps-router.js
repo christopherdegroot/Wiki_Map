@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const mapQueries = require('../db/queries/map_queries');
 const userQueries = require('../db/queries/user_queries');
-const { mapData, userData, markerData, mapEditData } = require('./helpers');
+const { mapUserData, mapData, userData, markerData, mapEditData } = require('./helpers');
 
 
 module.exports = (db) => {
@@ -25,17 +25,36 @@ module.exports = (db) => {
   router.get('/:id', (req, res) => {
     const id = req.params.id;
 
-    mapQueries.getMapDescByMapId(id, db)
+    const mapPromise = mapQueries.getMapDescByMapId(id, db)
       .then((map) => {
-        const templateVars = map;
-        res.render('index', templateVars);
-        console.log(templateVars)
+        return map;
       })
       .catch((err) => {
         res
           .status(500)
           .json({ error: err.message});
       });
+
+      // User info query Promise
+      const userPromise = userQueries.getUserWithId(id, db)
+      .then((user) => {
+        const userObj = userData(user);
+        return userObj;
+      })
+      .catch((err) => {
+        res
+        .status(500)
+        .json({ error: err.message});
+      });
+
+
+      Promise.all([mapPromise, userPromise])
+      .then((values) => {
+        const templateVars = mapUserData(values);
+        res.render('index', templateVars);
+        console.log(templateVars);
+      });
+
   });
 
 

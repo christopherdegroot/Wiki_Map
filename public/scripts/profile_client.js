@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  
   const createMapListElement = function (mapObj) {
 
     const escape = function (str) {
@@ -25,14 +25,12 @@ $(document).ready(function () {
               </div>
             </div>
             <div class="article-footer">
-              <form method="POST" action="/maps/${escape(mapObj.map_id)}/favourites">
-                <button class="favorite-btn">Favorite</button>
-              </form>
+                <button type="button" value="${escape(mapObj.map_id)}" class="favourite-btn">Favourite</button>
               <form method="GET" action="/maps/${escape(mapObj.map_id)}/edit">
-                <button class="edit-btn">edit</button>
+                <button class="edit-btn">Edit</button>
               </form>
               <form method="POST" action="/maps/${escape(mapObj.map_id)}/delete">
-                <button class="delete-btn">delete</button>
+                <button class="delete-btn">Delete</button>
               </form>
             </div>
           </div>
@@ -67,8 +65,8 @@ $(document).ready(function () {
       });
   };
 
-  // favorite maps
-  const createFavoriteListElement = function(mapObj) {
+  // favourite maps
+  const createFavouriteListElement = function(mapObj) {
 
     const escape = function(str) {
       let div = document.createElement("div");
@@ -76,17 +74,7 @@ $(document).ready(function () {
       return div.innerHTML;
     };
 
-    let edit;
-
-    if (mapObj.favourite_map_id !== mapObj.user_id) {
-      edit = `<form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}/edit">
-        <button type='submit' class="edit-btn">edit</button>
-      </form>`
-    } else {
-      edit = '';
-    };
-
-    const $favoriteListElements = $(`
+    const $favouriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
           <form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
@@ -106,17 +94,17 @@ $(document).ready(function () {
           </div>
         </div>
         <div class="article-footer">
-          <form method="POST" action="/maps/${escape(mapObj.favourite_map_id)}/favourites">
-            <button class="unfavorite-btn">Un-favorite</button>
+          <form method="POST" action="/maps/${escape(mapObj.favourite_map_id)}/remove">
+            <button class="unfavourite-btn">Un-favourite</button>
           </form>
         </div>
       </div>
     `);
 
-    return $favoriteListElements;
+    return $favouriteListElements;
   };
 
-  const renderFavoriteList = () => {
+  const renderFavouriteList = () => {
     $.ajax({
       url: `/profile/${newUrlUserId}/favourites`,
       method: 'GET',
@@ -124,7 +112,7 @@ $(document).ready(function () {
       .then((data) => {
         $('#favourites-container').empty();
         data.forEach((map) => {
-          const $map = createFavoriteListElement(map);
+          const $map = createFavouriteListElement(map);
           $('#favourites-container').prepend($map);
         });
       })
@@ -134,5 +122,43 @@ $(document).ready(function () {
   };
 
   renderMapList();
-  renderFavoriteList();
+  renderFavouriteList();
+
+  //  Add favourite map to My Favourites list on click of button 
+  $('.favourite-btn').on('', function(event) {
+    console.log('this: ', $(this).val);
+    event.preventDefault();
+    console.log('event: ', event);
+    // $.ajax({
+    //   url: '/maps//add',
+    //   method: 'POST'
+    // })
+    // renderMapList();
+    // renderFavouriteList();
+  });
+
+  //  Remove favourite map to My Favourites list on click of button 
+  // $('.un-favourite-btn').on('submit', function(event) {
+  //   event.preventDefault();
+  //   console.log('event: ', event);
+  //   $.ajax({
+  //     url: '/maps//remove',
+  //     method: 'POST'
+  //   })
+  //   renderMapList();
+  //   renderFavouriteList();
+  // });
+
+  //  Delete map from My Maps list on click of button 
+  // $('.delete-btn').on('submit', function(event) {
+  //   event.preventDefault();
+  //   console.log('event: ', event);
+  //   $.ajax({
+  //     url: '/maps//delete',
+  //     method: 'POST'
+  //   })
+  //   renderMapList();
+  //   renderFavouriteList();
+  // });
+
 });

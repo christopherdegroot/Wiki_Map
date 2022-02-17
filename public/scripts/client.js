@@ -109,13 +109,6 @@ $(document).ready(function () {
           <form type="POST" action="/maps/${escape(mapObj.favourite_map_id)}/favourites">
             <button class="unfavorite-btn">Un-favorite</button>
           </form>
-<<<<<<< HEAD
-=======
-         ${edit}
-          <form>
-            <button class="delete-btn">delete</button>
-          </form>
->>>>>>> d23d8e7da3a8495ba234cb5c3ae759bc5d724f04
         </div>
       </div>
     `);

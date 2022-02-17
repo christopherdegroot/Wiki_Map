@@ -29,6 +29,7 @@ CREATE TABLE maps (
   map_category VARCHAR(255),
   map_rating INTEGER,
   map_description TEXT,
+  map_image_url VARCHAR(255),
 
   zoom INTEGER NOT NULL,
   map_center_latitude VARCHAR(255) NOT NULL,

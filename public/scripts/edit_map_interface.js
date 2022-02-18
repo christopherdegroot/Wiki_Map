@@ -17,7 +17,6 @@ $(document).ready(function () {
   for (let char of string) {
     if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') {urlMapId += char}
   }
-  console.log(urlMapId);
 
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {
@@ -25,7 +24,6 @@ $(document).ready(function () {
     const data = await results.json();
     const coordsArray = [];
 
-    console.log('results: ', data);
     // Convert markers object into only coordinates
     const getCoordinates = function (markerObj) {
       const coords = {
@@ -66,30 +64,15 @@ $(document).ready(function () {
             title,
           });
         });
-        console.log(array);
 
-        // map.addListener("click", (event) => {
-        //   console.log('hi')
-        //   return createMarker(event);
-        // });
-        // const btnClass = document.getElementsByClassName('pin-btn');
-        // google.maps.event.addDomListener(btnClass, 'click', function(event) {
-        //   console.log('event: ', event);
-        // })
-        const element = document.getElementsByClassName('pin-btn');
 
-        for (let i = 0; i < element.length; i++) {
-          element[i].addEventListener('click', function(e) {
-            console.log(e.target);
-            map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
-          });
-        }
-
-        // document.getElementsByClassName('pin-btn').addEventListener('click', function(event) {
-        //   console.log('event: ', event);
-        // })
-
-        console.log('element: ', element.length);
+        // Pan to marker on button click function (WIP) 
+        // for (let i = 0; i < element.length; i++) {
+        //   element[i].addEventListener('click', function(e) {
+        //     console.log(e.target);
+        //     map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
+        //   });
+        // }
 
         const createMarker = (event) => {
           const lat = event.latLng.lat();
@@ -108,49 +91,13 @@ $(document).ready(function () {
           return createMarker(event);
         });
 
-
       })
       .catch((err) => console.log(err));
-    ///////////////////////////////////////////
-
-    const createMarker = (event) => {
-      const lat = event.latLng.lat();
-      const lng = event.latLng.lng();
-      const marker = new google.maps.Marker({
-        position: { lat, lng, },
-        map: map,
-      });
-      return marker;
-    };
-
-    // google.maps.event.addListener(map, "click", (event) => {
-      // console.log('hi')
-      // return createMarker(event);
-    // });
-    // map.addListener("click", (event) => {
-      // console.log('hi')
-      // return createMarker(event);
-    // });
-
-  //   const onMarkerHTMLClick = function() {
-  //     console.log('btn');
-  //     const marker = this;
-  //     const latLng = marker.getPosition();
-
-  //     map.panTo(marker.getPosition());
-  //     map.setZoom(15);
-  //  };
-
-
   };
 
   // Call map initialization function
   setTimeout(() => {
     initMap();
   }, 100);
-
-
-
-
 
 });

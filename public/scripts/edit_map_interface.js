@@ -15,7 +15,7 @@ $(document).ready(function () {
   const string = window.location.href.slice(21);
   let urlMapId = '';
   for (let char of string) {
-    if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') {urlMapId += char}
+    if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') { urlMapId += char }
   }
 
   // Create asynchronous function to fetch database info for markers
@@ -84,12 +84,36 @@ $(document).ready(function () {
           return marker;
         };
 
+        const clickroute = (lati, long) => {
+          const latLng = new google.maps.LatLng(lati, long); //Makes a latlng
+          map.panTo(latLng); //Make map global
+        };
+
         // add lat long into input field for new marker form
         google.maps.event.addListener(map, "click", (event) => {
           $('#lat').val(event.latLng.lat());
           $('#long').val(event.latLng.lng());
+          clickroute(event.latLng.lat(), event.latLng.lng());
           return createMarker(event);
         });
+
+
+
+        $('.pin-button').click(function(event) {
+          event.preventDefault();
+          const id = event.target.value;
+          $.ajax({
+            url: `/markers/${id}/fetchId`,
+            method: 'POST'
+          })
+            .then((x) => {
+              clickroute(x[0].marker_latitude, x[0].marker_longitude);
+            })
+            .catch((err) => {
+              console.log('err: ', err);
+            });
+        });
+
 
       })
       .catch((err) => console.log(err));

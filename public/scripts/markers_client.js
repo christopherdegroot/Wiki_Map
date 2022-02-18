@@ -17,6 +17,11 @@ $(document).ready(function () {
     return $pinListElements;
   };
 
+  const clickroute = (lati,long) => {
+    const latLng = new google.maps.LatLng(lati, long); //Makes a latlng
+    map.panTo(latLng); //Make map global
+  };
+
 
   // gets map ID off the url accessing current page
   let urlMapId = '';
@@ -45,13 +50,13 @@ $(document).ready(function () {
               method: 'POST'
             })
               .then((x) => {
-                console.log('x: ', x[0]);
                 $('.new-marker-title').val(`${x[0].marker_title}`);
                 $('.img-url').val(`${x[0].image_url}`);
                 $('.marker_longitude').val(`${x[0].marker_longitude}`);
                 $('.marker_latitude').val(`${x[0].marker_latitude}`);
                 $('.description').val(`${x[0].description}`);
                 $('.id').val(`${x[0].id}`);
+                clickroute(x[0].marker_latitude, x[0].marker_longitude);
               })
               .catch((err) => {
                 console.log('err: ', err);

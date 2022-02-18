@@ -74,3 +74,21 @@ const getMarkerInfoByMarkerId = function (id, pool) {
     });
 };
 exports.getMarkerInfoByMarkerId = getMarkerInfoByMarkerId;
+
+
+const getLatlngByTitle = function (title, pool) {
+  console.log('id: ', title); ////////////////////////
+  return pool.query(`
+    SELECT marker_latitude, marker_longitude
+    FROM markers
+    WHERE marker_title = $1;
+    `, [title.marker_title])
+    .then((response) => {
+      if (response.rows[0].length === 0) { return null }
+      else { console.log(response.rows); return response.rows }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.getLatlngByTitle = getLatlngByTitle;

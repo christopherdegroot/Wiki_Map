@@ -65,7 +65,6 @@ module.exports = (db) => {
       .then(
         (info) => {
           res.jsonp(info);
-          console.log('SUCCESS /:id/fetchId');
         }
       )
       .catch((err) => {
@@ -74,12 +73,18 @@ module.exports = (db) => {
   });
 
 
-
-
-
-
-
-
+  router.get('/:id/fetchLatlng', (req, res) => {
+    const title = req.params;
+    markerQueries.getLatlngByTitle(title, db)
+      .then(
+        (info) => {
+          res.jsonp(info);
+        }
+      )
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
 
 
   return router;

@@ -55,7 +55,7 @@ $(document).ready(function () {
 
 
         array.forEach((marker) => {
-          let coordinates = { lat: marker.lat, lng: marker.lng }
+          let coordinates = { lat: marker.lat, lng: marker.lng };
           let title = marker.title;
           new google.maps.Marker({
             position: coordinates,
@@ -63,9 +63,33 @@ $(document).ready(function () {
             title,
           });
         });
-      })
 
-  };
+        // const clickroute = (lati,long) => {
+        //   const latLng = new google.maps.LatLng(lati, long); //Makes a latlng
+        //   map.panTo(latLng); //Make map global
+        // };
+
+        // $('.pin-btn').click(function (event) {
+        //   event.preventDefault();
+        //   console.log('clicked');
+        //   const title = event.target.value;
+        //   $.ajax({
+        //     url: `/markers/${title}/fetchLatlng`,
+        //     method: 'GET'
+        //   })
+        //     .then((x) => {
+        //       clickroute(x[0].marker_latitude, x[0].marker_longitude);
+        //     })
+        //     .catch((err) => {
+        //       console.log('err: ', err);
+        //     });
+        // });
+
+
+
+      });
+
+  }
 
   // Call map initialization function
   initMap();

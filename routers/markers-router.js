@@ -27,9 +27,10 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/new', (req, res) => {
+  router.post('/:id/new', (req, res) => {
     const queryBody = req.body;
-    markerInsertions.addMarker(queryBody, db)
+    const id = req.params.id;
+    markerInsertions.addMarker(queryBody, db, id)
       .then(() => {
         console.log('Marker successfully added');
         res.redirect('back');

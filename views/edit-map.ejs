@@ -96,7 +96,7 @@
 
            <!-- new marker form -->
           <div class="new-marker">
-            <form action="/markers/new" method="POST" id="new-marker">
+            <form action="/markers/<%= map.map_id %>/new" method="POST" id="new-marker">
               <label for="marker_title"><strong>New</strong> Pin Title </label>
               <br>
               <br>
@@ -140,13 +140,13 @@
               <label for="marker_longitude">Longitude</label>
               <br>
               <br>
-              <input type="number" name="marker_longitude" class="marker_longitude" required="required">
+              <input type="text" name="marker_longitude" class="marker_longitude" required="required">
               <br>
               <br>
               <label for="marker_latitude">Latitude</label>
               <br>
               <br>
-              <input type="number" name="marker_latitude" class="marker_latitude" required="required">
+              <input type="text" name="marker_latitude" class="marker_latitude" required="required">
               <br>
               <br>
               <label for="description">Description</label>

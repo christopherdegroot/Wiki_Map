@@ -52,6 +52,7 @@ $(document).ready(function () {
                 $('.marker_longitude').val(`${x[0].marker_longitude}`);
                 $('.marker_latitude').val(`${x[0].marker_latitude}`);
                 $('.description').val(`${x[0].description}`);
+                $('.id').val(`${x[0].id}`);
               })
               .catch((err) => {
                 console.log('err: ', err);

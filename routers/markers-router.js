@@ -16,6 +16,16 @@ module.exports = (db) => {
       });
   });
 
+  // Fetch all marker details from mapID
+  router.get('/:id/detail', (req, res) => {
+    const id = req.params.id;
+    markerQueries.getMarkersDescByMapId(id, db)
+      .then((markers) => res.jsonp(markers))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  });
+
   router.post('/new', (req, res) => {
     const queryBody = req.body;
     const vars = [];

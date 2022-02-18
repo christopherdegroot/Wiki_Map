@@ -30,3 +30,16 @@ exports.addOwner = addOwner;
 
 
 
+const addDefaultMarker = function (map, pool) {
+  const values = [`1`, `${map}`];
+  return pool.query(`
+  INSERT INTO markers (user_id, map_id, description, marker_title, marker_category, image_url, marker_latitude, marker_longitude) VALUES ($1, $2, 'Whether its a full-time bootcamp or a part-time program, Lighthouse Labs offers coding education from newbie to professional developer.', 'Lighthouse Labs', 'Places & Locations', 'https://www.lighthouselabs.ca/assets/home-1b1053e3e6e741308433e7e45af5783c8466e4bc14df186390ff707c05164f90.jpg', '49.281133', '-123.114496');
+    `, values)
+    .then((result) => { return result.rows[0]})
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.addDefaultMarker = addDefaultMarker;
+
+

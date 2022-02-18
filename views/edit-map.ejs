@@ -96,7 +96,7 @@
 
            <!-- new marker form -->
           <div class="new-marker">
-            <form action="/markers/new" method="POST" id="new-marker">
+            <form action="/markers/<%= map.map_id %>/new" method="POST" id="new-marker">
               <label for="marker_title"><strong>New</strong> Pin Title </label>
               <br>
               <br>
@@ -128,25 +128,25 @@
               <label for="new-marker-title"><strong>Edit:</strong> Pin Title </label>
               <br>
               <br>
-              <input type="text" name="new-marker-title" class="new-marker-title" required="required">
+              <input type="text" name="marker_title" class="new-marker-title" required="required">
               <br>
               <br>
               <label for="img-url">Image URL</label>
               <br>
               <br>
-              <input type="url" name="img-url" class="img-url" required="required" value="<%  %>">
+              <input type="url" name="image_url" class="img-url" required="required" value="<%  %>">
               <br>
               <br>
               <label for="marker_longitude">Longitude</label>
               <br>
               <br>
-              <input type="number" name="marker_longitude" class="marker_longitude" required="required">
+              <input type="text" name="marker_longitude" class="marker_longitude" required="required">
               <br>
               <br>
               <label for="marker_latitude">Latitude</label>
               <br>
               <br>
-              <input type="number" name="marker_latitude" class="marker_latitude" required="required">
+              <input type="text" name="marker_latitude" class="marker_latitude" required="required">
               <br>
               <br>
               <label for="description">Description</label>
@@ -156,6 +156,7 @@
               <br>
               <br>
               <br>
+              <input type="hidden" name="id" class="id" required="required" >
               <button class="new-btn" type="submit">Edit Pin</button>
             </form>
           </div>

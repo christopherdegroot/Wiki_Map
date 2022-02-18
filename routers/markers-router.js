@@ -2,6 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const maQueries = require('../db/queries/map_queries');
 const mapEditions = require('../db/editions/map_editions');
+const markerEditions = require('../db/editions/marker_editions');
 const markerQueries = require('../db/queries/marker_queries');
 const markerInsertions = require('../db/insertions/marker_insertions');
 
@@ -27,9 +28,10 @@ module.exports = (db) => {
       });
   });
 
-  router.post('/new', (req, res) => {
+  router.post('/:id/new', (req, res) => {
     const queryBody = req.body;
-    markerInsertions.addMarker(queryBody, db)
+    const id = req.params.id;
+    markerInsertions.addMarker(queryBody, db, id)
       .then(() => {
         console.log('Marker successfully added');
         res.redirect('back');
@@ -41,18 +43,15 @@ module.exports = (db) => {
 
   });
 
+
   // id is marker id
-  //using jquery /////////////////////////////
   router.post('/:id/edit', (req, res) => {
     let formInfo = req.body;
-    const id = req.params.id;
-    formInfo.id = id;
-    console.log(formInfo.marker_id);
-    const map = 1;
+    const map = req.params.id;
+    console.log(formInfo);
     // get database call with markerID
-    mapEditions.editMarker(map, db)
+    markerEditions.editMarker(formInfo, db, map)
       .then(() => {
-        // return from backend to the front end
         res.redirect(`back`);
       })
       .catch((err) => {

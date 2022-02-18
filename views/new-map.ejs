@@ -22,34 +22,17 @@
 
 <body>
 
-  <!-- side toggle bar -->
-  <span id="side-nav">
-    <div class="nav-content">
-      <!-- logo -->
-      <span>
-        <span>
-          <img class="logo" src="../images/WikiMap-logos.png">
-        </span>
-        <br>
-        <br>
-        <div>
-          <!-- profile button -->
-          <form method="GET" action="/profile/1">
-            <button class="side-btn" type="submit">Profile</button>
-          </form>
-        </div>
-      </span>
-    </div>
-  </span>
 
   <div id="profile-container">
     <!-- top navbar -->
     <header id="top-nav">
-      <span class="expand">
-        <i class="fa-solid fa-grip-lines"></i>
+      <span>
+        <form method="GET" action="/profile/1">
+          <input type="image" src="../images/WikiMap-logos-white.png" class="top-logo"/>
+        </form>
       </span>
-      <div class="side-greeting">
-        Welcome back, <br> <strong> Jim Halpert </strong>!
+      <div class="top-greeting">
+        Welcome Back,<br> <strong> Jim Halpert</strong>
       </div>
     </header>
 

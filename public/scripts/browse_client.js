@@ -26,10 +26,6 @@ $(document).ready(function () {
             </div>
             <div class="article-footer">
                 <button type="button" value="${escape(mapObj.map_id)}" class="favourite-btn">Favourite</button>
-              <form method="GET" action="/maps/${escape(mapObj.map_id)}/edit">
-                <button type="submit" class="edit-btn">Edit</button>
-              </form>
-                <button type="button" value="${escape(mapObj.map_id)}" class="delete-btn">Delete</button>
             </div>
           </div>
           `);

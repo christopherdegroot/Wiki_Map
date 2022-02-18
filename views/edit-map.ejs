@@ -22,32 +22,12 @@
 
 <body>
 
-  <!-- side toggle bar -->
-  <span id="side-nav">
-    <div class="nav-content">
-      <!-- logo -->
-      <span>
-        <span>
-          <img class="logo" src="/images/WikiMap-logos.png">
-        </span>
-        <br>
-        <br>
-        <div>
-          <!-- profile button -->
-          <form method="GET" action="/profile/1">
-            <button class="side-btn" type="submit">Profile</button>
-          </form>
-        </div>
-      </span>
-    </div>
-  </span>
-
   <div id="profile-container">
     <!-- top navbar -->
     <header id="top-nav">
-      <span class="expand">
-        <i class="fa-solid fa-grip-lines"></i>
-      </span>
+      <form method="GET" action="/profile/1">
+        <input type="image" src="/images/WikiMap-logos-white.png" class="top-logo"/>
+      </form>
       <button class="top-btn">Create Pin 📍</button>
     </header>
 
@@ -57,7 +37,7 @@
              <!-- map title & rating -->
             <div class="list-title">
               <form method="POST" action="/maps/<%= map.map_id %>/edit">
-                <label for="map_title">Edit: Map Title</label>
+                <label for="map_title"><strong>Edit:</strong>&nbsp Map Title</label>
                 <br>
                 <br>
                 <input type="text" name ="map_title" required="required">
@@ -83,21 +63,20 @@
 
 
               <h2><%= map.map_title %></h2>
-              <label for="pin-list"><strong>Pins - </strong></label>
-
-
+              <ul>
               <div class="markers-container">
-                <ul>
 
-                </ul>
+
+
               </div>
+            </ul>
             </div>
           </div>
 
            <!-- new marker form -->
           <div class="new-marker">
             <form action="/markers/<%= map.map_id %>/new" method="POST" id="new-marker">
-              <label for="marker_title"><strong>New</strong> Pin Title </label>
+              <label for="marker_title"><strong>New</strong>&nbsp Pin Title </label>
               <br>
               <br>
               <input type="text" name="marker_title" required="required">
@@ -128,7 +107,7 @@
           <div class="edit-marker" value="visible">
             <!-- need to change map.id -->
             <form action="/markers/<%= map.id %>/edit" method="POST" id="edit-marker">
-              <label for="new-marker-title"><strong>Edit:</strong> Pin Title </label>
+              <label for="new-marker-title"><strong>Edit:</strong>&nbsp Pin Title </label>
               <br>
               <br>
               <input type="text" name="marker_title" class="new-marker-title" required="required">

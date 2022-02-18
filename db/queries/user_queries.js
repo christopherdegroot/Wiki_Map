@@ -70,3 +70,19 @@ const totalUpvotesById = function (id, pool) {
     });
 };
 exports.totalUpvotesById = totalUpvotesById;
+
+// Get all maps
+const getAllMaps = function(id, pool) {
+  return pool.query(`
+  SELECT *
+  FROM maps
+  `, )
+    .then((response) => {
+      if (response.rows[0].length === 0) { return null }
+      else { return response.rows}
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.getAllMaps = getAllMaps;

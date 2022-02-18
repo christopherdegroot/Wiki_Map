@@ -51,7 +51,7 @@ app.use("/markers", markersRoutes(db));
 
 
 app.get("/", (req,res) => {
-  res.redirect('/profile/');
+  res.redirect('/maps/browse');
 }),
 
 

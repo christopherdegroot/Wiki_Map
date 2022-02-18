@@ -12,10 +12,7 @@ $(document).ready(function () {
   });
 
   // gets user ID off the url accessing current page
-  let urlMapId = '';
-  if (window.location.href.slice(-1) === '?') {
-    urlMapId += window.location.href.slice(-2);
-  } else { urlMapId += window.location.href.slice(-1); }
+  const urlMapId = window.location.href.slice(27, 28);
 
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {
@@ -43,16 +40,18 @@ $(document).ready(function () {
   // eslint-disable-next-line func-style
   async function initMap() {
 
+
+
     // Call asynchronous function to return marker data into map initialization
     populateMap()
       .then((array) => {
+
         const myOptions = {
-          zoom: 3,
+          zoom: 11,
           center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
-
+        
         array.forEach((marker) => {
           let coordinates = { lat: marker.lat, lng: marker.lng }
           let title = marker.title;
@@ -62,24 +61,23 @@ $(document).ready(function () {
             title,
           });
         });
+
+        // Pan map to marker feature (WIP)
+        // const element = document.getElementsByClassName('pin-btn');
+
+        // for (let i = 0; i < element.length; i++) {
+        //   element[i].addEventListener('click', function(e) {
+        //     console.log(e.target);
+        //     map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
+        //   })         
+        // }
+        
       })
-
-    const createMarker = (event) => {
-      const lat = event.latLng.lat();
-      const lng = event.latLng.lng();
-      const marker = new google.maps.Marker({
-        position: { lat, lng, },
-        map: map,
-      });
-      return marker;
-    };
-
-    google.maps.event.addListener(map, "click", (event) => {
-      return createMarker(event);
-    });
-
+      .catch((err) => console.log(err))
   };
 
   // Call map initialization function
-  initMap();
+  setTimeout(() => {
+    initMap();
+  }, 50)
 });

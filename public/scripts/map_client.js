@@ -47,7 +47,6 @@ $(document).ready(function() {
     })
       .then((data) => {
         $('.pin-btn').on('click', function(event) {
-          console.log('hi')
           const btnValue = event.target.value;
           for (const element of data) {
             if (element.marker_title === btnValue) {

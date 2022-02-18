@@ -57,19 +57,20 @@ const getMarkersByCategory = function (category, pool) {
 };
 exports.getMarkersByCategory = getMarkersByCategory;
 
-// hard coded for mount seymour
-// const getMarkerIdByTitle = function(title, pool) {
-//   return pool.query(`
-//     SELECT markers.*
-//     FROM markers
-//     WHERE marker_title = $1;
-//   `, ['Mount Seymour'])
-//     .then((response) => {
-//       if (response.rows[0].length === 0) { return null }
-//       else { return response.rows }
-//     })
-//     .catch((err) => {
-//       console.log(err.message);
-//     });
-// };
-// exports.getMarkerIdByTitle = getMarkerIdByTitle;
+
+const getMarkerInfoByMarkerId = function (id, pool) {
+
+  return pool.query(`
+    SELECT markers.*
+    FROM markers
+    WHERE markers.id = $1;
+    `, [id.id])
+    .then((response) => {
+      if (response.rows[0].length === 0) { return null }
+      else { console.log(response.rows); return response.rows }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.getMarkerInfoByMarkerId = getMarkerInfoByMarkerId;

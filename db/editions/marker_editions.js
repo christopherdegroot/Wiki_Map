@@ -1,7 +1,7 @@
 
 
-const editMarker = function(marker, pool) {
-  const values = [marker.marker_title, marker.image_url, marker.marker_longitude, marker.marker_latitude, marker.description, '1'];
+const editMarker = function(marker, pool, map) {
+  const values = [marker.marker_title, marker.image_url, marker.marker_longitude, marker.marker_latitude, marker.description, marker.id];
   // hard-coded markers.id to be 1 for now
   return pool.query(`
     UPDATE markers

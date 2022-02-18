@@ -80,7 +80,7 @@ module.exports = (db) => {
       });
 
     // map info promise
-    const mapPromise = mapQueries.getMapByMapId(id, db)
+    const mapPromise = mapQueries.getMapByMapId((req.params.id), db)
       .then((maps) => {
         return maps;
       })

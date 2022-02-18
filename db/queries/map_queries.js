@@ -72,3 +72,21 @@ const getMapByLastId = function(pool) {
     });
 };
 exports.getMapByLastId = getMapByLastId;
+
+
+const getNextMapId = function(pool) {
+  return pool.query(`
+  SELECT maps.id as map_count
+  FROM maps
+  ORDER BY maps.id DESC
+  LIMIT 1;
+  `)
+    .then((response) => {
+      if (response.rows[0].length === 0) { return null }
+      else { return response.rows }
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+exports.getNextMapId = getNextMapId;

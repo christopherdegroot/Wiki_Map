@@ -107,6 +107,7 @@ $(document).ready(function () {
         });
       })
       .catch((err) => {
+        $('#favourites-container').empty();
         console.log(err);
       });
   };

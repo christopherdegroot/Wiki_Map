@@ -3,26 +3,24 @@ $(document).ready(function() {
   const createPinListElement = function(pinObj) {
 
     const $pinListElements = $(`
-    <li><button class="pin-btn" value="${pinObj.marker_title}" href="/maps/${newUrlMapId}">${pinObj.marker_title}</button></li>
+    <li><button class="pin-btn" value="${pinObj.marker_title}" href="/maps/${urlMapId}">${pinObj.marker_title}</button></li>
     <br>
     `);
 
     return $pinListElements;
   };
 
-  // gets map ID off the url accessing current page
+  // gets user ID off the url accessing current page
+  const string = window.location.href.slice(21);
   let urlMapId = '';
-  if (window.location.href.slice(-1) === '?') {
-    urlMapId += window.location.href.slice(-2);
-  } else {urlMapId += window.location.href.slice(-1);}
-
-  toString(urlMapId);
-  let newUrlMapId = urlMapId.replace('?', '');
+  for (let char of string) {
+    if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') {urlMapId += char}
+  }
 
   // Get marker data for rendering list of markers
   const renderMarkerList = () => {
     $.ajax({
-      url: `/markers/${newUrlMapId}/fetch`,
+      url: `/markers/${urlMapId}/fetch`,
       method: 'GET',
     })
       .then((data) => {
@@ -49,6 +47,7 @@ $(document).ready(function() {
     })
       .then((data) => {
         $('.pin-btn').on('click', function(event) {
+          console.log('hi')
           const btnValue = event.target.value;
           for (const element of data) {
             if (element.marker_title === btnValue) {

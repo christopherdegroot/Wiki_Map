@@ -38,13 +38,7 @@ $(document).ready(function () {
   };
 
   // gets user ID off the url accessing current page
-  let urlUserId = '';
-  if (window.location.href.slice(-1) === '?') {
-    urlUserId += window.location.href.slice(-2);
-  } else {urlUserId += window.location.href.slice(-1);}
-
-  toString(urlUserId);
-  let newUrlUserId = urlUserId.replace('?', '');
+  let newUrlUserId = window.location.href.slice(30, 31);
 
   const renderMapList = () => {
     $.ajax({
@@ -122,6 +116,7 @@ $(document).ready(function () {
     setTimeout(() => {  // Timeout to allow page to finish rendering before event listeners are applied to dynamically created elements
 
       //  Add favourite map to My Favourites list on click of button
+      $('.favourite-btn').unbind('click')
       $('.favourite-btn').on('click', function(event) {
         event.preventDefault();
         const btnValue = event.target.value;
@@ -136,6 +131,7 @@ $(document).ready(function () {
       });
 
       //  Remove favourite map to My Favourites list on click of button
+      $('.unfavourite-btn').unbind('click')
       $('.unfavourite-btn').on('click', function(event) {
         event.preventDefault();
         const btnValue = event.target.value;
@@ -150,6 +146,7 @@ $(document).ready(function () {
       });
 
       // Delete map from My Maps list on click of button
+      $('.delete-btn').unbind('click')
       $('.delete-btn').on('click', function(event) {
         event.preventDefault();
         const btnValue = event.target.value;

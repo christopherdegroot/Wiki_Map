@@ -314,6 +314,13 @@ html, body {
     .my-favorites {
       @include article-containers();
       background-color: #aac9ff;
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+    }
+
+    #favourites-container {
+      display: flex;
+      flex-direction: column-reverse;
     }
   }
 

@@ -69,7 +69,9 @@ $(document).ready(function () {
     const $favouriteListElements = $(`
       <div class="map-article">
         <header class="article-header">
+          <form method="GET" action="/maps/${escape(mapObj.favourite_map_id)}">
             <button class="title-btn">${escape(mapObj.map_title)}</button>
+          </form>
           <div class="article-category">
             <p>${escape(mapObj.map_category)}</p>
           </div>

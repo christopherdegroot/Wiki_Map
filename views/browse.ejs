@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../images/wikimap-icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/browse_client.js"></script>
+  <title>Profile</title>
+</head>
+
+<body>
+
+
+  <div id="main-content">
+    <!-- top navbar -->
+    <header id="top-nav">
+      <span>
+        <form method="GET" action="/profile/1">
+          <input type="image" src="../images/WikiMap-logos-white.png" class="top-logo"/>
+        </form>
+
+      </span>
+    </header>
+
+
+    <main id="profile-main-content">
+      <div id="my-maps-container">
+
+        <!-- container of my maps -->
+        <div class="my-maps">
+          <header class="container-title"> My Maps </header>
+          <!-- map articles -->
+          <div id="maps-container"></div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

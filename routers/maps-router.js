@@ -14,6 +14,21 @@ module.exports = (db) => {
 
   // ------------------------ GET ROUTES -------------------------- //
 
+  router.get('/browse', (req, res) => {
+    const id = req.params.id;
+
+    mapQueries.getMapByMapId(id, db)
+      .then(() => {
+        res.render('browse');
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+
   router.get('/new', (req, res) => {
     const id = req.params.id;
 
@@ -174,6 +189,8 @@ module.exports = (db) => {
         res.redirect(`/maps/${id}/edit`);
       });
   });
+
+
 
 
   return router;

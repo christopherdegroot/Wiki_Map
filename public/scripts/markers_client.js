@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     const $pinListElements = $(`
 
-    <button id='<%= marker.id %>' class="pin-button" value="${escape(pinObj.id)}">${escape(pinObj.marker_title)}</button>
+    <button class="pin-button" value="${escape(pinObj.id)}">${escape(pinObj.marker_title)}</button>
 
     `);
     return $pinListElements;

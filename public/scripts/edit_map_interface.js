@@ -17,7 +17,7 @@ $(document).ready(function () {
   for (let char of string) {
     if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') {urlMapId += char}
   }
-  console.log(urlMapId)
+  console.log(urlMapId);
 
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {
@@ -25,23 +25,23 @@ $(document).ready(function () {
     const data = await results.json();
     const coordsArray = [];
 
-    console.log('results: ', data)
+    console.log('results: ', data);
     // Convert markers object into only coordinates
     const getCoordinates = function (markerObj) {
       const coords = {
         lat: Number(markerObj.marker_latitude),
         lng: Number(markerObj.marker_longitude),
         title: markerObj.marker_title
-      }
+      };
       return coords;
     };
 
     data.forEach((marker) => {
       let data = getCoordinates(marker);
       coordsArray.push(data);
-    })
+    });
     return Promise.resolve(coordsArray);
-  }
+  };
 
   // eslint-disable-next-line func-style
   async function initMap() {
@@ -82,7 +82,7 @@ $(document).ready(function () {
           element[i].addEventListener('click', function(e) {
             console.log(e.target);
             map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
-          })
+          });
         }
 
         // document.getElementsByClassName('pin-btn').addEventListener('click', function(event) {
@@ -101,15 +101,17 @@ $(document).ready(function () {
           return marker;
         };
 
+        // add lat long into input field for new marker form
         google.maps.event.addListener(map, "click", (event) => {
-          console.log('event: ', event.latLng.lat())
+          $('#lat').val(event.latLng.lat());
+          $('#long').val(event.latLng.lng());
           return createMarker(event);
         });
 
 
       })
-      .catch((err) => console.log(err))
-      ///////////////////////////////////////////
+      .catch((err) => console.log(err));
+    ///////////////////////////////////////////
 
     const createMarker = (event) => {
       const lat = event.latLng.lat();
@@ -145,5 +147,10 @@ $(document).ready(function () {
   // Call map initialization function
   setTimeout(() => {
     initMap();
-  }, 50)
+  }, 100);
+
+
+
+
+
 });

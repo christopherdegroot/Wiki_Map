@@ -1,7 +1,5 @@
 const express = require('express');
 const router  = express.Router();
-const maQueries = require('../db/queries/map_queries');
-const mapEditions = require('../db/editions/map_editions');
 const markerEditions = require('../db/editions/marker_editions');
 const markerQueries = require('../db/queries/marker_queries');
 const markerInsertions = require('../db/insertions/marker_insertions');

@@ -51,7 +51,7 @@ $(document).ready(function () {
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-        
+
         array.forEach((marker) => {
           let coordinates = { lat: marker.lat, lng: marker.lng }
           let title = marker.title;
@@ -77,13 +77,13 @@ $(document).ready(function () {
           element[i].addEventListener('click', function(e) {
             console.log(e.target);
             map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
-          })         
+          })
         }
 
         // document.getElementsByClassName('pin-btn').addEventListener('click', function(event) {
         //   console.log('event: ', event);
         // })
-        
+
         console.log('element: ', element.length);
 
         const createMarker = (event) => {
@@ -95,17 +95,19 @@ $(document).ready(function () {
           });
           return marker;
         };
-    
+
+        // add lat long into input field for new marker form
         google.maps.event.addListener(map, "click", (event) => {
-          console.log('event: ', event.latLng.lat())
+          $('#lat').val(event.latLng.lat());
+          $('#long').val(event.latLng.lng());
           return createMarker(event);
         });
-        
-        
+
+
       })
       .catch((err) => console.log(err))
       ///////////////////////////////////////////
-    
+
     const createMarker = (event) => {
       const lat = event.latLng.lat();
       const lng = event.latLng.lng();
@@ -124,7 +126,7 @@ $(document).ready(function () {
       // console.log('hi')
       // return createMarker(event);
     // });
-   
+
   //   const onMarkerHTMLClick = function() {
   //     console.log('btn');
   //     const marker = this;
@@ -141,4 +143,9 @@ $(document).ready(function () {
   setTimeout(() => {
     initMap();
   }, 50)
+
+
+
+
+
 });

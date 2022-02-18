@@ -34,7 +34,7 @@ $(document).ready(function() {
 
         // Call function to ensure all dynamically rendered elements loaded before applying listeners to them
         renderMarkerDetails()
-     
+
       })
       .catch((err) => {
         console.log(err);
@@ -66,7 +66,7 @@ $(document).ready(function() {
           }
         });
       });
-    
+
   };
 
   renderMarkerList();

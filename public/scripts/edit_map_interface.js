@@ -12,7 +12,12 @@ $(document).ready(function () {
   });
 
   // gets user ID off the url accessing current page
-  const urlMapId = window.location.href.slice(27, 28);
+  const string = window.location.href.slice(21);
+  let urlMapId = '';
+  for (let char of string) {
+    if (char == '1' || char == '2' || char == '3' || char == '4' || char == '5' || char == '6' || char == '7' || char == '8' || char == '9' || char == '0') {urlMapId += char}
+  }
+  console.log(urlMapId)
 
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {
@@ -51,7 +56,7 @@ $(document).ready(function () {
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-        
+
         array.forEach((marker) => {
           let coordinates = { lat: marker.lat, lng: marker.lng }
           let title = marker.title;
@@ -77,13 +82,13 @@ $(document).ready(function () {
           element[i].addEventListener('click', function(e) {
             console.log(e.target);
             map.panTo(new google.maps.LatLng(29.300708190202045, -83.13074020583447))
-          })         
+          })
         }
 
         // document.getElementsByClassName('pin-btn').addEventListener('click', function(event) {
         //   console.log('event: ', event);
         // })
-        
+
         console.log('element: ', element.length);
 
         const createMarker = (event) => {
@@ -95,17 +100,17 @@ $(document).ready(function () {
           });
           return marker;
         };
-    
+
         google.maps.event.addListener(map, "click", (event) => {
           console.log('event: ', event.latLng.lat())
           return createMarker(event);
         });
-        
-        
+
+
       })
       .catch((err) => console.log(err))
       ///////////////////////////////////////////
-    
+
     const createMarker = (event) => {
       const lat = event.latLng.lat();
       const lng = event.latLng.lng();
@@ -124,7 +129,7 @@ $(document).ready(function () {
       // console.log('hi')
       // return createMarker(event);
     // });
-   
+
   //   const onMarkerHTMLClick = function() {
   //     console.log('btn');
   //     const marker = this;

@@ -49,7 +49,7 @@ $(document).ready(function () {
       .then((array) => {
 
         const myOptions = {
-          zoom: 11,
+          zoom: 12,
           center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
@@ -66,7 +66,7 @@ $(document).ready(function () {
         });
 
 
-        // Pan to marker on button click function (WIP) 
+        // Pan to marker on button click function (WIP)
         // for (let i = 0; i < element.length; i++) {
         //   element[i].addEventListener('click', function(e) {
         //     console.log(e.target);

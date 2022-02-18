@@ -3,7 +3,7 @@ $(document).ready(function() {
   const createPinListElement = function(pinObj) {
 
     const $pinListElements = $(`
-    <li><a href="/maps/${newUrlMapId}">${pinObj.user_id}</a></li>
+    <li><a href="/maps/${newUrlMapId}">${pinObj.marker_title}</a></li>
     <br>
     `);
 
@@ -38,23 +38,5 @@ $(document).ready(function() {
 
 
   renderMarkerList();
-
-  // $('.pin-button').click(function(event) {
-  //   event.preventDefault();
-  //   let marker = $(this).id;
-
-  //   $ajax(() => {
-  //     url: ,
-  //     method: GET,
-
-  //   })
-          // .then(() => {
-            // info to display everything
-            // append to html
-          // })
-
-  // });
-
-  // <!-- <button id='<%= marker.id %>' class="pin-button">pin1</button> -->
 
 });

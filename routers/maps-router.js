@@ -56,7 +56,7 @@ module.exports = (db) => {
 
 
     Promise.all([mapPromise, userPromise])
-      .then((values) => {
+      .then((values) => {4
         const templateVars = mapUserData(values);
         res.render('index', templateVars);
       });

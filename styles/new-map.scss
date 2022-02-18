@@ -1,95 +1,5 @@
 
 
-html, body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  font-family: 'Montserrat';
-  font-weight: 400;
-}
-
-
-/* The side navigation menu */
-#side-nav {
-  display: none;
-  width: 220px;
-  padding:15px;
-  background-color: beige;
-  .nav-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    white-space: nowrap;
-    text-align: center;
-    height: 100%;
-    font-size: 1em;
-    border-radius: 10px;
-    background-color: #f0e7cc;
-    background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
-    .logo {
-      margin: 45px 0;
-      width: 100%
-    }
-    .side-btn {
-      padding: 0.9em 1.5em;
-      font-size: 15px;
-      border: none;
-      background: #b4ad98;
-      color: white;
-      cursor: pointer;
-      border-radius: 10px;
-      border-width: 3px;
-      border-style: outset;
-      transition: 0.3s ease-in-out;
-      &:hover {
-       background:#a2946a;
-      }
-    }
-
-  }
-}
-
-
-// top-navbar
-#top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFF;
-  background-color: #6383C7;
-  flex: 0 0 110px;
-  height: 110px;
-  padding: 0 50px 0 0;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-
-  .expand {
-    font-size: 25px;
-    cursor: pointer;
-    padding: 0 0 0 50px;
-  }
-
-  .top-btn {
-    padding: 0.9em 1em;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background: #6f8df0;
-    border-radius: 10px;
-    border-style: groove;
-    transition: 0.2s ease-in-out;
-    &:hover {
-      background: #5278f4;
-      box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
-    }
-  }
-  .side-greeting {
-    text-align: center;
-    padding: 20px;
-  }
-}
-
 
 // dashboard-main
 #profile-container {
@@ -100,23 +10,25 @@ html, body {
   #main-content {
     display: flex;
     padding: 1.5%;
-    height: 100%;
+    height: 77%;
+    width: 94%;
+    margin: 3%;
+    padding: 3%;
     background-image: url("../images/vancouver-map-bw.png");
     background-size: cover;
-    margin: 3%;
     border-radius: 15px;
 
 
     .new-map-title {
       display: flex;
-      background-color: rgba(196, 196, 196, 0.89);
-      width: 100%;
+      background-color: rgba(196, 196, 196, 0.947);
+      border: solid rgba(171, 171, 171, 0.55) 5px;
+      width: 80%;
       justify-content: center;
       align-items: center;
-      margin: 6%;
-      padding: 10%;
       border-radius: 15px;
-      opacity: 90%;
+      margin: 0 13%;
+      opacity: 87%;
       transition: 0.4s ease-in-out;
       &:hover {
         opacity: 100%;

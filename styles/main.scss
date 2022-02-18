@@ -1,5 +1,5 @@
 @mixin list() {
-  border-radius: 10px;
+
 
 }
 
@@ -23,100 +23,7 @@
   transition: 0.3s ease-in-out;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  font-family: 'Montserrat';
-  font-weight: 400;
-}
 
-/* The side navigation menu */
-#side-nav {
-  display: none;
-  width: 220px;
-  padding:15px;
-  background-color: beige;
-  .nav-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    white-space: nowrap;
-    text-align: center;
-    height: 100%;
-    font-size: 1em;
-    border-radius: 10px;
-    background-color: #f0e7cc;
-    background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
-    .logo {
-      margin: 45px 0;
-      width: 100%
-    }
-    .side-btn {
-      padding: 0.9em 1.5em;
-      font-size: 15px;
-      border: none;
-      background: #b4ad98;
-      color: white;
-      cursor: pointer;
-      border-radius: 10px;
-      border-width: 3px;
-      border-style: outset;
-      transition: 0.3s ease-in-out;
-      &:hover {
-       background:#a2946a;
-      }
-    }
-  }
-}
-
-
-// top-navbar
-#top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFF;
-  background-color: #6383C7;
-  flex: 0 0 110px;
-  height: 110px;
-  padding: 0 50px 0 0;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-
-  .expand {
-    font-size: 25px;
-    cursor: pointer;
-    padding: 0 0 0 50px;
-  }
-
-  .top-btn {
-    padding: 0.9em 1em;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background: #6084fc;
-    border-radius: 10px;
-    border-style: groove;
-    transition: 0.2s ease-in-out;
-    &:hover {
-      background: #5278f4;
-      box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
-    }
-  }
-  .top-logo {
-    width: 13em;
-    padding: 0px 30px;
-  }
-
-  .top-greeting {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 20px;
-  }
-}
 
 
 // dashboard-main
@@ -136,8 +43,8 @@ html, body {
       width: 40%;
       .marker-list-container {
         display: flex;
-        font-size: 0.8em;
-        height: 28%;
+        font-size: 0.9em;
+        height: 35%;
         gap: 3%;
 
         .list-left {
@@ -149,7 +56,9 @@ html, body {
           width: 50%;
           margin-bottom: 3%;
           padding: 4%;
-          @include list();
+          border-radius: 10px;
+          overflow: auto;
+
 
           .list-left-title {
             overflow-wrap: break-word;
@@ -160,79 +69,41 @@ html, body {
           .list-left-body {
             overflow-wrap: break-word;
             hyphens: auto;
-
           }
         }
         .list {
           background-color: #d8d8d8b7;
           width: 50%;
           margin-bottom: 3%;
-          padding: 7% 6%;
+          padding: 5% 0 0 9%;
           font-size: 1em;
           overflow-wrap: break-word;
           hyphens: auto;
-          @include list();
-          a {
-            text-decoration: none;
-          }
-        }
-      }
-
-      .new-marker {
-        display: none;
-        white-space: nowrap;
-        text-align: center;
-        justify-content: center;
-        font-size: 0.8em;
-        border-radius: 10px;
-        margin-bottom: 3.5%;
-        height: auto;
-        padding: 5%;
-        background-color: #eeeeee;
-
-        input {
-          border: none;
-          border-radius: 7px;
-          width: 24vw;
-          height: 40px;
-        }
-
-        textarea {
-          border: none;
-          border-radius: 7px;
-          width: 24vw;
-          height: 100px;
-        }
-
-
-        .new-btn {
-          padding: 0.5em 0.8em;
-          font-size: 1em;
-          border: none;
-          cursor: pointer;
-          color: rgba(0, 0, 0, 0.822);
-          background:  #afda9d;
           border-radius: 10px;
-          border-style: outset;
-          transition: 0.2s ease-in-out;
-          &:hover {
-            background: #e88383;
-            box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
+          overflow: auto;
+          button {
+            border: none;
+            background-color: #d8d8d800;
+            cursor: pointer;
           }
         }
       }
+
 
       .marker-content {
         background-color: #eeeeee;
         border-radius: 10px;
-        height: 72%;
-        padding: 7%;
+        height: 65%;
+        padding: 5% ;
+        overflow: auto;
+        word-break: break-word;
+        hyphens: auto;
         .marker-article {
-          padding: 0 0 5%;
-          font-size: 1.3em;
+          padding: 0 0 3%;
+          font-size: 1.2em;
         }
         .marker-img {
-          padding: 5% 10%;
+          padding: 5% 7%;
           img {
             width: 100%;
           }
@@ -424,3 +295,32 @@ html, body {
   }
 }
 
+// ---------------------------------------------------
+
+#profile-main-content2 {
+  display: flex;
+  flex-direction: column;
+  background: rgb(163, 208, 219);
+  background: linear-gradient(
+    227deg,
+    rgba(163, 208, 219, 1) 0%,
+    rgba(163, 176, 219, 1) 20%,
+    rgba(163, 173, 219, 1) 34%,
+    rgba(163, 219, 208, 1) 59%,
+    rgba(163, 208, 219, 1) 74%,
+    rgba(163, 208, 219, 1) 100%
+  );
+  padding: 5% 20%;
+
+  .map-article {
+    margin-bottom: 5%;
+    border-radius: 40px;
+    font-size: 1.5em;
+    .article-footer {
+      font-size: 3em;
+    }
+    .favourite-btn {
+      font-size: 20px;
+    }
+  }
+}

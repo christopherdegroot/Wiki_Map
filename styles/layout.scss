@@ -1,3 +1,61 @@
 // See: https://sass-lang.com/
 
 
+html, body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
+
+#top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #FFF;
+  background-color: #6383C7;
+  flex: 0 0 110px;
+  height: 110px;
+  padding: 0 50px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+
+  .expand {
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0 0 0 50px;
+  }
+
+  .top-btn {
+    padding: 0.9em 1em;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background: #6084fc;
+    border-radius: 10px;
+    border-style: groove;
+    transition: 0.2s ease-in-out;
+    &:hover {
+      background: #5278f4;
+      box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
+    }
+  }
+
+  .top-logo {
+    width: 13em;
+  }
+
+  .top-greeting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 20px;
+  }
+
+  .header-button-container {
+    display: flex;
+    gap: 5%;
+  }
+}

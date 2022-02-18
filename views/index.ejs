@@ -22,41 +22,17 @@
 </head>
 
 <body>
-
-  <!-- side toggle bar -->
-  <span id="side-nav">
-    <div class="nav-content">
-      <!-- logo -->
-      <span>
-        <span>
-          <img class="logo" src="/images/WikiMap-logos.png">
-        </span>
-        <div>
-          <!-- submit button -->
-          <form method="GET" action="/maps/new">
-            <button class="side-btn" type="submit">New Map</button>
-          </form>
-        </div>
-        <br>
-        <br>
-        <div>
-          <!-- profile button -->
-          <form method="GET" action="/profile/1">
-            <button class="side-btn" type="submit">Profile</button>
-          </form>
-        </div>
-      </span>
-    </div>
-  </span>
-
   <div id="profile-container">
+
     <!-- top navbar -->
     <header id="top-nav">
-      <span class="expand">
-        <i class="fa-solid fa-grip-lines"></i>
+      <span>
+        <form method="GET" action="/profile/1">
+          <input type="image" src="../images/WikiMap-logos-white.png" class="top-logo"/>
+        </form>
       </span>
       <div class="top-greeting">
-        Welcome Back,<br> <strong><!-- <% user.name %> --> Jim Halpert</strong>
+        Welcome Back,<br> <strong> Jim Halpert</strong>
       </div>
     </header>
 
@@ -71,7 +47,7 @@
               <div>
                 <div class="list-left-body"><%= map.map_description %></div>
               </div>
-                <p><%= map.map_category %></p>
+                <u><p><%= map.map_category %></p></u>
             </div>
             <!-- list of markers -->
             <div class="list">
@@ -82,7 +58,9 @@
           </div>
 
         <!-- marker detail (title, descript, img) -->
-        <div class="marker-content"></div>
+        <div class="marker-content">
+
+        </div>
       </div>
 
       <!-- google map API-->

@@ -15,7 +15,7 @@ $(document).ready(function () {
                 <button class="title-btn">${escape(mapObj.map_title)}</button>
               </form>
               <div class="article-category">
-                <p>${escape(mapObj.map_category)}</p>
+                <p><i>${escape(mapObj.map_category)}</i></p>
               </div>
             </header>
             <div class="article-body">
@@ -73,7 +73,7 @@ $(document).ready(function () {
             <button class="title-btn">${escape(mapObj.map_title)}</button>
           </form>
           <div class="article-category">
-            <p>${escape(mapObj.map_category)}</p>
+            <p><i>${escape(mapObj.map_category)}</i></p>
           </div>
         </header>
         <div class="article-body">

@@ -4,95 +4,6 @@
   margin-bottom: 3%;
 }
 
-html, body {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  font-family: 'Montserrat';
-  font-weight: 400;
-}
-
-
-/* The side navigation menu */
-#side-nav {
-  display: none;
-  width: 220px;
-  padding:15px;
-  background-color: beige;
-  .nav-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    white-space: nowrap;
-    text-align: center;
-    height: 100%;
-    font-size: 1em;
-    border-radius: 10px;
-    background-color: #f0e7cc;
-    background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
-    .logo {
-      margin: 45px 0;
-      width: 100%
-    }
-    .side-btn {
-      padding: 0.9em 1.5em;
-      font-size: 15px;
-      border: none;
-      background: #b4ad98;
-      color: white;
-      cursor: pointer;
-      border-radius: 10px;
-      border-width: 3px;
-      border-style: outset;
-      transition: 0.3s ease-in-out;
-      &:hover {
-       background:#a2946a;
-      }
-    }
-
-  }
-}
-
-
-// top-navbar
-#top-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #FFF;
-  background-color: #6383C7;
-  flex: 0 0 110px;
-  height: 110px;
-  padding: 0 50px 0 0;
-  border-bottom-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-
-  .expand {
-    font-size: 25px;
-    cursor: pointer;
-    padding: 0 0 0 50px;
-  }
-
-  .top-btn {
-    padding: 0.9em 1em;
-    font-size: 13px;
-    border: none;
-    cursor: pointer;
-    color: white;
-    background: #6f8df0;
-    border-radius: 10px;
-    border-style: groove;
-    transition: 0.2s ease-in-out;
-    &:hover {
-      background: #5278f4;
-      box-shadow: 4px 2px 5px rgba(0, 0, 0, 0.596);
-    }
-  }
-  .side-greeting {
-    text-align: center;
-    padding: 20px;
-  }
-}
 
 
 // dashboard-main
@@ -133,24 +44,27 @@ html, body {
         display: flex;
         font-size: 0.8em;
         gap: 3%;
-        height: 35%;
+        height: 37%;
 
         .list-title {
           background-color: #D5D8DB;
           text-align: center;
-          padding: 5%;
-          width: 60%;
+          padding: 4.5%;
+          width: 50%;
           @include list();
         }
         .list {
           background-color: #d8d8d8b7;
-
           padding: 1% 6%;
-          width: 40%;
+          width: 50%;
+          overflow: auto;
+          overflow-wrap: break-word;
+          hyphens: auto;
           @include list();
-
-          a {
-            text-decoration: none;
+          button {
+            border: none;
+            background-color: #d8d8d800;
+            cursor: pointer;
           }
         }
       }
@@ -178,8 +92,8 @@ html, body {
         justify-content: center;
         font-size: 0.8em;
         border-radius: 10px;
-        padding: 20% 10%;
-        height: 65%;
+        padding: 13% 10%;
+        height: 63%;
         background-color: #eeeeee;
 
         input {
@@ -210,8 +124,8 @@ html, body {
         justify-content: center;
         font-size: 0.8em;
         border-radius: 10px;
-        padding: 10%;
-        height: 65%;
+        padding: 8%;
+        height: 63%;
         background-color: #eeeeee;
 
         input {

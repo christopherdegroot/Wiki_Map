@@ -32,15 +32,22 @@ module.exports = (db) => {
   router.get('/new', (req, res) => {
     const id = req.params.id;
 
-    mapQueries.getMapByMapId(id, db)
-      .then(() => {
-        res.render('new-map');
+    const mapPromise = mapQueries.getMapByMapId(id, db)
+      .then((map) => {
+        return map;
       })
       .catch((err) => {
         res
           .status(500)
           .json({ error: err.message });
       });
+
+      Promise.all([mapPromise])
+      .then((values) => {
+        const templateVars = mapUserData(values);
+        res.render('new-map');
+      });
+
   });
 
   // Route using DB query functions that returns a promise
@@ -129,17 +136,46 @@ module.exports = (db) => {
 
 
 
-  // post route to create new map, then refirect to edit page of that newly created map
+  // post route to create new map, then redirect to edit page of that newly created map
   router.post('/new', (req, res) => {
     const newMap = req.body;
-    mapInsertions.addMap(newMap, db)
+
+
+    const mapPromiseGet = mapQueries.getNextMapId(db)
+      .then((map) => {
+        const mapCount = map[0].map_count + 1;
+        return mapCount;
+      })
+      .catch((err) => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+
+
+    const mapPromise = mapInsertions.addMap(newMap, db)
       .then((x) => {
+        console.log('logging x.id in addMap in maps-router', x.id)
+        const templateVars = x.id
         mapInsertions.addOwner(x, db);
         res.redirect(`/maps/${x.id}/edit`);
       })
       .catch((err) => {
         console.log(err.message);
       });
+
+      Promise.all([mapPromiseGet, mapPromise])
+      .then((values) => {
+        const templateVars = mapUserData(values);
+        console.log('templateVars', templateVars)
+        mapInsertions.addDefaultMarker(values[0], db)
+        setTimeout(() => {
+          res.render('new-map');
+        }, 200);
+
+      });
+
   });
 
 

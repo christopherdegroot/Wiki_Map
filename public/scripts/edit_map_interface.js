@@ -49,7 +49,7 @@ $(document).ready(function () {
       .then((array) => {
 
         const myOptions = {
-          zoom: 12,
+          zoom: 13,
           center: new google.maps.LatLng(49.300708190202045, -123.13074020583447),
         };
         const map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);

@@ -21,30 +21,26 @@
 </head>
 
 <body>
-
-
   <div id="main-content">
-    <!-- top navbar -->
-    <header id="top-nav">
-      <span>
-        <form method="GET" action="/profile/1">
-          <input type="image" src="../images/WikiMap-logos-white.png" class="top-logo"/>
-        </form>
-
-        <!-- <img class="top-logo" src="../images/WikiMap-logos-white.png"> -->
-      </span>
-      <div class="header-button-container">
-        <form method="GET" action="/">
-          <button class="top-btn">Browse All Maps</button>
-        </form>
-        <form method="GET" action="/maps/new">
-          <button class="top-btn">Create New Map</button>
-        </form>
-      </div>
-    </header>
-
-
     <main id="profile-main-content">
+      <!-- top navbar -->
+      <header id="top-nav">
+        <span>
+          <form method="GET" action="/profile/1">
+            <input type="image" src="../images/WikiMap-logos-white.png" class="top-logo"/>
+          </form>
+
+          <!-- <img class="top-logo" src="../images/WikiMap-logos-white.png"> -->
+        </span>
+        <div class="header-button-container">
+          <form method="GET" action="/">
+            <button class="top-btn">Browse All Maps</button>
+          </form>
+          <form method="GET" action="/maps/new">
+            <button class="top-btn">Create New Map</button>
+          </form>
+        </div>
+      </header>
 
       <!-- profile + biography -->
       <div id="profile">
@@ -84,6 +80,11 @@
       </div>
 
     </main>
+    <footer id="to-the-top-arrow">
+      <a class="bottom-arrow">
+        <i class="fas fa-arrow-alt-circle-up"></i>
+      </a>
+    </footer>
   </div>
 </body>
 </html>

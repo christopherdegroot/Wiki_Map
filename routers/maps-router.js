@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mapQueries = require('../db/queries/map_queries');
 const userQueries = require('../db/queries/user_queries');
+const markerQueries = require('../db/queries/marker_queries');
 const userInsertions = require('../db/insertions/user_insertion');
 const mapInsertions = require('../db/insertions/map_insertion');
 const mapDeletions = require('../db/deletions/map_deletions');
@@ -90,7 +91,7 @@ module.exports = (db) => {
       });
 
     // marker info promise
-    const markerPromise = mapQueries.getMarkersDescByMapId(id, db)
+    const markerPromise = markerQueries.getMarkersDescByMapId(id, db)
       .then((markers) => {
         return markers;
       })

@@ -4,7 +4,9 @@ $(document).ready(function () {
   const createPinListElement = function(pinObj) {
 
     const $pinListElements = $(`
+
     <button id='<%= marker.id %>' class="pin-button">${pinObj.marker_title}</button>
+
     `);
     return $pinListElements;
   };
@@ -41,17 +43,17 @@ $(document).ready(function () {
 
   // $('.pin-button').click(function(event) {
   //   event.preventDefault();
-  //   let marker = $(this).id;
+  //   // let marker = $(this).id;
 
-  //   $ajax(() => {
+  //   $ajax({
   //     url: ,
   //     method: GET,
 
   //   })
-  // .then(() => {
-  // info to display everything
-  // append to html
-  // })
+  //     .then(() => {
+  // // info to display everything
+  // // append to html
+  //     })
 
   // });
 

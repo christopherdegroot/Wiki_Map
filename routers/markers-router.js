@@ -1,15 +1,19 @@
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/map_queries');
+const maQueries = require('../db/queries/map_queries');
 const mapEditions = require('../db/editions/map_editions');
+const markerQueries = require('../db/queries/marker_queries');
 
 module.exports = (db) => {
 
-
+  // fetch all markers from mapID
   router.get('/:id/fetch', (req, res) => {
     const id = req.params.id;
-    mapQueries.getMarkersByMapId(id, db)
-      .then((markers) => res.jsonp(markers));
+    markerQueries.getMarkersByMapId(id, db)
+      .then((markers) => res.jsonp(markers))
+      .catch((err) => {
+        console.log(err.message);
+      });
   });
 
   router.post('/new', (req, res) => {
@@ -21,24 +25,36 @@ module.exports = (db) => {
   });
 
   // id is marker id
-  //using jquery
+  //using jquery /////////////////////////////
   router.post('/:id/edit', (req, res) => {
     let formInfo = req.body;
     const id = req.params.id;
     formInfo.id = id;
     console.log(formInfo.marker_id);
     const map = 1;
-
     // get database call with markerID
-
     mapEditions.editMarker(map, db)
       .then(() => {
         // return from backend to the front end
         res.redirect(`back`);
+      })
+      .catch((err) => {
+        console.log(err.message);
       });
   });
 
-
+  // hard coded for Mt. Seymour
+  // fetch markerID from click event
+  // router.get('/fetchId', (req, res) => {
+  //   const title = 'Mount Seymour';
+  //   markerQueries.getMarkerIdByTitle(title, db)
+  //     .then(
+  //       $(.)
+  //     )
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //     });
+  // });
 
 
 

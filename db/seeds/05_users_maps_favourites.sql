@@ -1,13 +1,24 @@
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (1, 1);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (1, 2);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (1, 10);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (1, 9);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (2, 1);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (2, 2);
-INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 1);
-INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 2);
-INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 3);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 8);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 9);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 10);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 4);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 5);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 6);
 INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (3, 7);
-
-
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (4, 3);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (4, 9);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (4, 6);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (4, 7);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (4, 1);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (5, 2);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (5, 3);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (5, 4);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (6, 6);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (6, 9);
+INSERT INTO users_maps_favourites (user_id, favourite_map_id) VALUES (6, 10);

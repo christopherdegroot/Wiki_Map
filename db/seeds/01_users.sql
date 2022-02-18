@@ -2,7 +2,7 @@
 INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Jim and I love selling paper products, and I am in love with Pam', 'Jim Halpert', 'Jim Halpert', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
+    'My name is Jim, Assistant Regional Manager, and I love selling paper products, and I am in love with Pam. I am a fan of the Philadelphia Phillies, Philadelphia Eagles, and the Philadelphia 76ers. I am a big fan of pranks', 'Jim Halpert', 'Jim Halpert', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-jim-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
     INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
@@ -10,19 +10,19 @@ INSERT INTO users (
     INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Michael and I love going out for dinner with friends and travelling', 'Michael Scott', 'Michael Scott', 'password', 'https://miro.medium.com/max/500/1*xDIevNE7HEMiJQVTYg0qDQ.png');
+    'My name is Michael and I love going out for dinner with friends and travelling. I am the Regional Manager of the Scranton branch of a paper distribution company. Our business has never been the same since the downfall of map quest.', 'Michael Scott', 'Michael Scott', 'password', 'https://miro.medium.com/max/500/1*xDIevNE7HEMiJQVTYg0qDQ.png');
     INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is user and I love going out for dinner with friends and travelling', 'Dale Coleman', 'michaelgray@mail.com', 'password');
+    'My name is Creed, former hippie, currently employed by the Scranton branch of Dunder Mifflin as a Quality Assurance manager. Nobody steals maps from Creed Bratton and gets away with it. The last person to do this disappeared. His name...? Creed Bratton.', 'Creed Bratton', 'Creed Bratton', 'password', 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2020%2F01%2Fthe-office-2000.jpg');
     INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is user and I love skiing, hiking, and beer', 'Alejandro Osborne', 'ariaatkinson@outlook.com', 'password');
+    'My name is Dwight Schrute. I am one of the highest-ranking salesmen as well as the original assistant to the regional manager, and former Assistant Regional Manager at the paper distribution company Dunder Mifflin. Additionally, I am a bed-and-breakfast proprietor at Schrute Farms, a beet plantation owner, and an owner of the business park in which Dunder Mifflin exists.', 'Dwight Schrute', 'Dwight Schrute', 'password', 'https://www.looper.com/img/gallery/the-untold-truth-of-dwight-schrute/intro-1562620300.jpg');
     INSERT INTO users (
-    user_bio, name, username, password)
+    user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is user and I love skiing, hiking, and beer', 'Nell Medina', 'juliansantos@aol.com', 'password');
+    'My name is Kevin and I am an accountant alongside Oscar Martinez and Angela Martin at Dunder Mifflin. I love chili. winner of the Dont Go In There After Me award at the 8th Annual Dundie Awards', 'Kevin Malone', 'Kevin Malone', 'password', 'https://www.looper.com/img/gallery/the-office-fan-theory-that-paints-kevin-as-a-secret-genius/intro-1614218263.jpg');
     INSERT INTO users (
     user_bio, name, username, password)
     VALUES (

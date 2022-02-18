@@ -12,8 +12,7 @@ $(document).ready(function () {
   });
 
   // gets user ID off the url accessing current page
-  const urlMapId = window.location.href.slice(27, 28);
-
+  const urlMapId = window.location.href.slice(21);
 
   // Create asynchronous function to fetch database info for markers
   const populateMap = async () => {

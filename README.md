@@ -6,7 +6,7 @@ Wiki Map is a web app that allows users to create custom maps which list multipl
 
 Full demo of all component functions: browsing full list of maps, viewing maps with pins, favouriting maps, creating maps, adding pins.
 
-!["Wiki-Map Demo"](https://github.com/christopherdegroot/Wiki_Map/blob/master/public/images/Wiki-Map-Demo.gif?raw=true)
+!["Wiki-Map Demo"](https://github.com/christopherdegroot/Wiki_Map/blob/master/public/images/ezgifcom-gif-maker.gif?raw=true)
 
 ## Getting Started
 

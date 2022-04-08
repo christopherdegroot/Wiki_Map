@@ -2,6 +2,11 @@ Wiki Map
 =========
 Wiki Map is a web app that allows users to create custom maps which list multiple pins. The Wiki Map project taught me about working as part of a team and how to work in harmony with team mates through good communication, organized and clear Git commits, and comprehensive project planning.
 
+## Final Product
+
+Full demo of all component functions: browsing full list of maps, viewing maps with pins, favouriting maps, creating maps, adding pins.
+
+!["Wiki-Map Demo"](https://github.com/christopherdegroot/Wiki_Map/blob/master/public/images/Wiki-Map-Demo.gif?raw=true)
 
 ## Getting Started
 

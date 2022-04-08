@@ -6,7 +6,7 @@ INSERT INTO users (
     INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
-    'My name is Pam and I love skiing, hiking, and beer', 'Pam Beesly', 'Pam Beesly', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-pam-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
+    'My name is Pam, I am the and I love skiing, hiking, and beer', 'Pam Beesly', 'Pam Beesly', 'password', 'https://roost.nbcuni.com/bin/viewasset.html/content/dam/Peacock/Campaign/landingpages/library/theoffice/characterbios/office-character-pam-min.png/_jcr_content/renditions/original?downsize=1200:*&output-quality=70');
     INSERT INTO users (
     user_bio, name, username, password, profile_picture_url)
     VALUES (
